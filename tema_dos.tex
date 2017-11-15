@@ -79,5 +79,67 @@ Per tant, per saber si una funció és una v.a. només cal veure si l'antiimatge
 La següent definició dóna una funció en $\real$ que codifica molta informació de X:
 
 \begin{defi}
-  
+  Donada X v.a., la \textbf{funció de distribució de probabilitat} de X és:
+  \[
+    \begin{aligned}
+      F_{X} \colon \real &\to [0,1] \\
+      x &\mapsto P(X \leq x)
+    \end{aligned} 
+  \]
+\end{defi}
+
+\begin{properties}
+  (i) Si $x_{1} \leq x_{2} \implies F_{X}(x_{1}) \leq F_{X}(x_{2})$\\
+  \[
+  \hspace{-9.4cm}\text{(ii) }\lim_{x\to -\infty} F_{X}(x) = 0 \text{ ,  } \lim_{x\to+\infty} F_{X}(x) = 1
+  \]
+  (iii) $F_{X}(x)$ és contínua per la dreta: $\forall x, \lim_{h\to0^{+}}F_{X}(x+h) = F_{X}(x)$
+\end{properties}
+
+\begin{obs}
+  \begin{itemize}
+      \item []
+      \item $P(X > x) = 1 - P(X\leq x) = 1 - F_{X}(x)$
+      \item $P(x_{1} < X \leq x_{2}) = P(X \leq x_{2}) - P(X \leq x_{1}) = F_{X}(x_{2}) - F_{X}(x_{1})$
+  \end{itemize}
+\end{obs}
+
+\begin{obs}
+  Les propietats (i), (ii), (iii) de $F_{X}(x)$ són de fet suficients.\\
+  Si una funció $F(x)$ satisfà (i), (ii), (iii), aleshores és funció de probabilitat d'una variable aleatòria.
+\end{obs}
+\newpage
+\subsection{Moments d'una v.a.  Desigualtats de Markov i Chebyshev}
+
+Siguin $(\Omega, \mathcal{A}, p)$ uns espai de probabilitat i X una v.a.\\
+\begin{defi}
+  L'\textbf{esperança} de X és: 
+  \[
+  \E[X] = \int_{\Omega}X dp = \int_{\real} x \, dp_{X}
+  \]
+  \\
+  Més en general, si $f\colon \real \to \real$ és una funció mesurable, 
+  \[
+    \E[f(x)] = \int_{\Omega}f(x) dp = \int_{\real} f(x) \, dp_{X}
+  \]
+\end{defi}
+
+\begin{obs}
+  De teoria de la mesura, cal recordar que una funció $g$ és integrable sii $\abs{g}$ ho és
+  (En general, $\E[f(x)]$ està definida sii $\E[\abs{f(x)}]<+\infty$). \\
+\end{obs}
+
+Si particularitzem $f$:
+
+\begin{defi}
+  $f(x) = X^{r} \implies \E[X^{r}]$ és el \textbf{moment r-èssim}.
+\end{defi}
+
+\begin{defi}
+  Si $\E[X] = p < +\infty$, $\E[(X-p)^{r}]$ és el \textbf{moment normalitzat r-èssim}.\\\\
+  En particular, si r = 2, $\E[(X-p)^{2}] = \mathbbm{V}ar[X]$ és la \textbf{variància} de $X$.
+\end{defi}
+
+\begin{defi}
+  Si $f(x) = x(x-1)\ldots(x-r+1) \implies \E[f(x)] = \E[(X)_r]$ és el \textbf{moment factorial r-èssim}.
 \end{defi}
