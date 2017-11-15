@@ -3,25 +3,19 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[pdftex]{hyperref}
 \usepackage{amsmath,amsthm,amssymb,graphicx,mathtools,tikz,hyperref,enumerate}
-\usepackage{mdframed,cleveref,cancel,stackengine,pgfplots,pgf,mathrsfs}
-\usepackage{xfrac,stmaryrd}
-%\usepackage[spanish]{babel}
+\usepackage{mdframed,cleveref}
+\usepackage{bbm}
 
 \newmdenv[leftline=false,topline=false]{topright}
 \let\proof\relax
 \usepackage[utf8]{inputenc}
-\usetikzlibrary{positioning,arrows, calc}
-\usetikzlibrary{external}
-\tikzexternalize[prefix=figures/]
-\pgfplotsset{compat=1.11}
+\usetikzlibrary{positioning}
 \newcommand{\n}{\mathbb{N}}
 \newcommand{\z}{\mathbb{Z}}
 \newcommand{\q}{\mathbb{Q}}
 \newcommand{\cx}{\mathbb{C}}
 \newcommand{\real}{\mathbb{R}}
 \newcommand{\E}{\mathbb{E}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\R}{\mathcal{R}}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \let\k\relax
 \newcommand{\k}{\mathbf{k}}
@@ -31,12 +25,7 @@
 \newcommand{\vbrack}[1]{\langle #1\rangle}
 \newcommand{\determinant}[1]{\begin{vmatrix}#1\end{vmatrix}}
 \newcommand{\abs}[1]{\left\vert #1 \right\vert}
-\newcommand{\Po}{\mathbb{P}}
 \DeclareMathOperator{\Id}{Id}
-\DeclareMathOperator{\rg}{rg}
-\DeclareMathOperator{\car}{car}
-\DeclareMathOperator{\im}{Im}
-\let\emptyset\varnothing
 
 
 \hypersetup{
@@ -77,25 +66,27 @@
 
 \theoremstyle{normal}
 \newtheorem{lema}{Lema}[subsection]
-\newtheorem{obs}[lema]{Observación}
-\newtheorem{rec}[lema]{Recordatorio}
+\newtheorem{obs}[lema]{Observació}
 
 \theoremstyle{break}
-\newtheorem{prop}[lema]{Proposición}
-\newtheorem*{proof}{Demostración}
-\newtheorem{defi}[lema]{Definición}
-\newtheorem{col}[lema]{Corolario}
-\newtheorem{ej}[lema]{Ejercicio}
-\newtheorem{example}[lema]{Ejemplo}
+\newtheorem{prop}[lema]{Proposició}
+\newtheorem*{proof}{Demostració}
+\newtheorem{defi}[lema]{Definició}
+\newtheorem{col}[lema]{Corol·lari}
+\newtheorem{ej}[lema]{Exercici}
+\newtheorem{example}[lema]{Exemple}
 
 \theoremstyle{breakthm}
 \newtheorem{thm}[lema]{Teorema}
 
 
 
+\setcounter{section}{1}
+
  
 \begin{document}
 \date{}
+\setlength{\parindent}{0pt}
 
 \title{Teoria de la Probabilitat}
  
