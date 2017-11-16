@@ -78,7 +78,7 @@ Per tant, per saber si una funció és una v.a. només cal veure si l'antiimatge
 
 La següent definició dóna una funció en $\real$ que codifica molta informació de X:
 
-\begin{defi}
+\begin{defiImp}[(Fdp)]
   Donada X v.a., la \textbf{funció de distribució de probabilitat} de X és:
   \[
     \begin{aligned}
@@ -86,7 +86,7 @@ La següent definició dóna una funció en $\real$ que codifica molta informaci
       x &\mapsto P(X \leq x)
     \end{aligned} 
   \]
-\end{defi}
+\end{defiImp}
 
 \begin{properties}
   (i) Si $x_{1} \leq x_{2} \implies F_{X}(x_{1}) \leq F_{X}(x_{2})$\\
@@ -143,3 +143,52 @@ Si particularitzem $f$:
 \begin{defi}
   Si $f(x) = x(x-1)\ldots(x-r+1) \implies \E[f(x)] = \E[(X)_r]$ és el \textbf{moment factorial r-èssim}.
 \end{defi}
+
+\begin{prop}[(Propietats de l'esperança i la variància)]
+  \begin{itemize}
+      \item []
+      \item Si $c$ és la v.a. constant, $\E[c] = c$ i $\mathbbm{V}ar[c] = 0$
+      \item \underline{Linealitat}: si $a, b \in \real$ i $X, Y$ v.a., $\E[aX + bY] = a\E[X] + b\E[Y]$
+      \item $A \in \mathcal{A}, X = \mathbbm{1}_{A}$, $\E[\mathbbm{1}_{A}] = P(A)$
+      \item $\abs{\E[X]} \leq \E[\abs{X}]$
+      \item $\mathbbm{V}ar[c\cdot X] = c^{2}\cdot \mathbbm{V}ar[X]$
+      \item $\mathbbm{V}ar[c+X] = \mathbbm{V}ar[X]$
+      \item $\mathbbm{V}ar[X] = \E[X^{2}] - (\E[X])^{2}$
+  \end{itemize}
+\end{prop}
+
+\newpage
+
+\begin{obs}
+  Si $\E[\abs{X}^{p}] < +\infty$, aleshores podem utilitzar tots els resultats de teoria dels espais $L_{p}$. Així doncs tenim les següents conseqüències:
+  
+  \begin{itemize}
+      \item \underline{Hölder}: $p, q > 0$, $\frac{1}{p} + \frac{1}{q} = 1, \, \E[\abs{X}^{p}] < +\infty, \E[\abs{Y}^{q}] < +\infty \\ \- \hspace{1.25cm}\implies \E[\abs{XY}] \leq \E[\abs{X}^{p}]^{\frac{1}{p}}\cdot \E[\abs{Y}^{q}]^{\frac{1}{q}} \quad (\E[\abs{XY}]^{pq} \leq \E[\abs{X}^{p}]^{q}\cdot \E[\abs{Y}^{q}]^{p})$
+      
+      \item \underline{Cauchy-Schwartz}: si $\E[X^{2}], \E[Y^2] < +\infty$, aleshores $\E[XY]^{2} \leq \E[X^{2}]\cdot \E[Y^{2}]$
+      \item \underline{Minkowski}: si $\E[\abs{X}^{p}], \E[\abs{Y}^{p}] < +\infty \implies \E[\abs{X+Y}^{p}]^{\frac{1}{p}} \leq \E[\abs{X}^{p}]^{\frac{1}{p}} + \E[\abs{Y}^{p}]^{\frac{1}{p}}$
+  \end{itemize}
+\end{obs}
+
+\begin{thm}[(Desigualtat de Markov)]
+  Sigui $X$ un v.a. que pren valors positius i $a > 0$. Aleshores: \\
+  \[
+    P(X \geq a) \leq \frac{\E[X]}{a}
+  \]
+\end{thm}
+
+El següent resultat dóna estimacions quantitatives de quant es dispersa una v.a. en relació a la seva esperança:
+
+\begin{thm}[(Desigualtat de Chebyshev)]
+  Sigui X una v.a. en $(\Omega, \mathcal{A}, p)$ amb $\E[X], \V ar[X] < +\infty$. Aleshores, $\forall k > 0$
+  \[
+    P(\abs{X-\E[X]}\geq k\cdot \V ar[X]^{\frac{1}{2}}) \leq \frac{1}{k^{2}}
+  \]
+  També es pot escriure:
+  \[
+    P(\abs{X-\E[X]}\geq k) \leq \frac{\V ar[X]}{k^{2}}
+  \]
+\end{thm}
+
+\newpage
+\subsection{Vectors de variables aleatòries. Independència de v.a.}
