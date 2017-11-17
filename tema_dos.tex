@@ -78,7 +78,7 @@ Per tant, per saber si una funció és una v.a. només cal veure si l'antiimatge
 
 La següent definició dóna una funció en $\real$ que codifica molta informació de X:
 
-\begin{defiImp}[(Fdp)]
+\begin{defi}
   Donada X v.a., la \textbf{funció de distribució de probabilitat} de X és:
   \[
     \begin{aligned}
@@ -86,7 +86,7 @@ La següent definició dóna una funció en $\real$ que codifica molta informaci
       x &\mapsto P(X \leq x)
     \end{aligned} 
   \]
-\end{defiImp}
+\end{defi}
 
 \begin{properties}
   (i) Si $x_{1} \leq x_{2} \implies F_{X}(x_{1}) \leq F_{X}(x_{2})$\\
@@ -223,7 +223,7 @@ De la mateixa manera que vam fer per les v.a. unidimensionals, podem considerar 
 
 Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és idèntic):
 
-\begin{lema}
+\begin{lema} \- \\
   (i) Si $x'_{1} \geq x_{1},\, x'_{2} \geq x_{2} \implies F_{\vec{X}}(x'_{1}, x'_{2}) \geq F_{\vec{X}}(x_{1}, x_{2})$ \\
   
   $$\hspace{-4.4cm}\text{(ii)} \lim_{(x_{1}, x_{2}) \to (+\infty, +\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 1  \qquad \lim_{(x_{1}, x_{2}) \to (-\infty, -\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 0$$ \\
@@ -251,7 +251,7 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
 \end{obs}
 
 \begin{defi}
-  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{x_{i}}_{i\in I}$ un conjunt de v.a. Direm que $\setb{x_{i}}_{i\in I}$ és \textbf{independent} si: $\forall k, \, \forall {i_{1}, \ldots, i_{k}} \subseteq I, \, \forall B_{1}, \ldots, B_{k} \in \mathcal{B}$
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{x_{i}}_{i\in I}$ un conjunt de v.a. Direm que $\setb{x_{i}}_{i\in I}$ són \textbf{independents} si: $\forall k, \, \forall {i_{1}, \ldots, i_{k}} \subseteq I, \, \forall B_{1}, \ldots, B_{k} \in \mathcal{B}$
   \[
     P(X_{i_{1}} \in B_{1}, X_{i_{2}}\in B_{2}, \ldots , X_{i_{k}}\in B_{k}) = \prod\limits_{j=1}^{k}P(X_{i_{j}}\in B_{j})
   \]
@@ -261,3 +261,72 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
     F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = P(X_{1} \leq x_{1}, X_{2} \leq x_{2}, \ldots , X_{k} \leq x_{k}) = \prod\limits_{j=1}^{k}P(X_{j} \leq x_{j}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})
   \]
 \end{defi}
+
+\newpage
+
+\begin{obs}
+  Si $X$ i $Y$ són v.a. independents i $f,\, g$ funcions mesurables, aleshores $f(X)$ i $g(Y)$ són també independents.
+\end{obs}
+
+\begin{obs}
+  Si $F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})$, aleshores les v.a. $X_{1}, \ldots , X_{k}$ són independents.
+\end{obs}
+
+En quant al càlcul de moments, tenim el següent resultat:
+
+\begin{thm}
+  Siguin $X_{1}, \ldots, x_{k}$ v.a. independents. Aleshores, si $\E[X_{i}] < +\infty$, es compleix que $$\E\bigg[\prod\limits_{i=1}^{k}X_{i} \bigg] = \prod\limits_{i=1}^{k}\E[X_{i}]$$
+\end{thm}
+
+Vam veure que l'operador esperança és lineal, però això no és cert en general per la variància. De fet, en el segon cas obtenim un terme connector anomenat covariància.
+
+\begin{defi}
+  Donades dues v.a. $X,Y$, la \textbf{covariància} de $X$ i $Y$ ($Cov(X,Y)$) és:
+  \[
+    Cov(X,Y) = \E\Big[(X-\E[X])\cdot (Y-\E[Y]) \Big]
+  \]
+  Si ara desenvolupem aquesta expressió, obtenim: $Cov(X,Y) = \E[XY] - \E[X]\E[Y]$. \\
+  
+  Observem que si $X$ i $Y$ són independents, aleshores $X - \E[X]$ i $Y - \E[Y]$ també ho són i, per tant:
+  \[
+    Cov(X,Y) = \E\Big[(X-\E[X])\cdot (Y-\E[Y]) \Big] = \E\Big[X-\E[X]\Big]\cdot \Big[Y-\E[Y] \Big] = (\E[X] - \E[X]) \cdot (\E[Y] - \E[Y]) = 0
+  \]
+\end{defi}
+
+\begin{obs}
+  $Cov(X,Y) = 0 \hspace{0.2cm}\not\hspace{-0.25cm} \implies X$ i $Y$ independents. %vaya chapuza
+\end{obs}
+
+Si ara calculem la variància d'una suma, obtenim: $$\V ar[X+Y] = \V ar[X] + \V ar[Y] + 2\cdot Cov(X,Y)$$ \\
+
+\begin{obs}
+  Si X i Y són independents, $Cov(X,Y) = 0$ i per tant, $\V ar[X+Y] = \V ar[X] + \V ar[Y]$. \\
+  En general, això és cert per $n$ v.a. independents: 
+  \[
+    \V ar\bigg[\sum_{i=1}^{n}X_{i} \bigg] = \sum_{i=1}^{n}\V ar[X_{i}] \qquad \text{si } \setb{X_{i}}_{i=1}^{n} \text{ són independents}.
+  \]
+\end{obs}
+
+\newpage
+Vegem ara propietats de la covariància:
+
+\begin{properties}
+  (i) $Cov(c, X) = 0$ (c és una constant) \\\\
+  (ii) Si $c$ és una constant, $Cov(c + X,Y) = Cov(X,Y)$ \\\\
+  (iii) $Cov(X,X) = \V ar[X]$ \\\\
+  (iv) $Cov(X,Y) = Cov(Y,X)$ \\\\
+  (v) $Cov(aX+bY, Z) = a\cdot Cov(X,Z) + b\cdot Cov(Y,Z)$
+\end{properties}
+
+\begin{defi}
+  Anomenem \textbf{coeficient de correlació de Pearson} $\big(\rho(X,Y)\big)$ a:
+  \[
+    \rho(X,Y) = \frac{Cov(X,Y)}{\V ar[X]^{\frac{1}{2}}\cdot \V ar[Y]^{\frac{1}{2}}} \, \in [-1,1]
+  \]
+\end{defi}
+
+\begin{obs} \- \\
+  Sabem que la igualtat en \textit{Cauchy-Schwartz} es dóna quan $\exists a$ tal que $a\cdot X = Y$. \\
+  A més, $Cov(aX + b, Y) = Cov(aX, Y)$. 
+  Per tant, $$Y=aX + b \iff \rho(X,Y) \in \setb{\pm 1}$$ Així doncs, com més proper sigui $\rho(X,Y)$ a $\pm 1$, millor serà una aproximació lineal de $Y$ usant $X$.
+\end{obs}
