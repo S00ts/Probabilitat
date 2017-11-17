@@ -190,5 +190,74 @@ El següent resultat dóna estimacions quantitatives de quant es dispersa una v.
   \]
 \end{thm}
 
-\newpage
+%\newpage
 \subsection{Vectors de variables aleatòries. Independència de v.a.}
+
+Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$ considerem les v.a. $X_{1}, \ldots, X_{n}$.  Cadascuna d'elles defineix una distribució de probabilitat sobre $\real$. \\
+Aleshores podem considerar el vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \real^{n}$. 
+
+\begin{defi}
+  Un vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \real^{n}$ és un \textbf{vector de variables aleatòries} (o una v.a. multidimensional), si per tot $B \in \mathcal{B}_{n}$ (Borelians en $\real^{n}$), $\inv{(X_{1}, \ldots, X_{n})}(B) \in \mathcal{A}$. \\
+  
+  Com $\Pi_{i}\colon \real^{n} \to \real$ (projecció en la i-èssima component) és una funció mesurable, aleshores 
+  \[
+  \begin{aligned}
+      \Pi_{i}(X_{1}, \ldots, X_{n}) \colon \Omega &\xrightarrow{(X_{1}, \ldots, X_{n})} \real^{n} \hspace{-0.1cm} \xrightarrow{\qquad \Pi_{i} \qquad} \real \\
+      \omega &\longmapsto (X_{1}, \ldots, X_{n})(\omega) \longmapsto X_{i}(\omega)
+  \end{aligned}
+  \]
+  $\equiv X_{i}(\omega)$ és una v.a. (en el sentit unidimensional).
+\end{defi}
+
+De la mateixa manera que vam fer per les v.a. unidimensionals, podem considerar les antiimatges només en intervals.
+
+\begin{defi}
+  Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$, i un vector de v.a. $(X_{1}, \ldots, X_{n}) = \vec{X}$, aleshores la \textbf{funció de distribució de probabilitat} de $\vec{X}$ és $F_{\vec{X}}(x_{1}, \ldots, x_{n})$ definida per:
+  \[
+    \begin{aligned}
+      F_{\vec{X}}\colon \real^{n} &\to [0,1]\subseteq\real \\
+      (x_{1}, \ldots, x_{n}) &\mapsto P\Big((X_{1}\leq x_{1}) \cap (X_{2} \leq x_{2}) \cap \ldots \cap (X_{n} \leq x_{n})\Big) = P\bigg(\bigcap\limits_{i=1}^{n} X_{i} \leq x_{i}\bigg)
+  \end{aligned}
+  \]
+\end{defi}
+
+Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és idèntic):
+
+\begin{lema}
+  (i) Si $x'_{1} \geq x_{1},\, x'_{2} \geq x_{2} \implies F_{\vec{X}}(x'_{1}, x'_{2}) \geq F_{\vec{X}}(x_{1}, x_{2})$ \\
+  
+  $$\hspace{-4.4cm}\text{(ii)} \lim_{(x_{1}, x_{2}) \to (+\infty, +\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 1  \qquad \lim_{(x_{1}, x_{2}) \to (-\infty, -\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 0$$ \\
+  
+  $$\hspace{-3.1cm}\text{(iii)} \lim_{(h_{1}, h_{2}) \to (0^{+}, 0^{+})} F_{\vec{X}}(x_{1}+h_{1}, x_{2}+h_{2}) = F_{\vec{X}}(x_{1}, x_{2}) \quad \text{(contínua "per dalt")}$$
+\end{lema}
+
+\begin{obs}
+  Aquestes 3 condicions són necessàries i suficients per a definir una v.a. multidimensional.
+\end{obs}
+
+\begin{obs}
+  \begin{itemize}
+      \item []
+      \item Si tenim $F_{\vec{X}}(x_{1}, x_{2})$ associada a $\vec{X} = (X_{1}, X_{2})$, aleshores
+      \[
+        \lim_{x_{2} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) = \lim_{x_{2}\to +\infty}P\Big((X_{1}\leq x_{1})\cap (X_{2} \leq x_{2}) \Big) = P(X_{1} \leq x_{1}) = F_{\vec{X}}(x_{1})
+      \]
+      A aquesta funció $\Big(\lim_{x_{1} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) \Big)$ se l'anomena \textbf{funció de distribució marginal}.
+      \item Prenem un rectangle en $\real^{2}$ i $\vec{X} = (X, Y)$ v.a. multidimensional:
+      \[
+        P(a<X\leq b, \, c < Y \leq d) = F_{\vec{X}}(b, d) - F_{\vec{X}}(a, d) - F_{\vec{X}}(b, c) + F_{\vec{X}}(a, c)
+      \]
+  \end{itemize}
+\end{obs}
+
+\begin{defi}
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{x_{i}}_{i\in I}$ un conjunt de v.a. Direm que $\setb{x_{i}}_{i\in I}$ és \textbf{independent} si: $\forall k, \, \forall {i_{1}, \ldots, i_{k}} \subseteq I, \, \forall B_{1}, \ldots, B_{k} \in \mathcal{B}$
+  \[
+    P(X_{i_{1}} \in B_{1}, X_{i_{2}}\in B_{2}, \ldots , X_{i_{k}}\in B_{k}) = \prod\limits_{j=1}^{k}P(X_{i_{j}}\in B_{j})
+  \]
+  
+  Si ara prenem $X_{1}, \ldots, X_{k}$ v.a., aleshores si són independents, 
+  \[
+    F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = P(X_{1} \leq x_{1}, X_{2} \leq x_{2}, \ldots , X_{k} \leq x_{k}) = \prod\limits_{j=1}^{k}P(X_{j} \leq x_{j}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})
+  \]
+\end{defi}
