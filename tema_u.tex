@@ -1,1 +1,57 @@
 \section{Espais de Probabilitat}
+
+\subsection{Definició axiomàtica d'espai de probabilitat}
+
+\begin{defi}
+  Un \textbf{espai de probabilitat} és un espai de mesura $(\Omega, \mathcal{A}, p)$, tal que $p(\Omega) = 1$.
+  \begin{itemize}
+      \item $\Omega$ s'anomena \textbf{espai mostral}.
+      \item $\mathcal{A}$ se l'anomena \textbf{conjunt d'esdeveniments} o \textbf{successos}.
+      \item $p$ se l'anomena \textbf{funció de probabilitat}.
+  \end{itemize}
+\end{defi}
+
+\begin{obs}
+  $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ és una $\sigma$-àlgebra: \\
+  $\sigma1)$ $\varnothing \in \mathcal{A}$ \\
+  $\sigma2)$ $A \in \mathcal{A} \iff \overline{A} \in \mathcal{A}$ \\
+  $\sigma3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A} \implies \bigcup\limits_{n\geq1}A_{n} \in \mathcal{A}$
+\end{obs}
+
+\begin{obs}
+  Recordem que $p$ és una mesura i, per tant: \\
+  $p1)$ $p(\varnothing) = 0$ \\
+  $p2)$ $\forall A \in \mathcal{A},\, p(A)\geq0$ \\
+  $p3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A}$ disjunts 2 a 2 $(A_{i}\cap A_{j} = \varnothing \, si \, i \not =j)$, aleshores 
+  \[
+    p\bigg(\bigcup\limits_{n\geq1}A_{n}\bigg) = \sum_{n\geq1}p(A_{n})
+  \]
+\end{obs}
+
+Vegem les primeres propietats dels espais de probabilitat:
+
+\begin{prop}
+  Per un espai de probabilitat $(\Omega, \mathcal{A}, p)$ es compleix que: \\
+  (i) $A\in\mathcal{A} \implies p(\overline{A}) = 1-p(A)$ \\
+  (ii) Si $A, B \in \mathcal{A},\, A \subseteq B \implies p(A)\leq p(B)$ \\
+  (iii) Si $A_{1},\ldots,A_{r} \in \mathcal{A}, \, i \, A_{i}\cap A_{j} \not= \varnothing \, (i\not= j)$, aleshores $p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) = \sum\limits_{i=1}^{r}p(A_{i})$ \\
+  (iv) Si $A,B \in \mathcal{A}, \, A\subseteq B \implies p(B-A) = p(B)-p(A)$\\
+  (v) Successions monòtones: 
+  \[
+    \hspace{-2.5cm}\text{a) Si } A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \ldots \subseteq A_{i} \in \mathcal{A} \implies p\bigg(\bigcup\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
+  \]
+  \[
+    \hspace{-2.5cm}\text{b) Si } A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \ldots \supseteq A_{i} \in \mathcal{A} \implies p\bigg(\bigcap\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
+  \]
+\end{prop}
+
+\newpage
+
+Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_{1}, A_{2}, \ldots, A_{i}$ en general \underline{no} disjunts, aleshores \underline{no} és cert que  $p\bigg(\bigcup\limits_{i=1}^{r}A_{r} \bigg) = \sum\limits_{i=1}^{r}p(A_{i})$. En aquest cas, tenim la següent fita:
+\begin{lema}[(Fita de la unió)] \-\\
+  Siguin $A_{1}, A_{2}, \ldots, A_{r}$ successos en $(\Omega, \mathcal{A},p)$, aleshores $$p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) \leq \sum\limits_{i=1}^{r}p(A_{i})$$
+\end{lema}
+
+\begin{thm}[(Desigualtats de Bonferroni)]
+  
+\end{thm}
