@@ -53,5 +53,56 @@ Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_
 \end{lema}
 
 \begin{thm}[(Desigualtats de Bonferroni)]
-  
+  Siguin $A_{1}, \ldots, A_{r}$ successos en $(\Omega, \mathcal{A}, p)$. 
+  Denotem per $I\subseteq \setb{1,\ldots,r} \colon = [r]$, \\
+  \[
+    A_{I} = \bigcap\limits_{i\in I}A_{i}
+  \]
+  \[
+    S_{k} = \sum_{\substack{I\subseteq[r] \\ \abs{I}=k}}p(A_{I})
+  \]
+  Aleshores, si: \\
+  1) t és parell, $p\bigg(\bigcup\limits_{i=1}^{r} A_{i}\bigg)\geq \sum\limits_{i=1}^{t}(-1)^{i+1}\cdot S_{i}$\\\\
+  2) t és senar, $p\bigg(\bigcup\limits_{i=1}^{r} A_{i}\bigg)\leq \sum\limits_{i=1}^{t}(-1)^{i+1}\cdot S_{i}$
 \end{thm}
+
+\begin{example}
+
+\end{example}
+
+\newpage
+
+\subsection{Probabilitat condicionada}
+\begin{defi}
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat , i $B \in \mathcal{A}$ amb $p(B) > 0$. \\
+  Per $A \in \mathcal{A}$, la \textbf{probabilitat condicionada} de A amb B és:
+  \[
+    p(A\mid B) = \frac{p(A\cap B)}{p(B)}
+  \]
+\end{defi}
+
+\begin{obs}
+  $p(A \mid B)$ mesura la probabilitat de que el succés $A$ ocorri sabent que $B$ ha succeït.
+\end{obs}
+
+\begin{obs}
+  Si prenem
+  \[
+  \begin{aligned}
+      P_{B} \colon \mathcal{A} &\to \real \\
+      A &\mapsto P_{B}(A) = P(A\mid B)
+  \end{aligned}
+  \]
+  Aleshores $P_{B}$ és una funció de probabilitat sobre $\Omega, \mathcal{A}$ \\
+  De fet, si definim $\mathcal{A}_{B} = \setb{A\cap B\colon A\in\mathcal{A}}$, aleshores $\mathcal{A}_{B}$ és una $\sigma$-àlgebra i $P_{B}$ també defineix una probabilitat sobre $(\Omega, \mathcal{A}_{B})$.
+\end{obs}
+
+\begin{prop}
+  Siguin $A_{1}, \ldots, A_{r} \in \mathcal{A}$, tals que $p(A_{i}) > 0, \, A_{i}\cap A_{j} = \varnothing \text{ si } i \not= j$ i $\bigcup\limits_{i = 1}^{r}A_{i} = \Omega \\ \quad (\setb{A_{i}}_{i=1}^{r}$ és una partició de $\Omega)$ \\
+  
+  (i) \underline{Teorema de la probabilitat total}: $\forall A \in \mathcal{A}, p(A)=\sum\limits_{i=1}^{r}p(A \mid A_{i})\cdot p(A_{i})$. \\
+  (ii) \underline{Fórmula de Bayes}: si $A \in \mathcal{A}, \, p(A) > 0,$
+  \[
+    p(A_{j} \mid A) = \frac{p(A\mid A_{j})\cdot p(A_{j})}{\sum\limits_{i=1}^{r}p(A \mid A_{i})\cdot p(A_{i})}
+  \]
+\end{prop}
