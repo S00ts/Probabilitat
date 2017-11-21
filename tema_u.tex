@@ -106,3 +106,34 @@ Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_
     p(A_{j} \mid A) = \frac{p(A\mid A_{j})\cdot p(A_{j})}{\sum\limits_{i=1}^{r}p(A \mid A_{i})\cdot p(A_{i})}
   \]
 \end{prop}
+
+Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exemple:
+\begin{example}[(La ruïna del jugador)]
+  Partim d'un capital de $k$ unitats $(k \geq 0)$ i volem aconseguir un capital de $N$ unitats $(N\geq k)$ de la següent forma: \\
+  Llancem una moneda equilibrada, guanyant (surt cara) o perdent (surt creu) una unitat amb probabilitat $\frac{1}{2}$. El joc acaba si: 
+  \begin{enumerate}
+      \item Ens quedem sense capital.
+      \item Assolim un capital igual a N
+  \end{enumerate}
+  Calcularem la probabilitat de perdre. \\
+  No és bona idea intentar codificar tots els casos possibles i sumar les seves probabilitats \\ (nº tirades $\to \infty$). \\\\
+  
+  Anem a resoldre el problema usant el teorema de la probabilitat total. \\
+  $A_{k} = $ "el jugador, amb capital inicial igual a $k$, s'arruïna" (Volem calcular $p(A_{k})$). \\
+  Escrivim $p(A_{k}) = p_{k}$. Aleshores $p_{0} = 1, \, p_{N} = 0$. \\
+  Definim $B =$ "la primera tirada de la moneda és cara". Aleshores $B$ i $\overline{B}$ defineixen una partició de $\Omega$. \\
+  Usem el teorema de probabilitat total:
+  \[
+    \begin{rcases}
+        p(A_{k}) &= p(A_{k} \mid B)p(B) + p(A_{k}\mid \overline{B})p(\overline{B}) \\
+        &= p(A_{k}\mid B)\cdot\frac{1}{2} + p(A_{k}\mid\overline{B})\cdot\frac{1}{2} \\
+        &= \frac{1}{2} \cdot\Big( \underbrace{p(A_{k}\mid B)}_{p(A_{k+1})} + \underbrace{p(A_{k}\mid\overline{B})}_{p(A_{k-1})}\Big)
+    \end{rcases} p_{k} = \frac{1}{2}(p_{k+1} + p_{k-1}); \quad p_{0} = 1, \, p_{N} = 0
+  \]
+  
+  Resolent la recurrència tenim: 
+  \[
+    p_{k} = 1 - \frac{k}{N}
+  \]
+  Si $k \in o(N)$, aleshores assimptòticament el jugador s'acabarà arruïnant.
+\end{example}
