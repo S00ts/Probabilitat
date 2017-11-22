@@ -137,3 +137,52 @@ Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exe
   \]
   Si $k \in o(N)$, aleshores assimptòticament el jugador s'acabarà arruïnant.
 \end{example}
+
+\subsection{Independència}
+
+\begin{defi}
+  Dos successos $A$ i $B$ (del mateix espai $(\Omega, \mathcal{A}, p)$) són \textbf{independents} si $p(A\cap B) = p(A)\cdot p(B)$.
+\end{defi}
+
+\begin{obs}
+  \begin{itemize}
+      \item []
+      \item Si $p(B) > 0$, $A$ i $B$ independents $\iff p(A\mid B)=p(A)$
+      \item El successos $\varnothing$ i $\Omega$ són independents amb qualsevol altre succés B
+      \item Si $A$ i $B$ són independents, $A$ i $\overline{B}$ també. (De fet tenim que $A$ i $B$ són independents $\iff \overline{A}$ i $\overline{B}$ són independents).
+  \end{itemize}
+\end{obs}
+
+\begin{defi}
+  Donada una família de successos $\setb{A_{i}}_{i\in I}$, es diu que és \textbf{independent} si:
+  \[
+    \forall J \subseteq I \text{ amb } \abs{J} < \infty \text{, es té: } p\bigg(\bigcap\limits_{j\in J}A_{j}\bigg) = \prod_{j\in J}p(A_{j}) 
+  \]
+\end{defi}
+
+\begin{obs}
+  Donats $\setb{A_{i}}_{i = 1, \ldots, r}$ successos, poden ser independents dos a dos però no com a conjunt.
+\end{obs}
+
+\newpage
+
+\subsection{Espai producte}
+
+Donats dos espais de probabilitat $(\Omega_{1}, \mathcal{A}_{1}, p_{1})$ i $(\Omega_{2}, \mathcal{A}_{2}, p_{2})$, volem combinar-los en un sol espai amb espai mostral $\Omega_{1}\bigtimes\Omega_{2}$. \\
+Això ja ho hem fet en el cas discret, però en general:
+\begin{itemize}
+    \item Prenem com a espai mostral $\Omega_{1}\bigtimes\Omega_{2}$
+    \item Prenem com a $\sigma$-àlgebra $\sigma(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$ (la més petita $\sigma$-àlgebra que conté $\mathcal{A}_{1}\bigtimes\mathcal{A}_{2}$).
+    \item Com definim $p$ a $(\Omega_{1}\bigtimes\Omega_{2}, \mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$? \\ Voldríem que $p(A_{1}\bigtimes A_{2}) = p(A_{1})\cdot p(A_{2}) \quad \forall A_{i} \in \mathcal{A}_{i}$. Per definir $p$ necessitarem el següent teorema:
+\end{itemize}
+
+\begin{thm}[(d'extensió o de Carathéodory)]
+  Sigui $p_{0}$ una funció de probabilitat en una àlgebra $\mathcal{A}_{0}$. Sigui $\mathcal{A} = \sigma(\mathcal{A}_{0})$. \\
+  Aleshores $p_{0}$ es pot extendre a una funció de probabilitat $p$ sobre $\mathcal{A}$ que coincideix amb $p_{0}$ en $\mathcal{A}_{0}$. A més, $p$ és única.
+\end{thm}
+
+En el nostre cas, quina àlgebra agafem? 
+\[
+    \underbrace{(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes les unions finites d'elements de } \mathcal{A}_{1}\bigtimes\mathcal{A}_{2}.
+\]
+Es comprova que $\sigma((\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$ i apliquem el teorema.
