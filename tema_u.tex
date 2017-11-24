@@ -186,3 +186,56 @@ En el nostre cas, quina àlgebra agafem?
     \underbrace{(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes les unions finites d'elements de } \mathcal{A}_{1}\bigtimes\mathcal{A}_{2}.
 \]
 Es comprova que $\sigma((\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$ i apliquem el teorema.
+
+\subsection{Lema de Borel-Cantelli}
+
+Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat.
+
+\begin{defi}
+  Donada $\setb{A_{n}}_{n\geq 1}$ un successió de successos, 
+  \[
+    \text{lim sup } A_{n} = \bigcap\limits_{n=1}^{\infty}\bigcup\limits_{k=n}^{\infty}A_{k}
+  \]
+  \[
+    \text{lim inf } A_{n} = \bigcup\limits_{n=1}^{\infty}\bigcap\limits_{k=n}^{\infty}A_{k}
+  \]
+\end{defi}
+
+\begin{obs}
+  Tant \textit{lim sup} $A_{n}$ com \textit{lim inf} $A_{n}$ són successos.
+\end{obs}
+
+\begin{defi}
+  Si $\setb{A_{n}}_{n\geq 1}$ és una successió de successos amb $lim \, sup\, A_{n} = lim\, inf\, A_{n}$, aleshores $\setb{A_{n}}_{n\geq 1}$ té \textbf{límit} i l'escriurem $lim A_{n} = lim \, sup \, A_{n}$.
+\end{defi}
+
+\newpage
+
+\begin{properties}
+  Sigui $\setb{A_{n}}_{n\geq 1}$ una successió de successos: \\\\
+  (i) $lim \, sup \, A_{n} = \setb{\omega \in \Omega \colon \omega \text{ pertany a un nombre infinit de } A_{i}'s}$ \\\\
+  (ii) $lim \, inf \, A_{n} = \setb{\omega \in \Omega\, \colon \exists \, m = m(\omega) \text{ tal que } \omega\in A_{r} \text{ si } r \geq m(\omega)}$ \\\\
+  (iii) $lim \, inf\, A_{n} \subseteq lim\, sup \, A_{n}$ \\
+\end{properties}
+
+Si ara $lim \, sup\, A_{n} = lim\, inf\, A_{n} = lim A_{n}$, podem intercanviar $lim$ amb $p$:
+
+\begin{prop}
+  Sigui $\setb{A_{n}}_{n\geq 1}$ una successió de successos amb $lim A_{n} = A$. Aleshores, $p(A) = lim \, p(A_{n})$. \\
+\end{prop}
+
+El següent lema ens dóna condicions suficients molt senzilles per a calcular $p(lim \, sup \, A_{n})$.
+
+\begin{lema}[(Borel-Cantelli)]
+  \- \\
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{A_{n}}_{n\geq 1}$ una successió de successos. Aleshores: \\\\
+  
+  (i) Si $\sum\limits_{n\geq 1}p(A_{n}) < \infty \implies p(lim \, sup \, A_{n}) = 0$ \\\\
+  
+  (ii) Si els $\setb{A_{n}}_{n\geq 1}$ són successos independents i $\sum\limits_{n\geq 1}p(A_{n}) = \infty \implies p(lim \, sup \, A_{n}) = 1$
+\end{lema}
+
+\begin{obs}
+  No podem treure la condició d'independència de (ii). \\
+  Si prenem $A_{n} = E$ succés amb $0 < p(E) < 1$, aleshores $\sum\limits_{n\geq 1}p(A_{n}) = \sum\limits_{n\geq 1}p(E)$, els $A_{n}$ \underline{no} són independents i  $p(lim \, sup \, A_{n}) = p(E) < 1$.
+\end{obs}
