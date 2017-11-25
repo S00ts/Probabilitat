@@ -1,0 +1,33 @@
+\section{Variables Aleatòries Discretes}
+
+\subsection{Definicions i conceptes relacionats. Funció generadora de probabilitat}
+
+Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable aleatòria.
+
+\begin{defi}
+  $X$ és una \textbf{variable aleatòria discreta} si $Im(X)$ és numerable. \\
+  Si $X$ és una variable aleatòria discreta, $Im(X) = \setb{x_{i}}_{i \geq 1}$. \\ 
+  $X$ ve completament determinada pels valors $p(X=x_{i}) = p_{i}$.
+\end{defi}
+
+\begin{defi}
+  Anomenem \textbf{funció de distribució} de X a:
+  \[
+    F_{X}(x)=p(X \leq x) = \sum_{x_{i}\leq x}p_{i}
+  \]
+\end{defi}
+
+\begin{defi}
+  Sigui $A \in \mathcal{B}$, la \textbf{mesura de probabilitat induïda sobre} $\real$ és:
+  \[
+    p_{X}(A) = \sum_{\substack{x_{i} \in A \\ x_{i}\in Im(X)}}p_{i}
+  \]
+  En particular, si $Im(X)\cap A = \varnothing$ aleshores $p_{X}(A) = 0 \implies$ obtenim una probabilitat puntual (hi ha punts de $\real$ amb probabilitat $> 0$, a diferència de la mesura de Lebesgue).
+\end{defi}
+
+\begin{defi}
+  Definim l'\textbf{esperança matemàtica} com: 
+  \[
+    \E [X] = \int_{\Omega}Xdp \underset{\text{def. de }\int_{\Omega}}{=\joinrel=\joinrel=\joinrel=\joinrel=} \sum_{i\geq 1}x_{i}\cdot p(X=x_{i}) = \sum_{i\geq 1}x_{i}\cdot p_{i}
+  \]
+\end{defi}
