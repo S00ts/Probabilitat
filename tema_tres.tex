@@ -30,4 +30,28 @@ Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable ale
   \[
     \E [X] = \int_{\Omega}Xdp \underset{\text{def. de }\int_{\Omega}}{=\joinrel=\joinrel=\joinrel=\joinrel=} \sum_{i\geq 1}x_{i}\cdot p(X=x_{i}) = \sum_{i\geq 1}x_{i}\cdot p_{i}
   \]
+  Més en general, si $g(x)$ és una funció mesurable, 
+  \[
+    \E [g(X)] = \sum_{i\geq 1}g(x_{i})\cdot p(X=x_{i})
+  \]
+  En particular, 
+  \[
+    \E[X^{k}]=\sum_{i\geq 1}x_{i}^{k}\cdot p_{i}
+  \]
+  \[
+    \V ar[X] = \E[X^{2}]-\E[X]^{2}=\sum_{i\geq 1}x_{i}^{2}\cdot p_{i} - \Big(\sum_{i\geq 1}x_{i}\cdot p_{i} \Big)^{2}
+  \]
 \end{defi}
+
+\begin{defi}
+  Prenem $X$, $Y$ variables aleatòries discretes amb $Im(X), \, Im(Y)$ numerables. \\
+  El \textbf{vector de variables aleatòries} $(X,Y)$ ve completament caracteritzat per: 
+  \[
+    p_{(X,Y)}(x_{i},y_{j}) = p(X=x_{i}, Y=y_{j}) \qquad (x_{i}\in Im(X); y_{i}\in Im(Y))
+  \]
+\end{defi}
+
+\newpage
+Aleshores, tenim les següents propietats: \\\\
+(i) $X$ i $Y$ són independents $\iff \forall x_{i}\in Im(X), \, \forall y_{j}\in Im(Y), \, p_{(X, Y)}(x_{i},y_{j}) = p_{X}(x_{i})\cdot p_{Y}(y_{j})$ \\\\
+(ii) Si $X, \, Y$ són independents, $\E[X\cdot Y] = \E[X]\cdot \E[Y]$
