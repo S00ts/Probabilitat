@@ -54,4 +54,46 @@ Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable ale
 \newpage
 Aleshores, tenim les següents propietats: \\\\
 (i) $X$ i $Y$ són independents $\iff \forall x_{i}\in Im(X), \, \forall y_{j}\in Im(Y), \, p_{(X, Y)}(x_{i},y_{j}) = p_{X}(x_{i})\cdot p_{Y}(y_{j})$ \\\\
-(ii) Si $X, \, Y$ són independents, $\E[X\cdot Y] = \E[X]\cdot \E[Y]$
+(ii) Si $X, \, Y$ són independents, $\E[X\cdot Y] = \E[X]\cdot \E[Y]$ \\\\
+
+Sigui $X$ una variable aleatòria discreta amb $Im(X)\subseteq \n_{\geq0}$. En aquesta situació, tenim la següent definició:
+
+\begin{defi}
+  La \textbf{funció generadora de probabilitat associada a $X$} és: 
+  \[
+    G_{X}(z) = \sum_{i\geq 0}p(X=i)\cdot z^{i} = \sum_{i\geq 0}p_{i}\cdot z^{i}
+  \]
+  
+  Una funció generadora de probabilitat és un objecte formal. En particular, $G_{X}(z)=\E[z^{X}]$.
+\end{defi}
+
+Si ens mirem les funcions generadores de probabilitat com funcions (en $\cx$), aleshores compleixen el següent:
+
+\begin{prop}
+  \begin{enumerate}
+      \item []
+      \item $G_{X}(0) = p(X=0)$
+      \item $G_{X}(1) = 1$. A més, si $\abs{z}\leq 1 \, (z\in \cx) \implies \abs{G_{X}(z)}\leq 1$ \\
+      Per tant, $G_{X}(z)$ (com a sèrie de potències) té radi de convergència $\geq 1$.
+      \item $\E[X] = \dfrac{d}{dz}G_{X}(z)_{\big|z=1}$
+      \item Més en general, $\E[(X)_{k}] = \dfrac{d^{k}}{dz^{k}}G_{X}(z)_{\big|z=1}$ \\
+      En particular, $\V ar[X] = G_{X}''(1) + G_{X}'(1) - (G_{X}'(1))^{2}$
+      \item Si $z\in \real, \, z \in [0,1]$, aleshores $G_{X}(z)$ és una funció creixent.
+  \end{enumerate}
+\end{prop}
+
+La propietat fonamental de les funcions generadores de probabilitat és que permeten estudiar fàcilment sumes de variables aleatòries independents.
+
+\begin{prop}
+  Siguin $X, Y$ variables aleatòries discretes independents amb imatge en $\n$, i amb funcions generadores de probabilitat $G_{X}(z), \, G_{Y}(z)$. Aleshores: 
+  \[
+    G_{X+Y}(z) = G_{X}(z)\cdot G_{Y}(z)
+  \]
+\end{prop}
+
+\begin{col}
+  Si $X_{1}, \ldots, X_{N}$ són variables aleatòries discretes independents amb imatge en $\n$, aleshores: 
+  \[
+    G_{X_{1}+\ldots+X_{N}}(z) = \prod_{i=1}^{N} G_{X_{i}}(z)
+  \]
+\end{col}
