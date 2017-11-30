@@ -97,3 +97,58 @@ La propietat fonamental de les funcions generadores de probabilitat és que perm
     G_{X_{1}+\ldots+X_{N}}(z) = \prod_{i=1}^{N} G_{X_{i}}(z)
   \]
 \end{col}
+
+\subsection{Models de variables aleatòries discretes}
+
+Seguidament veurem famílies importants de variables aleatòries discretes: \\
+
+1) \underline{Variable aleatòria Bernoulli}: $X\sim B(p)$ \quad (un sol paràmetre) \\
+Modela el llançament d'una moneda amb probabilitat d'èxit igual a p: 
+\[
+  p(X=1) = p, \quad p(X=0) = 1-p
+\]
+\begin{itemize}
+    \item $G_{X}(z) = p\cdot z + (1-p)$ \quad (és una funció entera)
+    \item $\E[X] = p$
+    \item $\V ar[X] = p\cdot(1-p)$
+\end{itemize}
+
+\vspace{0.5cm}
+
+2) \underline{Binomial}: $X\sim Bin(p,n)$ (o bé $B(p,n)$) \\
+Nombre d'èxits al tirar una moneda $n$ vegades. L'èxit individual té probabilitat $p$, i cada tirada de la moneda és independent de la resta. 
+\[
+  \implies X=Y_{1}+\ldots+Y_{n} \text{ on } Y_{i}\sim B(p)
+\]
+\[
+  p(X=i) = \binom{n}{i}\cdot p^{i}\cdot (1-p)^{n-i} \qquad i = 0,\ldots,n
+\]
+\begin{itemize}
+    \item $G_{X}(z) = (p\cdot z + (1-p))^{n}$ \quad (és una funció entera)
+    \item $\E[X] = n\cdot p$
+    \item $\V ar[X] = n\cdot p\cdot (1-p)$
+\end{itemize}
+
+\vspace{0.5cm}
+
+3) \underline{Poisson}: $X \sim Po(\lambda)$
+\[
+  p(X=k) = \frac{1}{k!}\cdot \lambda^{k}\cdot e^{-\lambda} \quad (k\in \n_{\geq 0})
+\]
+\begin{itemize}
+    \item $G_{X}(z) = e^{\lambda(z-1)}$ \quad (és una funció entera)
+    \item $\E[X] = \lambda$
+    \item $\V ar[X] = \lambda$
+\end{itemize}
+
+\vspace{0.5cm}
+
+4) \underline{Uniforme}: $X\sim U(N)$ on $Im(X) = \setb{1,2,\ldots, N}$ \\
+\[
+  p(X=k) = \frac{1}{n}
+\]
+\begin{itemize}
+    \item $G_{X} = \dfrac{1}{N}\cdot \dfrac{1-z^{N}}{1-z}\cdot z$ \quad (sing. evitable en z = 1)
+    \item $\E[X]=\dfrac{N+1}{2}$
+    \item $\V ar[X] = \dfrac{N^{2}-1}{12}$
+\end{itemize}
