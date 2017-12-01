@@ -143,7 +143,7 @@ Nombre d'èxits al tirar una moneda $n$ vegades. L'èxit individual té probabil
 
 \vspace{0.5cm}
 
-4) \underline{Uniforme}: $X\sim U(N)$ on $Im(X) = \setb{1,2,\ldots, N}$ \\
+4) \underline{Uniforme}: $X\sim U(N)$ \quad (on $Im(X) = \setb{1,2,\ldots, N}$) \\
 \[
   p(X=k) = \frac{1}{n}
 \]
@@ -152,3 +152,73 @@ Nombre d'èxits al tirar una moneda $n$ vegades. L'èxit individual té probabil
     \item $\E[X]=\dfrac{N+1}{2}$
     \item $\V ar[X] = \dfrac{N^{2}-1}{12}$
 \end{itemize}
+
+\newpage
+
+5) \underline{Geomètrica}: $X\sim Geom(p) \quad \big(p\in(0,1)\big)$ \\
+Nombre de tirades d'una moneda (amb probabilitat d'èxit $= p$) fins aconseguir el primer èxit.
+\[
+  p(X=k) = (1-p)^{k-1}\cdot p \qquad k = 1,2,\ldots
+\]
+\begin{itemize}
+    \item $G_{X}(z) = \dfrac{p\cdot z}{1-(1-p)\cdot z}$ \quad (té un pol en $z=\dfrac{1}{1-p}$)
+    \item $\E[X] = \dfrac{1}{p}$
+    \item $\V ar[X] = \dfrac{1-p}{p^{2}}$
+\end{itemize}
+
+\vspace{0.5cm}
+
+6) \underline{Binomial negativa}: $X\sim BinN(r, p)$ \\
+Variable aleatòria que compta el nombre de tirades necessàries per aconseguir $r$ èxits. $\left(Im(X)=\setb{r,r+1,r+2, \ldots}\right)$
+\[
+  p(X=k) = \binom{k-1}{r-1}\cdot p^{r}\cdot(1-p)^{k-r}
+\]
+Podem interpretar una binomial negativa com una suma de geomètriques independents.
+\begin{itemize}
+    \item $G_{X}(z) = \left( \dfrac{p\cdot z}{1-(1-p)\cdot z} \right)^{r}$
+    \item $\E[X] = \dfrac{r}{p}$
+    \item $\V ar[X] = r\cdot \dfrac{1-p}{p^2}$
+\end{itemize}
+
+\newpage
+
+\subsection{Distribucions condicionades i esperança condicionada}
+Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de condicionar una variable aleatòria a l'altra (`` $Y\mid X$ '').
+
+\begin{defi}
+  Donat $x$ amb $p(X=x)>0$, diem que la \textbf{funció de probabilitat condicionada} de $Y$ amb $X$ és, per aquest valor de $x$:
+  \[
+    p_{Y\mid X}(y,x) = p(Y=y\mid X=x)
+  \]
+\end{defi}
+
+\begin{defi}
+  Amb les mateixes condicions que abans, la \textbf{funció de distribució de probabilitat condicionada} és:
+  \[
+    F_{Y\mid X}(y,x) = p(Y\leq y \mid X \leq x)
+  \]
+\end{defi}
+
+\begin{obs}
+  Si $X$ i $Y$ són independents, $X\mid Y=y \sim X$
+\end{obs}
+
+\begin{defi}
+  L'\textbf{esperança condicionada} de $Y$ a $X=x$ és: 
+  \[
+    \psi(x) = \E[Y\mid X=x] = \sum_{y\in Im(Y)}(y\cdot p_{Y\mid X})(y,x)
+  \]
+  Amb aquesta definició estem definint una variable aleatòria $E[Y\mid X]$ que pren el valor $\psi(x)$ amb probabilitat $p(X=x)$.
+\end{defi}
+
+\begin{prop}
+  $\E\big[\E[Y\mid X]\big] = \E[Y]$
+\end{prop}
+
+\begin{obs}
+  $\E[Y] = \sum\limits_{x\in Im(X)}\E[Y\mid X=x]\cdot p(X=x)$
+\end{obs}
+
+\begin{obs}
+  $\E[Y\mid X]$ és la millor aproximació de $Y$ com a funció de X.
+\end{obs}
