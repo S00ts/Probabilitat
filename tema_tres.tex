@@ -222,3 +222,96 @@ Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de co
 \begin{obs}
   $\E[Y\mid X]$ és la millor aproximació de $Y$ com a funció de X.
 \end{obs}
+
+\subsection{Suma de variables aleatòries discretes (Aplicació 1)}
+Ja hem vist que si $X$ i $Y$ són variables aleatòries discretes amb imatge en $\n$, aleshores si són independents, $G_{X+Y}(z) = G_{X}(z)\cdot G_{Y}(z)$ \\
+Si fem $Z=X+Y$: 
+\[
+  G_{Z}(z) = \sum_{n\geq0}p(Z=n)\cdot z^{n} = \sum_{r\geq0}p(X=r)\cdot z^{r} \cdot \sum_{s\geq0}p(Y=s)\cdot z^{s}
+\]
+\[
+  \implies p(Z=n) = \sum_{r+s=n}p(X=r)\cdot p(Y=s) = \underbrace{\sum_{m=0}^{n}p(X=m)\cdot p(Y=n-m)}_{Convoluci\acute o}
+\]
+Aplicant aquest principi de l'ús de funcions generadores, tenim que: \\
+\begin{enumerate}
+    \item $X_{1}, X_{2}, \ldots , X_{n} \sim Ber(p)$ independents $\implies X_{1}+X_{2}+\ldots +X_{n} \sim Bin(n,p)$
+    \item $X_{1}, X_{2}, \ldots , X_{n} \sim Geom(p)$ independents $\implies X_{1}+X_{2}+\ldots +X_{n} \sim BinN(n,p)$
+    \item $X_{1}\sim Po(\lambda_{1}), \, X_{2}\sim Po(\lambda_{2}), \, X_{1}, X_{2}$ independents 
+    \[
+    \begin{rcases}
+    G_{X_{1}}(z) = e^{-\lambda_{1}}\cdot e^{\lambda_{1}\cdot z} \\
+    G_{X_{2}}(z) = e^{-\lambda_{2}}\cdot e^{\lambda_{2}\cdot z}
+    \end{rcases}\implies G_{X_{1}+X_{2}}(z) = e^{-(\lambda_{1}+\lambda_{2})}\cdot e^{(\lambda_{1} + \lambda_{2})\cdot z}
+    \]
+    \[
+      \hspace{-6cm}\implies X_{1} + X_{2} \sim Po(\lambda_{1} + \lambda_{2})
+    \]
+\end{enumerate}
+
+\subsection{Arbres de Galton-Watson (Aplicació 2)}
+Sigui $X$ una variable aleatòria discreta amb $Im(X)\subseteq \n_{\geq 0}$. \\
+Considerem el següent procés estocàstic: \\
+\begin{figure}[h]
+\includegraphics[scale=0.45]{G-WTree.png}
+\caption*{\textbf{Arbre de Galton-Watson}}
+\centering
+\end{figure}
+\\
+$Z_{0} = 1$\\\\
+En les següents generacions, el nombre de fills ve donat per la v.a. $X$.\\\\
+$Z_{1} =$ nº de fills del primer individu (generació 0), seguint $X$.\\
+$Z_{2} =$ nº de fills dels individus de la generació 1.\\
+.\\
+.\\
+.\\
+$Z_{n} =$ nº de descendents en la generació n-èssima.\\\\
+
+\underline{Propietat fonamental}: el nombre de descendents d'un individu és independent del nombre de descendents de qualsevol altre individu. \\
+
+\begin{lema}
+  Sigui $N$ una variable aleatòria amb imatge en $\setb{1,2,3,\ldots}$.\\
+  $X_{1},X_{2},X_{3},\ldots$ variables aleatòries independents (i independents amb $N$), amb $X_{i}\sim X$. Prenem $Y=X_{1}+X_{2}+\ldots +X_{N}$\\
+  $\implies G_{Y}(z)=G_{N}(G_{X}(z))$
+\end{lema}
+
+\begin{prop}
+  $G_{Z_{n+m}}(z) = G_{Z_{n}}(G_{Z_{m}}(z))$. En particular $G_{Z_{n}}(z)=G_{X}\circ \overset{n)}{\ldots} \, \circ G_{X}(z)$
+\end{prop}
+
+\begin{obs}
+  Podem calcular $\E[Z_{n}]$ i $\V ar[Z_{n}]$ a partir de la seva funció generadora de probabilitat:
+  \[
+    \E[Z_{n}] = \E[X]^{n}
+  \]
+  \[
+    \V ar[Z_{n}] = 
+    \begin{cases}
+      n\cdot \V ar[X] \qquad &\text{si } \E[X] = 1 \\\\
+      \dfrac{\V ar[X]\cdot (\E[X]^{n}-1)}{\E[X]-1} \quad &\text{si } \E[X]\not =1
+    \end{cases}
+  \]
+\end{obs}
+
+Ara, la pregunta que ens fem és: quan hi haurà extinció?\\
+Si fem $A_{n} = \setb{Z_{n} = 0} \implies Extinci\acute o = \bigcup\limits_{n\geq1}A_{n}$\\
+$\implies p(Extinci\acute o) = p(\bigcup\limits_{n\geq1}A_{n})$\\\\
+$A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq \ldots$\\\\
+$
+\begin{rcases}
+  \text{Extingit a la primera gen}\implies \text{Extingit a la segona gen.} \implies \ldots \\
+  \text{Extingit a la segona gen.}\centernot\implies \text{Extingit a la primera} \ldots
+\end{rcases} \implies
+$
+\\\\
+$\implies$ Tenim una successió creixent de successos.\\\\
+$A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq \ldots$ és creixent $\implies p(Extinci\acute o) = \lim\limits_{n\to\infty}p(A_{n}) = \lim\limits_{n\to\infty}p(Z_{n}=0)$\\
+
+\begin{thm}[Galton]
+  Si $\E[X] = \mu$; $p(X=0) \geq 0$\\
+  I sigui $\alpha$ la solució més petita positiva de l'equació $G_{X}(z) = z$ (Aleshores $p(Extinci\acute o) = \alpha$)
+  \begin{enumerate}
+      \item Si $\mu < 1 \implies \alpha = 1$ \hspace{5.55cm} (\underline{règim subcrític})
+      \item Si $\mu = 1 \implies \alpha = 1$ (sempre que $\V ar[X] \not = 0$) \hspace{1cm}(\underline{règim crític})
+      \item Si $\mu > 1 \implies 0<\alpha<1$ \hspace{4.85cm} (\underline{règim supercrític})
+  \end{enumerate}
+\end{thm}
