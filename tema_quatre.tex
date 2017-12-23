@@ -1,0 +1,48 @@
+\section{Variables Aleatòries Contínues}
+\subsection{Mesures de probabilitat absolutament contínues. Funció de densitat}
+Sigui $(\Omega, \mathcal{A},p)$ un espai de probabilitat, amb probabilitat induïda en $(\real, \mathcal{B},p_{X})$ (quan prenem la variable aleatòria $X$).
+
+\begin{defi}
+  Siguin$\mu_{1},\mu_{2}$ mesures sobre un espai de mesura $(X,\mathcal{A})$, diem que $\mu_{1}$ és \textbf{absolutament contínua} respecte $\mu_{2}$ ($\mu_{1}<<\mu_{2}$) si $\forall A\in \mathcal{A}$,
+  \[
+    \mu_{2}(A)=0 \implies \mu_{1}(A)=0
+  \]
+\end{defi}
+
+\begin{defi}
+  Una variable aleatòria $X$ és \textbf{absolutament contínua} (o contínua per abreujar), si $p_{X}<<\lambda$ ($\lambda$ és la mesura de Lebesgue).
+\end{defi}
+
+\begin{obs}
+  Les variables aleatòries discretes \underline{no} són absolutament contínues: \\
+  Si $p(X=a)=P_{a}>0$ i prenem $B=\setb{a}$, tenim $\lambda(\setb{a})=0$, però $p_{X}(\setb{a})=P_{a}>0$
+\end{obs}
+
+El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament contínua) a càlculs usant la mesura $\lambda$, és el següent:
+
+\begin{thm}[(Radon-Nikodym)]
+  Sigui $(X,\mathcal{A})$ un espai mesurable i $\mu_{1},\mu_{2}$ mesures sobre $(X,\mathcal{A})$ amb $\mu_{1}<<\mu_{2}$. Aleshores, existeix una funció $f_{\mu_{1}}$, $\mu_{2}$-mesurable tal que
+  \[
+    \forall A \in \mathcal{A}, \, \mu_{1}(A)=\int_{A}f_{\mu_{1}}d\mu_{2}
+  \]
+  A més, $f_{\mu_{1}}$ és única $\mu_{2}$-gairebé arreu
+\end{thm}
+
+\begin{defi}
+  La funció $f_{\mu_{1}}$ és la \textbf{funció de densitat} de la mesura $\mu_{1}$ respecte a $\mu_{2}$. \\
+  En el nostre context, $X$ és una variable aleatòria absolutament contínua, i
+  \[
+    \begin{rcases}
+      (\real, \mathcal{B},\underbrace{\lambda}_{\mu_{2}})\\
+      (\real, \mathcal{B}, \underbrace{p_{X}}_{\mu_{1}})
+    \end{rcases}\underset{\mathclap{X abs. cont.}}{\implies} \, p_{X}<<\lambda\overset{R-N}{\implies} \forall B \in \mathcal{B}, \, \boxed{p_{X}(B)=\int_{B}f_{X}d\lambda}
+  \]
+\end{defi}
+
+\begin{defi}
+  La funció $f_{X}$ s'anomena \textbf{funció de densitat de probabilitat} de $X$.
+\end{defi}
+
+\begin{obs}
+  En la literatura, s'escriu $f_{\mu_{1}}=\dfrac{d\mu_{1}}{d\mu_{2}}$ (Derivada de Radon-Nikodym).
+\end{obs}
