@@ -46,3 +46,33 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
 \begin{obs}
   En la literatura, s'escriu $f_{\mu_{1}}=\dfrac{d\mu_{1}}{d\mu_{2}}$ (Derivada de Radon-Nikodym).
 \end{obs}
+
+\newpage
+
+\begin{prop}
+  Si $X$ és una variable aleatòria absolutament contínua, amb funció de densitat de probabilitat $f_{X}(x)$:
+  \begin{enumerate}
+      \item $f_{X}(x)\geq0$ $\lambda$-gairebé arreu
+      \item $F_{X}(x)=\int_{(-\infty,x)}f_{x}d\lambda$; $\qquad \int_{\real}f_{X}d\lambda=1$
+      \item $p(X=x)=\int_{\setb{x}}f_{X}d\lambda=0 \, \forall x \in \real$
+      \item Si $f_{X}$ és integrable Riemann, $F_{X}(x)=\int_{-\infty}^{x}f_{X}(x)dx$ i $\dfrac{dF_{X}(x)}{dx}=f_{X}(x)$
+  \end{enumerate}
+\end{prop}
+
+\begin{obs}
+  Tota funció mesurable $f(x)$ que compleixi: 
+  \[
+    \int_{\real}fd\lambda=1, \quad f(x)\geq 0 \qquad \lambda \text{-gairebé arreu.}
+  \]
+  Aleshores $\exists X$ variable aleatòria absolutament contínua per la qual $f(x)=f_{X}(x)$. \\
+  En aquest context, tenim:
+  \[
+    \E[X]= \int_{\Omega}Xdp = \int_{\real}xdp_{X} \overset{R-N}{=}\int_{\real}x\underbrace{f_{X}(x)d\lambda}_{dp_{X}} \underset{si f_{X} int. R.}{=} \int_{-\infty}^{+\infty}xf_{X}(x)dx
+  \]
+  En particular,
+  \[
+    \V ar[X] = \int_{-\infty}^{+\infty}x^{2}f_{X}(x)dx - \bigg( \int_{-\infty}^{+\infty}xf_{X}(x)dx \bigg)^{2}
+  \]
+\end{obs}
+
+%\subsection{Models de variables aleatòries absolutament contínues}
