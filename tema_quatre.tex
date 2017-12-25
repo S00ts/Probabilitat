@@ -75,4 +75,72 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
   \]
 \end{obs}
 
-%\subsection{Models de variables aleatòries absolutament contínues}
+\subsection{Models de variables aleatòries absolutament contínues}
+
+\begin{enumerate}
+    \item \underline{Uniforme}: $X \sim U([a,b])$ \quad (Tria un nombre uniformement a l'atzar en l'interval $[a,b]$). \\
+    \[
+      f_{X}(x)=\frac{1}{b-a}\mathbbm{1}_{[a,b]}(x)
+    \]
+    \[
+      \E[X]=\frac{b+a}{2}
+    \]
+    \[
+      \V ar[X]=\frac{(b-a)^{3}}{12}
+    \]
+    \item \underline{Exponencial}: $X\sim Exp(\lambda)$ \quad (S'usa per modelar el tipus de vida d'un aparell. És l'anàleg continu de la Poisson).
+    \[
+      f_{X}(x)=\lambda\cdot e^{-\lambda\cdot x}\cdot \mathbbm{1}_{[0,+\infty)}(x)
+    \]
+    \[
+      \E[X]=\frac{1}{\lambda}
+    \]
+    \[
+      \V ar[X]=\frac{1}{\lambda^{2}}
+    \]
+    \item \underline{Normal}: $X\sim N(\mu, \sigma^{2})$ \quad ($\mu \in \real, \, \sigma > 0$)
+    \[
+      f_{X}(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+    \]
+    \[
+      \E[X]=\mu
+    \]
+    \[
+      \V ar[X]=\sigma^{2}
+    \]
+    \item \underline{Gamma}: $X \sim \Gamma(\lambda, \tau)$
+    \[
+      f_{X}(x)=\frac{1}{\Gamma(\tau)}\cdot \lambda^{\tau}\cdot x^{\tau -1}\cdot e^{-\lambda x}\cdot \mathbbm{1}_{[0,+\infty)}(x)
+    \]
+    \[
+      \E[X]=\frac{\tau}{\lambda}
+    \]
+    \[
+      \V ar[X]=\frac{\tau}{\lambda^{2}}
+    \]
+    \item \underline{Weibull}: $X\sim Weib(\alpha, \beta)$ {\Large{NO QUADRA AMB LA TAULA!}}
+    \[
+      f_{X}(x)=\alpha\cdot \beta \cdot x^{\beta-1}\cdot e^{-\alpha\cdot x^{b}}\cdot \mathbbm{1}_{[0,+\infty)}(x)
+    \]
+    \[
+      \E[X]=\alpha^{-\frac{1}{\beta}}\cdot \Gamma(1+\frac{1}{\beta})
+    \]
+    \[
+      \V ar[X]=\alpha^{-\frac{2}{\beta}}(\Gamma(1+\frac{2}{\beta})-\Gamma^{2}(1+\frac{1}{\beta}))
+    \]
+    \item \underline{Beta}: $X\sim \beta(a,b)$
+    \[
+      f_{X}(x)=\frac{\Gamma(a+b)}{\Gamma(a)\cdot \Gamma(b)}\cdot x^{a-1}\cdot (1-x)^{b-1}\cdot \mathbbm{1}_{[0,1]}(x)
+    \]
+    \[
+      \E[X]=\frac{a}{a+b}
+    \]
+    \[
+      \V ar[X]=\frac{a\cdot b}{(a+b)^{2}\cdot (a+b+1)}
+    \]
+    \item \underline{Cauchy}: $X\sim Cauchy$
+    \[
+      f_{X}(x)=\frac{1}{\pi\cdot (1+x^{2})} \quad (x \geq 0)
+    \]
+     \quad Cap dels $\E[X^{k}]$ és finit.
+\end{enumerate}
