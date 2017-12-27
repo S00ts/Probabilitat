@@ -144,3 +144,25 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
     \]
      \quad Cap dels $\E[X^{k}]$ és finit.
 \end{enumerate}
+
+\subsection{Distribucions conjuntes i marginals. Independència i distribucions condicionades}
+
+Ara farem el mateix que per una variable en el cas de tenir vectors de variables aleatòries.\\
+Ho farem per vectors $(X_{1},X_{2})$, però és fàcilment generalitzable a vectors de dimensió $> 2$. \\
+Sigui $(X,Y)$ un vector de variables aleatòries. $(X,Y)$ indueix $p_{(X,Y)}$ mesura de probabilitat en $\real^{2}$.
+
+\begin{defi}
+  $(X,Y)$ és un \textbf{vector absolutament continu} si $p_{(X,Y)}<<\lambda_{\real^{2}}$. \\
+  Per $Radon-Nikodym$, $(X,Y)$ té una \textbf{funció de densitat}:
+  \[
+    B\in\mathcal{B}_{\real^{2}}, \, p_{(X,Y)}(B)=\iint_{B}f_{(X,Y)}d\lambda_{\real^{2}}
+  \]
+\end{defi}
+
+\begin{defi}
+  $f_{X,Y}(x,y)$ és la \textbf{funció de densitat conjunta} de $X$ i $Y$.\\
+  Si ara $B=(a_{1},a_{2})\times(b_{1},b_{2})$ i $f_{(X,Y)}(x,y)$ és integrable Riemann, 
+  \[
+    p_{(X,Y)}(B)=\iint_{B}f_{(X,Y)}\,d\lambda_{\real^{2}}=\int_{a_{1}}^{a_{2}}\int_{b_{1}}^{b_{2}}f_{(X,Y)}(x,y)\,dy\,dx
+  \]
+\end{defi}
