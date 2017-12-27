@@ -168,12 +168,12 @@ Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exe
 
 \subsection{Espai producte}
 
-Donats dos espais de probabilitat $(\Omega_{1}, \mathcal{A}_{1}, p_{1})$ i $(\Omega_{2}, \mathcal{A}_{2}, p_{2})$, volem combinar-los en un sol espai amb espai mostral $\Omega_{1}\bigtimes\Omega_{2}$. \\
+Donats dos espais de probabilitat $(\Omega_{1}, \mathcal{A}_{1}, p_{1})$ i $(\Omega_{2}, \mathcal{A}_{2}, p_{2})$, volem combinar-los en un sol espai amb espai mostral $\Omega_{1}\times\Omega_{2}$. \\
 Això ja ho hem fet en el cas discret, però en general:
 \begin{itemize}
-    \item Prenem com a espai mostral $\Omega_{1}\bigtimes\Omega_{2}$
-    \item Prenem com a $\sigma$-àlgebra $\sigma(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$ (la més petita $\sigma$-àlgebra que conté $\mathcal{A}_{1}\bigtimes\mathcal{A}_{2}$).
-    \item Com definim $p$ a $(\Omega_{1}\bigtimes\Omega_{2}, \mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$? \\ Voldríem que $p(A_{1}\bigtimes A_{2}) = p(A_{1})\cdot p(A_{2}) \quad \forall A_{i} \in \mathcal{A}_{i}$. Per definir $p$ necessitarem el següent teorema:
+    \item Prenem com a espai mostral $\Omega_{1}\times\Omega_{2}$
+    \item Prenem com a $\sigma$-àlgebra $\sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ (la més petita $\sigma$-àlgebra que conté $\mathcal{A}_{1}\times\mathcal{A}_{2}$).
+    \item Com definim $p$ a $(\Omega_{1}\times\Omega_{2}, \mathcal{A}_{1}\times\mathcal{A}_{2})$? \\ Voldríem que $p(A_{1}\times A_{2}) = p(A_{1})\cdot p(A_{2}) \quad \forall A_{i} \in \mathcal{A}_{i}$. Per definir $p$ necessitarem el següent teorema:
 \end{itemize}
 
 \begin{thm}[(d'extensió o de Carathéodory)]
@@ -183,9 +183,9 @@ Això ja ho hem fet en el cas discret, però en general:
 
 En el nostre cas, quina àlgebra agafem? 
 \[
-    \underbrace{(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes les unions finites d'elements de } \mathcal{A}_{1}\bigtimes\mathcal{A}_{2}.
+    \underbrace{(\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes les unions finites d'elements de } \mathcal{A}_{1}\times\mathcal{A}_{2}.
 \]
-Es comprova que $\sigma((\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\bigtimes\mathcal{A}_{2})$ i apliquem el teorema.
+Es comprova que $\sigma((\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ i apliquem el teorema.
 
 \subsection{Lema de Borel-Cantelli}
 
