@@ -118,7 +118,7 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
     \[
       \V ar[X]=\frac{\tau}{\lambda^{2}}
     \]
-    \item \underline{Weibull}: $X\sim Weib(\alpha, \beta)$ {\Large{NO QUADRA AMB LA TAULA!}}
+    \item \underline{Weibull}: $X\sim Weib(\alpha, \beta)$
     \[
       f_{X}(x)=\alpha\cdot \beta \cdot x^{\beta-1}\cdot e^{-\alpha\cdot x^{b}}\cdot \mathbbm{1}_{[0,+\infty)}(x)
     \]
@@ -166,3 +166,66 @@ Sigui $(X,Y)$ un vector de variables aleatòries. $(X,Y)$ indueix $p_{(X,Y)}$ me
     p_{(X,Y)}(B)=\iint_{B}f_{(X,Y)}\,d\lambda_{\real^{2}}=\int_{a_{1}}^{a_{2}}\int_{b_{1}}^{b_{2}}f_{(X,Y)}(x,y)\,dy\,dx
   \]
 \end{defi}
+
+A partir de $f_{(X,Y)}(x,y)$ podem extreure la funció de densitat de $X$ i de $Y$ integrant:
+
+\begin{defi}
+  Donat un vector de variables aleatòries $(X,Y)$ amb funció de densitat conjunta $f_{(X,Y)}(x,y)$, les \textbf{funcions de densitat marginals} són:
+  \[
+    f_{X}(x) = \int_{-\infty}^{+\infty}f_{(X,Y)}(x,y) \, dy
+  \]
+  \[
+    f_{Y}(y) = \int_{-\infty}^{+\infty}f_{(X,Y)}(x,y) \, dx
+  \]
+\end{defi}
+
+A partir de la funció de densitat conjunta podem definir la \textbf{funció de distribució}: 
+\[
+  F_{(X,Y)}(x,y) = P(X \leq x, Y \leq y) \underset{int. Riem.}{=} \int_{-\infty}^{x}\int_{-\infty}^{y} f_{(X,Y)}(x,y) \, dy \, dx
+\]
+
+\begin{obs}
+  Si $f_{X,Y}(x,y)$ és integrable Riemann $\implies F_{(X,Y)}(x,y)$ és $\mathcal{C}^{2}(\real^{2})$ i
+  \[
+    \frac{\partial^{2}F_{(X,Y)}}{\partial x \partial y}(x,y) = \frac{\partial^{2}F_{(X,Y)}}{\partial y \partial x}(x,y) = f_{(X,Y)}(x,y)
+  \]
+\end{obs}
+
+\begin{obs}
+  Si $g:\real^{2} \mapsto \real$ és una funció mesurable, $g(X,Y)$ és una variable aleatòria i es compleix:
+  \[
+    \E[g(X,Y)] = \iint_{\real^{2}} g(x,y)\cdot f_{(X,Y)}(x,y) \, dx \, dy
+  \]
+\end{obs}
+
+
+\subsubsection{Independència}
+
+Si $(X,Y)$ és un vector aleatori i $X$, $Y$ són independents, aleshores $F_{X,Y}(x,y) = F_{X}(x)\cdot F_{Y}(y)$. Ara si $F_{(X,Y)}$ és $\mathcal{C}^{2}$ i les $F_{X}$, $F_{Y}$ són derivables (això sempre passa en el cas absolutament continuu), llavors
+
+\[
+  f_{(X,Y)}(x,y) = \frac{\partial^{2}F_{(X,Y)}}{\partial x \partial y} = \frac{\partial F_{X}}{\partial x}\cdot \frac{\partial F_{Y}}{\partial y} = f_{X}(x) \cdot f_{Y}(y)
+\]
+
+Per tant, $X$ i $Y$ variables aleatòries absolutament contínues són independents sii
+\[
+  f_{(X,Y)}(x,y) = f_{X}(x)\cdot f_{Y}(y)
+\]
+
+\underline{Notació}: si $(X,Y)$ és un vector aleatori, 
+\[
+  \E[(X,Y)] = (\E[X], \E[Y])
+\]
+
+\[
+  \V ar[(X,Y)] = 
+  \begin{pmatrix}
+    \V ar[X]  &  Cov(X,Y) \\
+    Cov(X,Y)  &  \V ar[Y]
+  \end{pmatrix}
+  \underset{Si X,\, Y ind}{=}
+  \begin{pmatrix}
+    \V ar[X]  &  0 \\
+    0         &  \V ar[Y]
+  \end{pmatrix}
+\]
