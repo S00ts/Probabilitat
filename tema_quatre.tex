@@ -192,7 +192,7 @@ A partir de la funció de densitat conjunta podem definir la \textbf{funció de 
 \end{obs}
 
 \begin{obs}
-  Si $g:\real^{2} \mapsto \real$ és una funció mesurable, $g(X,Y)$ és una variable aleatòria i es compleix:
+  Si $g:\real^{2} \to \real$ és una funció mesurable, $g(X,Y)$ és una variable aleatòria i es compleix:
   \[
     \E[g(X,Y)] = \iint_{\real^{2}} g(x,y)\cdot f_{(X,Y)}(x,y) \, dx \, dy
   \]
@@ -229,3 +229,37 @@ Per tant, $X$ i $Y$ variables aleatòries absolutament contínues són independe
     0         &  \V ar[Y]
   \end{pmatrix}
 \]
+
+\subsubsection{Distribucions condicionades}
+
+Siguin $X$, $Y$ variables aleatòries absolutament contínues, amb funció de densitat conjunta $f_{(X,Y)}(x,y)$ i marginals $f_{X}(x)$, $f_{Y}(y)$. Sigui $x$ tal que $f_{X}(x) > 0$.
+
+\begin{defi}
+  La veriable aleatòria $Y \mid X = x$ és una variable aleatòria que té com a funció de distribució:
+  \[
+    F_{Y\mid X}(y,x) = \frac{1}{f_{X}(x)} \cdot \int_{-\infty}^{y}f_{(X,Y)}(x,u) \, du
+  \]
+  Si $f_{(X,Y)}(x,y)$ és integrable respecte a y, aleshores, $F_{Y \mid X}(y,x)$ és derivable respecte a $y$, i es compleix:
+  \[
+    f_{Y\mid X}(y,x) = \frac{\partial F_{Y\mid X}(y,x)}{\partial y} = \frac{f_{(X,Y)(x,y)}}{f_{X}(x)}
+  \]
+\end{defi}
+
+\subsubsection{Esperança condicionada}
+
+En les condicions d'abans, definim:
+\[
+  \E[Y\mid X=x] = \int_{-\infty}^{+\infty}u\cdot f_{Y\mid X}(u,x)\, du = \psi(x) \implies \E[Y\mid X] = \psi(X)
+\]
+
+Totes les propietats que vam veure en el cas discret per l'esperança condicionada s'apliquen aquí de la mateixa manera. En particular:
+
+\begin{prop}
+  \[
+    \E\big[\,\E[Y\mid X]\,\big] = \E[Y] \qquad \text{(si $(X,Y)$ és abs. cont.)}
+  \]
+\end{prop}
+
+\subsection{Funcions de v.a. absolutament contínues i aplicacions}
+
+Sigui $\overrightarrow{X} = (X_{1}, \ldots , X_{n})$ un vector aleatori absolutament continuu i $G:\real^{n} \to \real^{n}$ una funció bijectiva.
