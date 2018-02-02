@@ -262,4 +262,22 @@ Totes les propietats que vam veure en el cas discret per l'esperança condiciona
 
 \subsection{Funcions de v.a. absolutament contínues i aplicacions}
 
-Sigui $\overrightarrow{X} = (X_{1}, \ldots , X_{n})$ un vector aleatori absolutament continuu i $G:\real^{n} \to \real^{n}$ una funció bijectiva.
+Sigui $\overrightarrow{X} = (X_{1}, \ldots , X_{n})$ un vector aleatori absolutament 
+continuu i $G:\real^{n} \to \real^{n}$ una funció bijectiva. \\
+
+Com relacionem $f_{(X_{1},\ldots, X_{n})}(x_{1},\ldots,x_{n})$ amb $f_{(Y_{1},\ldots, Y_{n})}(y_{1},\ldots,y_{n})$?
+
+\subsubsection{Cas univariat}
+Sigui $X$ una variable aleatòria absolutament contínua amb funció de densitat $f_{X}(x)$. Sigui $g:\real \to \real$ una funció bijectiva, derivable i estrictament creixent. Considerem ara $g(X) = Y$ (i $\inv{g} = h$). Aleshores,
+
+\[f_{Y}(u) \text{ i } f_{X}(h(u))\cdot h'(u) \text{ són iguals } \lambda-gaireb\acute{e} \, per \, tot\]
+
+\begin{obs}
+  Si $g$ no és bijectiva o no és estrictament creixent, en general l'anàlisi és més complicat.
+\end{obs}
+
+\subsubsection{Cas multivariat}
+$G(\overrightarrow{X}) = \overrightarrow{Y}$ on $G$ és bijectiva i $\mathcal{C}^{1}(\real^{n})$, aleshores, de manera similar al cas anterior, tenim:
+\[
+  f_{(Y_{1},\ldots,Y_{n})}(y_{1},\ldots,y_{n}) = f_{(X_{1},\ldots,X_{n})}(\inv{G}(y_{1},\ldots,y_{n}))\cdot \abs{Jac\,\inv{G}(y_{1},\ldots,y_{n})}
+\]
