@@ -281,3 +281,40 @@ $G(\overrightarrow{X}) = \overrightarrow{Y}$ on $G$ és bijectiva i $\mathcal{C}
 \[
   f_{(Y_{1},\ldots,Y_{n})}(y_{1},\ldots,y_{n}) = f_{(X_{1},\ldots,X_{n})}(\inv{G}(y_{1},\ldots,y_{n}))\cdot \abs{Jac\,\inv{G}(y_{1},\ldots,y_{n})}
 \]
+
+\subsection{Distribució normal, multivariant i distribucions associades}
+
+Ja vam veure que la distribució normal ve donada per la seva esperança i la seva variància: 
+\[
+  X \sim N(\mu, \sigma^{2})
+\]
+\[
+  f_{X}(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot e^{\frac{-1}{2\sigma}\cdot(x-\mu)^{2}}
+\]
+
+La suma de normals independents és normal.
+
+\begin{thm}[Moivre-Laplace]
+  Sigui $X\sim Bin(n,p)$. Aleshores 
+  \[
+    p\Bigg(a \leq \frac{X-np}{\sqrt{np(1-p)}}\leq b\Bigg)\xrightarrow[n\to\infty]{} \int_{b}^{a} \frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{x^{2}}{2}}\, dx
+  \]
+\end{thm}
+
+\newpage
+
+\subsubsection{Distribucions associades a la normal}
+\begin{itemize}
+    \item $X_{i}\sim N(0,1)$; $X_{1}, \, X_{2},\ldots$ independents. 
+    \[
+      X_{1}^{2}+X_{2}^{2}+\ldots+X_{n}^{2}=\chi_{n}^{2} \quad \equiv \textbf{Chi quadrat} \text{ (amb n graus de llibertat})
+    \]
+    \item Si tenim $\chi_{d_{1}}^{2}$ i $\chi_{d_{2}}^{2}$, aleshores
+    \[
+      \frac{^{\chi_{d_{1}}^{2}} / _{d_{1}}}{^{\chi_{d_{2}}^{2}} / _{d_{2}}} \equiv \textbf{F-Fisher-Snedecor} \text{ (amb paràmetres $d_{1}$ i $d_{2}$)}
+    \]
+    \item $X\sim N(0,1)$, $\chi_{k}^{2}$ independent de $X$.
+    \[
+      \frac{X}{\sqrt{^{\chi_{k}^{2}} / _k}} \equiv \textbf{t - de Student} \text{ (amb $k$ graus de llibertat)}
+    \]
+\end{itemize}
