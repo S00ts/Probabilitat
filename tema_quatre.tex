@@ -350,3 +350,44 @@ Ara veurem que tot vector normal multivariant s'obté de fet com una transformac
 \begin{thm}
   $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ segueix una llei normal multivariant $\iff \overrightarrow{X} = A\cdot\overrightarrow{X} + \overrightarrow{b}$ on $A$ és una matriu \underline{no} singular ($\Sigma = A^{T}\cdot diag \cdot A$).
 \end{thm}
+
+\begin{thm}
+  Sigui $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$ de dimensió $n$, i $M$ una matriu $m\times n$ de rang màxim ($m\leq n$). Aleshores $M\cdot\overrightarrow{X}$ és un vector de variables aleatòries normal multivariant $N(M\cdot\overrightarrow{\mu}, M\cdot\Sigma\cdot M^{T})$.
+\end{thm}
+\-\\
+En el cas de $m = 1$ tenim el següent corol·lari:
+
+\begin{col}
+  Si $a_{1},\ldots,a_{n}$ són nombres tals que $\sum a_{i}^2 > 0$ (la matriu $(a_{1},\ldots,a_{n})$ té rang 1) i $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$, $\overrightarrow{X} = (X_{1},\ldots,X_{n})$
+  \[
+    M\overrightarrow{X} = \sum_{i=1}^{n} a_{i}x_{i} \sim N\bigg(\sum_{i=1}^{n} a_{i}\mu_{i}, \sum a_{i}^{2}\sigma_{i}^{2} + 2\sum_{i<j}a_{i}a_{j}\sigma_{ij}\bigg) \quad \text{ on } 
+    \begin{cases}
+      \overrightarrow{\mu} = (\mu_{1},\ldots,\mu) \\
+      \sigma_{i}^{2} = \V ar[X_{i}] \\
+      \sigma_{ij} = Cov(X_{i}, X_{j})
+    \end{cases}
+  \]
+\end{col}
+
+\-\\
+Seguidament veurem els estimadors i el teorema de Fisher:
+
+\begin{defi}
+  Siguin $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatòries idènticament distribuïdes. L'\textbf{esperança mostral} i la \textbf{variància mostral} són: \\
+  \[
+    \overline{X} = \frac{X_{1}+\ldots+X_{n}}{n}
+  \]
+  \[
+    S^{2} = \frac{1}{n-1}\cdot\sum_{i=1}^{n}(x_{i} - \overline{X})^{2}
+  \]
+  \-\\
+  En particular, $\E[\overline{X}] = \E[X_{1}]$, $\V ar[\overline{X}] = \frac{\V ar[X_{1}]}{n}$ i $\E[S^{2}] = \V ar[X_{1}]$ \\
+  
+\end{defi}
+
+Si, a més, $X_{1},\ldots,X_{n}$ són $N(\mu,\sigma^{2})$, tenim el següent teorema:
+
+\begin{thm}[Fisher]
+  Si $X_{1},\ldots, X_{n}$ són independents i $N(\mu, \sigma^{2})$, aleshores $\overline{X}$ i $S^{2}$ són independents. \\ 
+  A més, $\overline{X} \sim N(\mu, \frac{\sigma^{2}}{n})$ i $S^{2} \sim \chi_{n-1}^{2}$
+\end{thm}
