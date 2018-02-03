@@ -318,3 +318,35 @@ La suma de normals independents és normal.
       \frac{X}{\sqrt{^{\chi_{k}^{2}} / _k}} \equiv \textbf{t - de Student} \text{ (amb $k$ graus de llibertat)}
     \]
 \end{itemize}
+
+\subsubsection{Normal multivariant}
+
+\begin{defi}
+  Sigui $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ un vector aleatori, direm que $\overrightarrow{X}$ és un \textbf{vector de variables aleatòries normal multivariant} si la seva funció de densitat conjunta és:
+  \[
+    f_{\overrightarrow{X}}(x_{1},\ldots,x_{n}) = f_{\overrightarrow{X}}(\overrightarrow{x}) = \frac{1}{\sqrt{(2\pi)^{n}\cdot \abs{det(\Sigma)}}}\cdot e^{-\frac{1}{2}(\overrightarrow{x}-\overrightarrow{\mu})^{T}\cdot \inv{\Sigma} \cdot (\overrightarrow{x}-\overrightarrow{\mu})}
+  \]
+  on
+  \begin{itemize}
+      \item  $\overrightarrow{\mu}$ és un vector de $\real^{n}$ (vector d'esperances)
+      \item $\Sigma$ és una matriu $n\times n$ simètrica i definida positiva (matriu de covariàncies)
+  \end{itemize}
+  \[
+    \overrightarrow{\mu} = \E[\overrightarrow{x}]
+  \]
+  \[
+    \Sigma = \Big( Cov(x_{i},x_{j})\Big)_{i,j}
+  \]
+\end{defi}
+
+\underline{Cas particular}: Si $\Sigma = Id$, $\overrightarrow{\mu} = \overrightarrow{0}$, aleshores escriurem $\overrightarrow{X}=\overrightarrow{U}$ i es compleix que 
+\[
+f_{\overrightarrow{U}}(\overrightarrow{x}) = \frac{1}{\sqrt{(2\pi)^{n}}}\cdot e^{-\frac{1}{2}\cdot(\overrightarrow{x}-\overrightarrow{\mu})^{T}\cdot  (\overrightarrow{x}-\overrightarrow{\mu})} = \frac{1}{\sqrt{(2\pi)^{n}}}\cdot e^{-\frac{1}{2}\cdot\sum\limits_{i=1}^{n}x_{i}^{2}} = \prod_{i=1}^{n} f_{x_{i}}(x_{i})
+\]
+Per tant, les marginals són normals univariades i independents. \\
+
+Ara veurem que tot vector normal multivariant s'obté de fet com una transformació lineal de $\overrightarrow{U}$.
+
+\begin{thm}
+  $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ segueix una llei normal multivariant $\iff \overrightarrow{X} = A\cdot\overrightarrow{X} + \overrightarrow{b}$ on $A$ és una matriu \underline{no} singular ($\Sigma = A^{T}\cdot diag \cdot A$).
+\end{thm}
