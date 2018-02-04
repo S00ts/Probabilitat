@@ -1,0 +1,55 @@
+\section{Funcions característiques i famílies exponencials}
+
+\subsection{Funció generadora de moments i funció característica}
+
+\begin{defi}
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable aleatòria, la \textbf{funció generadora de moments} de $X$ és $M_{X}(s)$, definida per:
+  \[
+    M_{X}(s) = \E[e^{sX}] \quad \text{ on s $\in \cx \quad$ (No té per què estar definida)}
+  \]
+\end{defi}
+
+\begin{properties}
+  \begin{enumerate}
+      \item $M_{X}(0) = 1$
+      \item Si $\E[X^{k}] < \infty \forall k \geq 1, aleshores \E[X^{k}]=M_{X}^{(k)}(0)$
+      \item Si $Y=aX+b$,
+      \[
+        M_{Y}(s) = \E[e^{s\cdot(aX+b)}] = e^{sb}\E[e^{saX}] = e^{sb}\cdot M_{X}(as)
+      \]
+      \item Si $X,Y$ són indep. $\implies M_{X+Y}(s) = \E[e^{s\cdot(X+Y)}] = \E[e^{sX}]\cdot\E[e^{sY}] = M_{X}(s)\cdot M_{Y}(s)$
+  \end{enumerate}
+\end{properties}
+\-\\
+Aquesta definició particularitza en el cas discret i en el cas continuu de la següent manera:
+\begin{itemize}
+    \item Cas discret: $\E[e^{sX}] = \sum\limits_{x\in Im(X)}e^{sx}p(X=x)$
+    \item Cas continuu: $\E[e^{sx}] = \int_{\real}e^{sx}f_{X}(x) \, dx$
+\end{itemize}
+
+\begin{example}
+  \begin{itemize}
+  \item[]
+      \item $X \sim Ber(p) \implies M_{X}(s) = e^{s\cdot0}\cdot(1-p) + e^{s\cdot1}\cdot p = p\cdot e^{s} + (1-p)$ \\\\
+      $M_{X}(s)$ és una funció entera $\implies$ podem calcular tots els moments: $\E[X^{k}] = p$ \\
+      \item Si $Y \sim Bin(N,p) \implies Y=X_{1}+\ldots+X_{N} \quad \text{on } X_{i}\sim Ber(p), \, \setb{X_{i}}_{i=1}^{N} \text{ independents}$
+      \[
+        M_{Y}(s) = (p\cdot e^{s} + (1-p))^{N}
+      \]
+      \item $X\sim Exp(\lambda) \quad (\lambda > 0)$
+      \[
+        M_{X}(s) = \int_{\real}e^{sx}\cdot\lambda e^{-\lambda x} \, dx = \lambda\int_{-\infty}^{+\infty} e^{(s-\lambda)x} \, dx = \lambda\cdot\frac{e^{(s-\lambda)x}}{s-\lambda}\bigg|_{-\infty}^{+\infty}
+      \]
+      (No està definida per alguns valors de $s$)
+      \item $X \sim Cauchy. \, X$ té funció de densitat $\dfrac{1}{\pi(1+x^{2})}$
+      \[
+        \E[e^{sX}] = \int_{\real}\frac{e^{sx}}{\pi(1+x^{2})}\, dx \quad \text{(No té sentit si $Re(s)>0$)}
+      \]
+  \end{itemize}
+  
+\end{example}
+
+\newpage
+  
+Estem veient que la funció generadora de moments no convergeix en la majoria de casos. Això és degut a que $s\in\cx$. \\
+Per a solucionar aquest problema, prenem $s=it$ ($t\in\real$).
