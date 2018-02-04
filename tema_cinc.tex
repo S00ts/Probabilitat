@@ -117,3 +117,15 @@ Per a solucionar aquest problema, prenem $s=it$ ($t\in\real$).
 \begin{col}
   $\Phi_{X}(t)$ caracteritza completament $X$.
 \end{col}
+
+\subsection{Famílies exponencials}
+
+Ara veurem que podem tractar de manera molt general famílies de variables aleatòries usant la noció de família exponencial.
+
+\begin{defi}
+  Una família de variables aleatòries és \textbf{exponencial} amb paràmetres $\overrightarrow{\theta} = (\theta_{1},\ldots,\theta_{n})$ si la funció de probabilitat (cas discret) o la funció de densitat (cas continuu) té la forma:
+  \[
+    p(x\mid \overrightarrow{\theta}) = f(x,\overrightarrow{\theta}) = g(x)\cdot exp\Big(\sum_{i=1}^{n}\theta_{i}t_{i}(x)-c(\overrightarrow{\theta})\Big) \quad \text{ (on $\setb{t_{i}(x)}_{i=1}^{n}$ són funcions l.i.)}
+  \]
+  La família es diu \textbf{natural} si $\exists k$ tal que $t_{k}(x)=x$.
+\end{defi}
