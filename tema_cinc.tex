@@ -53,3 +53,67 @@ Aquesta definició particularitza en el cas discret i en el cas continuu de la s
   
 Estem veient que la funció generadora de moments no convergeix en la majoria de casos. Això és degut a que $s\in\cx$. \\
 Per a solucionar aquest problema, prenem $s=it$ ($t\in\real$).
+
+\begin{defi}
+  La funció $\E[e^{itX}] = M_{X}(it) = \Phi_{X}(t)$ és la \textbf{funció característica} de X.
+\end{defi}
+
+\begin{obs}
+  Totes les propietats de la funció generadora de moments es compleixen per les funcions característiques:
+  \begin{enumerate}
+      \item  $\Phi_{X}(0) = 1$
+      \item $\E[X^{k}] = M_{X}^{(k)}(0) = \dfrac{d^{k}}{ds^{k}}M_{X}(s)\bigg|_{s=0} = \dfrac{1}{(i)^{k}}\cdot \Phi_{X}^{(k)}(0)$
+      \item $Y = aX+b \implies \Phi_{Y}(t) = e^{ibt}\cdot \Phi_{X}(at)$
+      \item $X,Y$ independents $\implies \Phi_{X+Y}(t)=\Phi_{X}(t)\cdot\Phi_{Y}(t)$
+  \end{enumerate}
+\end{obs}
+
+\begin{example}
+  \begin{itemize}
+      \item[]
+      \item $X\sim Exp(\lambda) \quad (\text{amb } \lambda > 0)$. Té funció de densitat $f_{X}(x) = \lambda e^{-\lambda x}\cdot \mathbbm{1}_{[0, \infty)}(x)$
+      \[
+        \Phi_{X}(t) = \int_{0}^{\infty}e^{itx}\cdot\lambda e^{-\lambda x} \, dx = \lambda\int_{0}^{\infty}e^{(it-\lambda)x} \, dx = \lambda\frac{e^{(it-\lambda)x}}{it-\lambda}\bigg|_{0}^{\infty} = \frac{-\lambda}{it-\lambda}
+      \]
+      (Està definida per tot valor de t)
+      \item $X\sim Cauchy$
+      \[
+        \Phi_{X}(t) = \int_{-\infty}^{+\infty}\frac{e^{itx}}{\pi(1+x^{2})} \, dx = e^{-\abs{t}}
+      \]
+      S'observa que la variable aleatòria $Cauchy$ \underline{no} té moment, però si que té funció característica (No es pot derivar $\Phi_{X}(t)$ en $t=0$)
+      \item $X\sim N(0,1)$ : $\Phi_{X}(t) = e^{\frac{-t^{2}}{2}}$ \\\\
+      Com a conseqüència, si $X\sim N(\mu, \sigma^{2})$, aleshores $X=\sigma Y + \mu$ (on $Y\sim N(0,1)$)
+      \[
+        \implies \Phi_{X}(t) = e^{i\mu t - \frac{1}{2}\sigma^{2}t^{2}}
+      \]
+      
+      \item $X\sim Geom(p)$: $\Phi_{X}(t) = \dfrac{p}{e^{it}-(1-p)}$
+      \item $X\sim Pois(\lambda)$: $\Phi_{X}(t) = e^{\lambda(e^{it}-1)}$
+      \item $X\sim U(0,1)$: $\Phi_{X}(t) = \dfrac{e^{it}-1}{it} \quad$ (Té una singularitat evitable en t=0)
+  \end{itemize}
+\end{example}
+
+\subsubsection{Propietats generals de les funcions característiques}
+\begin{prop}
+  Sigui $X$ una variable aleatòria amb funció característica $\Phi_{X}(t)$. Aleshores:
+  \begin{enumerate}
+      \item $\Phi_{X}(0)=1$ i $\abs{\Phi_{X}(t)}\leq 1 \, \forall t\in\real$
+      \item $\Phi_{X}(t)$ és uniformement contínua en $\real$.
+      \item $\forall t_{1},\ldots,t_{n} \in \real, \forall z_{1},\ldots,z_{n}\in\cx$, $\sum\limits_{j,k}\Phi_{X}(t_{j}-t_{k})z_{j}\cdot \overline{z}_{k}\geq0$
+  \end{enumerate}
+\end{prop}
+
+\begin{thm}[(d'inversió)]
+  Sigui $X$ una variable aleatòria que indueix una probabilitat $p_{X}$ sobre $\real$ i funció característica $\Phi_{X}(t)$. Aleshores $\forall a,b\in \real \, (a<b)$,
+  \[
+    \underbrace{p_{X}\big((a,b)\big)}_{p(a<X<b)} + \frac{1}{2}\big(p_{X}(\setb{a})+p_{X}(\setb{b}) \big) = \lim_{T\to+\infty}\frac{1}{2\pi}\int_{-T}^{T}\frac{e^{-ita}-e^{-itb}}{it}\cdot\Phi_{X}(t) \, dt
+  \]
+\end{thm}
+
+\begin{lema} \-\\
+  Donada una variable aleatòria $X$, el nombre de discontinuïtats de $F_{X}(x)$ és un conjunt numerable.
+\end{lema}
+
+\begin{col}
+  $\Phi_{X}(t)$ caracteritza completament $X$.
+\end{col}
