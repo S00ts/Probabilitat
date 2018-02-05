@@ -125,7 +125,40 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
 \begin{defi}
   Una família de variables aleatòries és \textbf{exponencial} amb paràmetres $\overrightarrow{\theta} = (\theta_{1},\ldots,\theta_{n})$ si la funció de probabilitat (cas discret) o la funció de densitat (cas continuu) té la forma:
   \[
-    p(x\mid \overrightarrow{\theta}) = f(x,\overrightarrow{\theta}) = g(x)\cdot exp\Big(\sum_{i=1}^{n}\theta_{i}t_{i}(x)-c(\overrightarrow{\theta})\Big) \quad \text{ (on $\setb{t_{i}(x)}_{i=1}^{n}$ són funcions l.i.)}
+    p(x\mid \overrightarrow{\theta}) = f(x,\overrightarrow{\theta}) = g(x)\cdot exp\Big(\sum_{i=1}^{n}\theta_{i}t_{i}(x)-C(\overrightarrow{\theta})\Big) \quad \text{ (on $\setb{t_{i}(x)}_{i=1}^{n}$ són funcions l.i.)}
   \]
   La família es diu \textbf{natural} si $\exists k$ tal que $t_{k}(x)=x$.
 \end{defi}
+
+\begin{example}
+  \begin{enumerate}
+  \item[]
+      \item $X\sim Ber(p)$
+      \[
+        p(x\mid p) = p^{x}(1-p)^{1-x} = exp\Big(x\cdot log(p) + (1-x)\cdot log(1-p)\Big), \quad x\in\setb{0,1}
+      \]
+      Agafem l'exponent:
+      \[
+        x\cdot log(p) + (1-x)\cdot log(1-p) = x\Big(log(p) - log(1-p)\Big) = x\bigg(\underbrace{log\Big(\frac{p}{1-p}\Big)}_{\theta} \bigg) + log(1-p)
+      \]
+      Si fem $\theta = log\Big(\dfrac{p}{1-p}\Big) \implies e^{\theta} = \dfrac{p}{1-p} \implies e^{\theta} - pe^{\theta} = p \implies p = \dfrac{e^{\theta}}{1+e^{\theta}}$
+      \[
+        \implies log(1-p) = log\bigg(1-\frac{e^{\theta}}{1+e^{\theta}}\bigg) = -log(1+e^{\theta})
+      \]
+      Per tant, 
+      \[
+        p(x\mid \theta) = exp\Big(\underbrace{x}_{t_{1}(x)}\theta - \underbrace{log(1+e^{\theta})}_{C(\theta)}\Big) \qquad \bigg(\theta = log\frac{p}{1-p}\bigg)
+      \]
+      és família exponencial natural.
+      \item $X\sim Bin(N,p)$
+      \[
+        p(x\mid N,p) = \binom{N}{x}\cdot p^{x}(1-p)^{N-x} \quad x \in \setb{0,1,\ldots,N}
+      \]
+      $N$ no pot ser un paràmetre! $\implies N$ ha de ser fix. \\\\
+      En aquesta situació: \\\\
+      $
+        p(x\mid p) = \underbrace{\binom{N}{x}}_{g(x)} p^{x}(1-p)^{N-x} = g_{N}(x)\cdot exp\Big(x\cdot log(p) + (N-x)\cdot log(1-p)\Big) = g_{N}(x)\cdot exp\Big(x\cdot log(\frac{p}{1-p}) + N\cdot log(1-p)\Big) \underset{\theta = log\frac{p}{1-p}}{=}
+        g_{N}(x)\cdot exp\big(x\cdot\theta - N\cdot \underbrace{log(1+e^{\theta})}_{C(\theta)}\big)
+      $
+  \end{enumerate}
+\end{example}
