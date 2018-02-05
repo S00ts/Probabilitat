@@ -12,7 +12,7 @@
 \begin{properties}
   \begin{enumerate}
       \item $M_{X}(0) = 1$
-      \item Si $\E[X^{k}] < \infty \forall k \geq 1, aleshores \E[X^{k}]=M_{X}^{(k)}(0)$
+      \item Si $\E[X^{k}] < \infty \,\, \forall k \geq 1\text{, aleshores }\E[X^{k}]=M_{X}^{(k)}(0)$
       \item Si $Y=aX+b$,
       \[
         M_{Y}(s) = \E[e^{s\cdot(aX+b)}] = e^{sb}\E[e^{saX}] = e^{sb}\cdot M_{X}(as)
@@ -147,7 +147,7 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
       \]
       Per tant, 
       \[
-        p(x\mid \theta) = exp\Big(\underbrace{x}_{t_{1}(x)}\theta - \underbrace{log(1+e^{\theta})}_{C(\theta)}\Big) \qquad \bigg(\theta = log\frac{p}{1-p}\bigg)
+        p(x\mid \theta) = exp\Big(\underset{\substack{\downarrow \\ t_{1}(x)}}{x}\cdot\theta - \underbrace{log(1+e^{\theta})}_{C(\theta)}\Big) \qquad \bigg(\theta = log\frac{p}{1-p}\bigg)
       \]
       és família exponencial natural.
       \item $X\sim Bin(N,p)$
@@ -157,8 +157,35 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
       $N$ no pot ser un paràmetre! $\implies N$ ha de ser fix. \\\\
       En aquesta situació: \\\\
       $
-        p(x\mid p) = \underbrace{\binom{N}{x}}_{g(x)} p^{x}(1-p)^{N-x} = g_{N}(x)\cdot exp\Big(x\cdot log(p) + (N-x)\cdot log(1-p)\Big) = g_{N}(x)\cdot exp\Big(x\cdot log(\frac{p}{1-p}) + N\cdot log(1-p)\Big) \underset{\theta = log\frac{p}{1-p}}{=}
+        p(x\mid p) = \underbrace{\binom{N}{x}}_{g(x)} p^{x}(1-p)^{N-x} = g_{N}(x)\cdot exp\Big(x\cdot log(p) + (N-x)\cdot log(1-p)\Big) = \\=g_{N}(x)\cdot exp\Big(x\cdot log(\frac{p}{1-p}) + N\cdot log(1-p)\Big) \underset{\theta = log\frac{p}{1-p}}{=}
         g_{N}(x)\cdot exp\big(x\cdot\theta - N\cdot \underbrace{log(1+e^{\theta})}_{C(\theta)}\big)
       $
+      \item $X\sim N(\mu, \sigma^{2})$
+      \[
+        p(x\mid \mu, \theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}\bigg) = \frac{1}{\sqrt{2\pi}}\cdot exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}-log(\sigma)\bigg)
+      \]
+      Desenvolupem l'exponencial:
+      \[
+      \begin{split}
+          \frac{-(x-\mu)^{2}}{2\sigma^{2}}-log(\sigma) &= \frac{-x^{2}}{2\sigma^{2}}+\frac{2x\mu}{2\sigma^{2}}-\frac{-\mu^{2}}{2\sigma^{2}}-log(\sigma) = \\
+          &= \frac{-x^{2}}{2\sigma^{2}} + \frac{\mu}{\sigma^{2}}x - \Big(\frac{\mu^{2}}{2\sigma^{2}}+log(\sigma)\Big)= \\
+          & = \underbrace{\frac{\mu}{\sigma^{2}}}_{\theta_{1}}x \underbrace{-\frac{1}{2\sigma^{2}}}_{\theta_{2}}x^{2} - \Big(\frac{\mu^{2}}{2\sigma^{2}}+log(\sigma)\Big)= \\
+          &= \theta_{1}\cdot\underset{\substack{\downarrow \\ t_{1}(x)}}{x} + \theta_{2}\cdot\underset{\substack{\downarrow \\ t_{2}(x)}}{x^{2}} - \bigg(\underbrace{\frac{-\theta_{1}^{2}}{2\theta_{2}}+\frac{1}{2}\cdot log\Big(\frac{-1}{2\theta_{2}}\Big)}_{C(\theta_{1},\theta_{2})}\bigg)
+      \end{split}
+      \]
   \end{enumerate}
 \end{example}
+
+\newpage
+Estudiant la fórmula $p(x\mid \overrightarrow{\theta})$ directament, podem trobar resultats genèrics de manera senzilla.
+
+\begin{prop}
+  $\E[t_{i}(Z)] = \dfrac{\partial}{\partial \theta_{i}}C(\overrightarrow{\theta})$
+\end{prop}
+
+\begin{prop}
+  Si $X$ pertany a una família exponencial natural amb $t_{1}(x) = x$, aleshores:
+  \[
+    \Phi_{X}(t) = e^{C(\theta_{1}+it, \theta_{2},\ldots,\theta_{r})-C(\overrightarrow{\theta})}
+  \]
+\end{prop}
