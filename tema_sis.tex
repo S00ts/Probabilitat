@@ -67,3 +67,105 @@ També veurem que les implicacions contraries mai seran certes.
 X_n \overset{qs}{\longrightarrow} X \arrow[rr, "\text{IV}"] & & X_n \overset{p}{\longrightarrow} X  \arrow[r, "\text{I}"] & X_n \overset{d}{\longrightarrow} X\\
 X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n \overset{s}{\longrightarrow} X \arrow[ur, "\text{II}"']
 \end{tikzcd}
+
+\begin{prop}[(I)]
+  $X_n \overset{p}{\to} X \implies X_n \overset{d}{\to} X$, i el recíproc \underline{no} és cert. \\\\
+  
+  Vegem un contraexemple de que el recíproc no és cert: \\
+  
+  $X \sim Ber(\dfrac{1}{2})$, $X_n = X$, $Y = 1-X$ (En particular, $Y\sim Ber(\dfrac{1}{2})$). \\
+  
+  És clar que $X_n \overset{d}{\to} Y$, ja que $X_n \overset{d}{\to} X$ i $X$ i $Y$ tenen la mateixa funció de distribució.
+  
+  Per altra banda, $\abs{X_n - Y} = 1$ (ja que si una val $1$, l'altra val $0$)
+  $$\implies p(\abs{X_n-Y} > \varepsilon) = 1 \quad \text{ si } \varepsilon \text{ és prou petit!!}$$
+\end{prop}
+
+\begin{prop}[(II)]
+  $X_n \overset{1}{\to} X \implies X_n \overset{p}{\to} X$, i el recíproc \underline{no} és cert. \\\\
+  
+  Vegem un contraexemple del recíproc: \\
+  
+  \[
+    X_n = \begin{cases}
+      n^3 &\text{ amb probabilitat } \frac{1}{n^2} \\
+      0   &\text{ amb probabilitat } 1 - \frac{1}{n^2}
+    \end{cases}
+  \]
+  \-\\\\
+  
+  
+  El candidat a límit és $X=0$:
+  
+  \[ 
+    \forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n} > \varepsilon) = \frac{1}{n^2} \underset{n\to \infty}{\longrightarrow} 0
+  \]
+  Amb això, $X_n \overset{p}{\to} 0 = X$. Ara bé,
+  \[
+    \E\left[\abs{X_n - X}\right] = \E\left[\abs{X_n}\right] = n^3 \cdot \frac{1}{n^2} = n \underset{n \to \infty}{\longrightarrow} \infty \implies X_n \not\overset{1}{\to} 0
+  \]
+\end{prop}
+
+\begin{prop}[(III)]
+  Si $r\geq s \geq 1$ i $ X_n \overset{r}{\to} X \implies X_n \overset{s}{\to} X$.\\\\
+  
+  El recíproc \underline{no} és cert:
+  
+  \[
+    X_n = \begin{cases}
+      n &\text{ amb probabilitat } n^{\frac{-(r+s)}{2}} \\
+      0 &\text{ amb probabilitat } 1 - n^{\frac{-(r+s)}{2}}
+    \end{cases} 
+  \]
+  Prendrem com a candidat a límit $X=0$.\\
+  
+  $\E\left[\abs{X_n}^s \right] = n^s \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = n^{\frac{s-r}{2}} \underset{n \to \infty}{\longrightarrow} 0 \text{ (perquè } s \leq r)$
+  
+  $\E\left[\abs{X_n}^r \right] = n^r \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = n^{\frac{r-s}{2}} \underset{n \to \infty}{\longrightarrow} +\infty \not= 0 \text{ !!}$
+\end{prop}
+
+\begin{lema}
+  \-\\
+  Sigui $\varepsilon > 0$. Definim $$A_n(\varepsilon) = \setb{\omega \in \Omega : \abs{X_n(\omega) - X(\omega)} > \varepsilon}$$ i $$B_n(\varepsilon) = \bigcup_{m\geq n} A_m(\varepsilon)$$
+  
+  Aleshores,
+  \[
+    X_n \overset{q.s.}{\to} X \iff \forall \varepsilon > 0, \, \lim_n p(B_n(\varepsilon)) = 0
+  \]
+\end{lema}
+
+Com a conseqüència, tenim el següent corol·lari:
+
+\begin{col}
+  Amb la notació anterior, 
+  \[
+    \forall \varepsilon > 0, \sum_{n\geq 1}p(A_n(\varepsilon)) \implies X_n \overset{q.s.}{\to} X
+  \]
+\end{col}
+
+\newpage
+
+\begin{prop}[(IV)]
+  $X_n \overset{q.s.}{\to} X \implies X_n \overset{p}{\to} X$. \\\\
+  
+  El recíproc \underline{no} és cert:
+  
+  \[
+    X_n = \begin{cases}
+      1 &\text{ amb probabilitat } \frac{1}{n}\\
+      0 &\text{ amb probabilitat } 1 - \frac{1}{n}
+    \end{cases}
+  \]
+  Candidat a límit: $X=0$
+  
+  Convergeix en probabilitat: 
+  $$\forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n}>\varepsilon) \underset{\text{si } \varepsilon < 1}{=} \frac{1}{n} \underset{n \to \infty}{\longrightarrow} 0$$
+  
+  Vegem ara que no es compleix que $X_n \overset{q.s.}{\to} 0$. Ho veurem calculant $\lim\limits_{n} p(B_n(\varepsilon))$.
+  
+  Calculem-ho:
+  
+  \[
+    p(B_n(\varepsilon)) = 
+  \]
+\end{prop}
