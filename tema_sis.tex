@@ -165,7 +165,62 @@ Com a conseqüència, tenim el següent corol·lari:
   
   Calculem-ho:
   
-  \[
-    p(B_n(\varepsilon)) = 
-  \]
+  Sigui $A_n(\varepsilon) = \setb{\omega \in \Omega : \abs{X_n(\omega) - X(\omega)} > \varepsilon}$
+  
+    \begin{align*}
+        p(B_n(\varepsilon)) &= p\left(\bigcup_{m\geq n}A_m(\varepsilon)\right) = 1 - p\left(\bigcap_{m\geq n}\overline{A_m(\varepsilon)}\right) \underset{\substack{A_n(\varepsilon) \\ \text{ indep.}}}{=} 1 - \prod_{m\geq n}{p\left(\overline{A_m(\varepsilon)} \right)} \underset{\text{si } \varepsilon < 1}{=}\\
+        &= 1 - \prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = 0
+    \end{align*}
+    
+    Vegem ara que $\lim\limits_{n\to \infty}\displaystyle\prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = 0$
+    
+    \[
+      0 \leq \prod_{m\geq n}\left(1-\dfrac{1}{m} \right) \underset{1-x\leq e^{-x}}{\leq} \exp\left(\sum_{m\geq n}\frac{-1}{m}\right) \underset{\forall n}{=} 0
+    \]
+    
+    Per tant, $\forall n$, $\displaystyle\prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = a_n = 0 \implies \lim\limits_{n\to \infty} a_n = 0 \implies p(B_n(\varepsilon)) \underset{n}{\longrightarrow} 1$
 \end{prop}
+
+Finalment, veurem una implicació en sentit contrari:
+
+\begin{prop}
+  Si $X_n \overset{p}{\to} X$, aleshores existeix una subsuccessió $\setb{n_i}_{i\geq 1}$ per la qual $Z_{n_i}\overset{q.s.}{\longrightarrow} X$.
+\end{prop}
+
+\newpage
+
+\subsection{Convergència quasi-segura i la llei forta dels grans nombres}
+
+Comencem amb les propietats bàsiques de la convergència quasi-segura:
+
+\begin{prop}
+  Si $X_n \overset{q.s.}{\to} X$ i $Y_n \overset{q.s.}{\to} Y$, aleshores:
+  \begin{enumerate}[label=\alph*)]
+    \item $X_n + Y_n \overset{q.s.}{\longrightarrow} X+Y$
+    \item $X-n \cdot Y_n \overset{q.s.}{\longrightarrow} X \cdot Y$
+    \item $c \cdot X_n \overset{q.s.}{\longrightarrow} c \cdot X$ ($c\in \real$)
+    \item Si $g$ contínua, $g(X_n) \overset{q.s.}{\longrightarrow} g(X)$
+  \end{enumerate}
+\end{prop}
+
+El resultat més important en aquest mode de convergència és la llei forta dels grans nombres:
+
+\begin{thm}[(Llei forta dels grans nombres)]
+  Sigui $\setb{X_n}_{n\geq 1}$ una successió de variables aleatòries independents i idènticament distribuïdes (i.i.d.) amb X.
+  
+  A més, $\E[\abs{X}]<+\infty, \, \E[X] = \mu$. Aleshores, si $S_n = X_1 + \ldots + X_n$:
+  
+  \[
+    \frac{S_n}{n} \overset{q.s.}{\longrightarrow}\mu 
+  \]
+\end{thm}
+
+\begin{obs}
+  Sota les mateixes condicions, $\dfrac{S_n}{n}\overset{p}{\to}\E[X] \equiv$ \textit{Llei feble dels grans nombres}
+\end{obs}
+
+\begin{obs}
+  Sota les mateixes condicions (i també $\V ar[X]< +\infty$), podem afirmar convergència en mitjana d'ordre 2 (o mitjana quadràtica): $\frac{S_n}{n} \overset{2}{\to}\mu$
+\end{obs}
+
+\subsection{Convergència en distribució i el teorema del límit central}
