@@ -220,7 +220,114 @@ El resultat més important en aquest mode de convergència és la llei forta del
 \end{obs}
 
 \begin{obs}
-  Sota les mateixes condicions (i també $\V ar[X]< +\infty$), podem afirmar convergència en mitjana d'ordre 2 (o mitjana quadràtica): $\frac{S_n}{n} \overset{2}{\to}\mu$
+  Sota les mateixes condicions (i també $\V ar[X]< +\infty$), podem afirmar convergència en 
+  mitjana d'ordre 2 (o mitjana quadràtica): $\frac{S_n}{n} \overset{2}{\to}\mu$
 \end{obs}
 
-\subsection{Convergència en distribució i el teorema del límit central}
+\subsection{Convergència en distribució i el teorema central del límit}
+
+Malgrat que la convergència en distribució és el mode més feble de convergència, moltes de les
+propietats que hem vist en la convergència quasi-segura no s'hereten en aquest mode de convergència.
+
+\begin{example}
+  No és cert que $X_n \overset{d}{\to} X$, $Y_n \overset{d}{\to} Y \implies$ $X_n + Y_n \overset{d}{\to} X+Y$
+  
+  Per exemple, si prenem $X_n, \, Y_n \sim X$, i la variable aleatòria $X$ es defineix com:
+  
+  \[
+    \begin{cases}
+      p(X=0) = \frac{1}{2} \\
+      p(X=1) = \frac{1}{2}
+    \end{cases}
+  \]
+  Aleshores,
+  
+  \[
+    \begin{cases}
+      p(X_n + Y_n = 0) = \frac{1}{4} \\
+      p(X_n + Y_n = 1) = \frac{1}{2} \\
+      p(X_n + Y_n = 2) = \frac{1}{4}
+    \end{cases}
+  \]
+  
+  i tenim
+  
+  \[
+  \begin{rcases}
+      X_n \overset{d}{\to} X \\
+      Y_n \overset{d}{\to} Y
+    \end{rcases}
+    X_n + Y_n \not\overset{d}{\to} 2X
+  \]
+  Ja que $p(2X = 0) = p(2X=2) = \frac{1}{2}$
+  
+  La convergència en distribució no distingeix les dues $X$'s en $X + X = 2X$
+\end{example}
+
+Malgrat això, quan un dels límits és determinista, aleshores sí podem afirmar convergència en 
+distribució:
+
+\begin{prop}
+  Siguin $\setb{X_n}_{n\geq1}$, $\setb{Y_n}_{n\geq1}$ seqüències de variables aleatòries tals que 
+  $X_n \overset{d}{\to} X$ ($X$ v.a.) i $Y_N \overset{p}{\to} \alpha$ ($\alpha \in \real$), aleshores
+  \[
+    X_n + Y_n \overset{d}{\to} X + \alpha
+  \]
+\end{prop}
+
+El que estem veient és que la convergència en distribució no funciona quan combinem seqüències diferents de
+variables aleatòries. El que sí veurem és que si $S_n \overset{d}{\to} X$ i $g:\real \to \real$ és contínua
+$\implies g(X_n) \overset{d}{\to} g(X)$. Aquest resultat serà conseqüència del següent teorema:
+
+\begin{thm}[(de representació de Skorokhod)]
+  Sigui $\setb{X_n}_{n\geq1}$ una seqüència de variables aleatòries que compleix $X_n \overset{d}{\to} X$.
+  Aleshores existeix un espai de probabilitat $(\Omega', \mathcal{A}', p')$ i una seqüència de variables aleatòries $\setb{Y_n}_{n\geq1}$ i $Y$ definides sobre $(\Omega', \mathcal{A}', p')$ tal que:
+  
+  \begin{enumerate}
+      \item $F_{X_n}(x) = F_{Y_n}(x) \, \forall n$, $F_X(x) = F_Y(x) \, \forall x \in \real$
+      \item $Y_n \overset{q.s.}{\to} Y$
+  \end{enumerate}
+\end{thm}
+
+\begin{col}
+  Siguin $\setb{X_n}_{n\geq1}$, $X$ v.a. tals que $X_n \overset{d}{\to} X$ i $g: \real \to \real$ és
+  contínua, aleshores:
+  \[
+    g(X_n) \overset{d}{\to} g(X)
+  \]
+\end{col}
+
+Per a demostrar resultats de convergència en distribució, és molt útil l'ús de funcions característiques.
+En particular, tenim el següent teorema que ens permet estudiar el límit puntual de límits de funcions característiques.
+
+\begin{thm}[(Continuïtat de Lévy)]
+  Siguin $\setb{X_n}_{n\geq1}$ successió de variables aleatòries, $X$ una v.a., $\Phi_n(t)$ funció característica de $X_n$ i $\Phi$ funció característica de X.
+  
+  \begin{enumerate}
+      \item Si $X_n \overset{d}{\to} X$, aleshores $\Phi_n(t)$ convergeix puntualment a $\Phi(t)$
+      \item Si $\Phi_n(t)$ convergeix puntualment cap a $\psi(t)$ i $\psi(t)$ és contínua en $t=0$, aleshores $\exists Y$ variable aleatòria tal que $\Phi_Y(t) = \psi(t)$ i $X_n \overset{d}{\to} Y$
+  \end{enumerate}
+  
+\end{thm}
+
+Aquest resultat ens permet treballar amb funcions característiques (enlloc de funcions de distribució) per
+demostrar convergència en distribució.
+
+La primera aplicació és la versió de la llei dels grans nombres amb convergència en distribució:
+
+\begin{thm}[(Versió dèbil de la llei forta dels grans nombres)]
+  Sigui $X$ una variable aleatòria tal que $\E[X] = \mu < +\infty$
+  
+  Sigui $\setb{X_i}_{i\geq1}$ successió de variables aleatòries independents amb $X_i \sim X$.
+  
+  Sigui $S_n = \sum\limits_{i=1}^n X_i$.
+  
+  Aleshores,
+  \[
+    \frac{S_n}{n} \overset{d}{\to} \mu
+  \]
+\end{thm}
+
+\begin{thm}[(central del límit)]
+  
+\end{thm}
