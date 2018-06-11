@@ -329,5 +329,92 @@ La primera aplicació és la versió de la llei dels grans nombres amb convergè
 \end{thm}
 
 \begin{thm}[(central del límit)]
+  Sigui $X$ una variable aleatòria amb $\E[X] = \mu < +\infty$, $\V ar[X] = \sigma^2 < +\infty$.
   
+  Sigui $\setb{X_n}_{n\geq1}$ successió de variables aleatòries independents amb $X_i \sim X$.
+  
+  Aleshores, 
+  
+  \[
+    \frac{S_n -n\mu}{\sqrt{n\sigma^2}} \overset{d}{\to} N(0,1)
+  \]
+\end{thm}
+
+\begin{example}
+  Si fem $X_n = Bin(n,p)$, aleshores
+  
+  $$X_n = Y_1 + \ldots + Y_n, \, \setb{Y_i}_{i=1}^n \text{ són independents i } Y_i \sim Ber(p)$$
+  
+  $$\implies \text{El teorema central del límit diu que } \frac{X_n - np}{\sqrt{np(1-p)}} \overset{d}{\to} N(0,1)$$
+\end{example}
+
+\subsection{Teorema de Chernoff i aplicacions}
+
+El que veurem ara és la velocitat de convergència dels termes $\frac{Sn}{n}$ cap a $\mu$ sota condicions addicionals de les variables aleatòries $X_i$ (Recordem que hem vist que $S_n = \sum\limits_{i=1}^n X_i$, $X_i\sim X$, $X_i$ independents i $\E[X] = \mu$)
+
+En el cas general, si usem Chebyshev, tenim que:
+
+\[
+  p(\abs{S_n - n\mu} \geq \varepsilon) < \frac{n\sigma^2}{\varepsilon^2} \qquad (\V ar[X] = \sigma^2)
+\]
+
+\[
+  p\big(\underbrace{\abs{S_n/n - \mu} \geq \varepsilon}_{B_n(\varepsilon)}\big) < \frac{\sigma^2}{n\varepsilon^2}
+\]
+
+$\implies$ Si ara estudiem $\sum\limits_{n\geq1}p(\abs{S_n/n - \mu} \geq \varepsilon) < \dfrac{\sigma^2}{\varepsilon^2}\cdot \sum\limits_{n\geq1} \frac{1}{n}$ No ens diu res perquè divergeix.
+
+\newpage
+
+Per tant, Chebyshev \underline{no} és suficientment fort per assegurar que $\sum\limits_{n\geq1}p(B_n(\varepsilon)) < +\infty$
+
+(per poder assegurar convergència q.s.) \\
+
+El que veurem ara és que podem millorar Chebyshev si demanem condicions addicionals sobre els $X_i$.
+
+\begin{thm}[(Fites de Chernoff)]
+  Siguin $\setb{X_i}_{i\geq1}$ variables aleatòries independents, $X_i \sim Ber(p_i)$. \\
+  
+  Sigui $S_n = X_1 + \ldots + X_n$ amb $\E[S_n] = \mu \quad (\mu = p_1 + \ldots + p_n)$ \\
+  
+  Aleshores, $\forall \delta>0$:
+  \begin{enumerate}
+      \item Fita cua superior: $p\big(S_n \geq (1+\delta)\mu\big) \leq \exp\left(-\dfrac{\delta^2}{2+\delta}\mu\right)$
+      \item Fita cua inferior: $\hspace{0.18cm}p\big(S_n\leq(1-\delta)\mu \big) \leq \exp\left(-\dfrac{\delta^2}{2}\mu\right)$
+  \end{enumerate}
+\end{thm}
+
+Vegem l'anàleg de la desigualtat de Chebyshev en aquest context:
+
+\begin{col}
+  Amb la notació del teorema anterior:
+  \[
+    p\left(\abs{S_n - \mu}\geq\delta\mu\right) \leq 2\cdot \exp\left(\dfrac{-\delta^2}{3}\mu \right)
+  \]
+\end{col}
+
+\begin{defi}
+  Sigui $A\subseteq \n$ (possiblement infinit). 
+  
+  La \textbf{funció de representació} de $A$ és $r_A:\n \to \n$ definida per:
+  
+  \[
+    r_A(n) = \abs{\setb{n=a+b : (a,b) \in A^2}}
+  \]
+\end{defi}
+
+És difícil construir un conjunt $A$ infinit pel qual:
+
+\begin{itemize}
+    \item $r_A(n) > 0 \, \forall n \geq n_0$.
+    \item $r_A(n)$ sigui fitada.
+\end{itemize}
+
+Vegem el següent resultat de Pál Erd{\H o}s, que és el millor que se sap:
+
+\begin{thm}[(Erd{\H o}s)]
+  $\exists A\subseteq \n$, $\abs{A} = +\infty$, tal que $\exists n_0, c_1, c_2 > 0$ que compleixen:
+  \[
+    c_1\log n \leq r_A(n) \leq c_2\log n \qquad \forall n\geq n_0
+  \]
 \end{thm}
