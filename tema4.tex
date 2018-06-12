@@ -235,7 +235,7 @@ Per tant, $X$ i $Y$ variables aleatòries absolutament contínues són independe
 Siguin $X$, $Y$ variables aleatòries absolutament contínues, amb funció de densitat conjunta $f_{(X,Y)}(x,y)$ i marginals $f_{X}(x)$, $f_{Y}(y)$. Sigui $x$ tal que $f_{X}(x) > 0$.
 
 \begin{defi}
-  La veriable aleatòria $Y \mid X = x$ és una variable aleatòria que té com a funció de distribució:
+  La variable aleatòria $Y \mid X = x$ és una variable aleatòria que té com a funció de distribució:
   \[
     F_{Y\mid X}(y,x) = \frac{1}{f_{X}(x)} \cdot \int_{-\infty}^{y}f_{(X,Y)}(x,u) \, du
   \]
@@ -264,8 +264,9 @@ Totes les propietats que vam veure en el cas discret per l'esperança condiciona
 
 Sigui $\overrightarrow{X} = (X_{1}, \ldots , X_{n})$ un vector aleatori absolutament 
 continuu i $G:\real^{n} \to \real^{n}$ una funció bijectiva. \\
+Com és el vector aleatori $G(\overrightarrow{X}) = \overrightarrow{Y} = (Y_1, \ldots, Y_n)$?
 
-Com relacionem $f_{(X_{1},\ldots, X_{n})}(x_{1},\ldots,x_{n})$ amb $f_{(Y_{1},\ldots, Y_{n})}(y_{1},\ldots,y_{n})$?
+Més en particular, com relacionem $f_{(X_{1},\ldots, X_{n})}(x_{1},\ldots,x_{n})$ amb $f_{(Y_{1},\ldots, Y_{n})}(y_{1},\ldots,y_{n})$?
 
 \subsubsection{Cas univariat}
 Sigui $X$ una variable aleatòria absolutament contínua amb funció de densitat $f_{X}(x)$. Sigui $g:\real \to \real$ una funció bijectiva, derivable i estrictament creixent. Considerem ara $g(X) = Y$ (i $\inv{g} = h$). Aleshores,
