@@ -125,7 +125,7 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
 \begin{defi}
   Una família de variables aleatòries és \textbf{exponencial} amb paràmetres $\overrightarrow{\theta} = (\theta_{1},\ldots,\theta_{n})$ si la funció de probabilitat (cas discret) o la funció de densitat (cas continuu) té la forma:
   \[
-    p(x\mid \overrightarrow{\theta}) = f(x,\overrightarrow{\theta}) = g(x)\cdot exp\Big(\sum_{i=1}^{n}\theta_{i}t_{i}(x)-C(\overrightarrow{\theta})\Big) \quad \text{ (on $\setb{t_{i}(x)}_{i=1}^{n}$ són funcions l.i.)}
+    p(x\mid \overrightarrow{\theta}) = f(x,\overrightarrow{\theta}) = g(x)\cdot \exp\Big(\sum_{i=1}^{n}\theta_{i}t_{i}(x)-C(\overrightarrow{\theta})\Big) \quad \text{ (on $\setb{t_{i}(x)}_{i=1}^{n}$ són funcions l.i.)}
   \]
   La família es diu \textbf{natural} si $\exists k$ tal que $t_{k}(x)=x$.
 \end{defi}
@@ -135,19 +135,19 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
   \item[]
       \item $X\sim Ber(p)$
       \[
-        p(x\mid p) = p^{x}(1-p)^{1-x} = exp\Big(x\cdot log(p) + (1-x)\cdot log(1-p)\Big), \quad x\in\setb{0,1}
+        p(x\mid p) = p^{x}(1-p)^{1-x} = \exp\Big(x\cdot \log(p) + (1-x)\cdot \log(1-p)\Big), \quad x\in\setb{0,1}
       \]
       Agafem l'exponent:
       \[
-        x\cdot log(p) + (1-x)\cdot log(1-p) = x\Big(log(p) - log(1-p)\Big) = x\bigg(\underbrace{log\Big(\frac{p}{1-p}\Big)}_{\theta} \bigg) + log(1-p)
+        x\cdot \log(p) + (1-x)\cdot \log(1-p) = x\Big(\log(p) - \log(1-p)\Big) = x\bigg(\underbrace{\log\Big(\frac{p}{1-p}\Big)}_{\theta} \bigg) + \log(1-p)
       \]
-      Si fem $\theta = log\Big(\dfrac{p}{1-p}\Big) \implies e^{\theta} = \dfrac{p}{1-p} \implies e^{\theta} - pe^{\theta} = p \implies p = \dfrac{e^{\theta}}{1+e^{\theta}}$
+      Si fem $\theta = \log\Big(\dfrac{p}{1-p}\Big) \implies e^{\theta} = \dfrac{p}{1-p} \implies e^{\theta} - pe^{\theta} = p \implies p = \dfrac{e^{\theta}}{1+e^{\theta}}$
       \[
-        \implies log(1-p) = log\bigg(1-\frac{e^{\theta}}{1+e^{\theta}}\bigg) = -log(1+e^{\theta})
+        \implies \log(1-p) = \log\bigg(1-\frac{e^{\theta}}{1+e^{\theta}}\bigg) = -\log(1+e^{\theta})
       \]
       Per tant, 
       \[
-        p(x\mid \theta) = exp\Big(\underset{\substack{\downarrow \\ t_{1}(x)}}{x}\cdot\theta - \underbrace{log(1+e^{\theta})}_{C(\theta)}\Big) \qquad \bigg(\theta = log\frac{p}{1-p}\bigg)
+        p(x\mid \theta) = \exp\Big(\underset{\substack{\downarrow \\ t_{1}(x)}}{x}\cdot\theta - \underbrace{\log(1+e^{\theta})}_{C(\theta)}\Big) \qquad \bigg(\theta = \log\frac{p}{1-p}\bigg)
       \]
       és família exponencial natural.
       \item $X\sim Bin(N,p)$
@@ -157,20 +157,20 @@ Ara veurem que podem tractar de manera molt general famílies de variables aleat
       $N$ no pot ser un paràmetre! $\implies N$ ha de ser fix. \\\\
       En aquesta situació: \\\\
       $
-        p(x\mid p) = \underbrace{\binom{N}{x}}_{g(x)} p^{x}(1-p)^{N-x} = g_{N}(x)\cdot exp\Big(x\cdot log(p) + (N-x)\cdot log(1-p)\Big) = \\=g_{N}(x)\cdot exp\Big(x\cdot log(\frac{p}{1-p}) + N\cdot log(1-p)\Big) \underset{\theta = log\frac{p}{1-p}}{=}
-        g_{N}(x)\cdot exp\big(x\cdot\theta - N\cdot \underbrace{log(1+e^{\theta})}_{C(\theta)}\big)
+        p(x\mid p) = \underbrace{\binom{N}{x}}_{g(x)} p^{x}(1-p)^{N-x} = g_{N}(x)\cdot \exp\Big(x\cdot \log(p) + (N-x)\cdot \log(1-p)\Big) = \\=g_{N}(x)\cdot \exp\Big(x\cdot \log(\frac{p}{1-p}) + N\cdot \log(1-p)\Big) \underset{\theta = \log\frac{p}{1-p}}{=}
+        g_{N}(x)\cdot \exp\big(x\cdot\theta - N\cdot \underbrace{\log(1+e^{\theta})}_{C(\theta)}\big)
       $
       \item $X\sim N(\mu, \sigma^{2})$
       \[
-        p(x\mid \mu, \theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}\bigg) = \frac{1}{\sqrt{2\pi}}\cdot exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}-log(\sigma)\bigg)
+        p(x\mid \mu, \theta) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot \exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}\bigg) = \frac{1}{\sqrt{2\pi}}\cdot \exp\bigg(\frac{-(x-\mu)^{2}}{2\sigma^{2}}-\log(\sigma)\bigg)
       \]
       Desenvolupem l'exponencial:
       \[
       \begin{split}
-          \frac{-(x-\mu)^{2}}{2\sigma^{2}}-log(\sigma) &= \frac{-x^{2}}{2\sigma^{2}}+\frac{2x\mu}{2\sigma^{2}}-\frac{-\mu^{2}}{2\sigma^{2}}-log(\sigma) = \\
-          &= \frac{-x^{2}}{2\sigma^{2}} + \frac{\mu}{\sigma^{2}}x - \Big(\frac{\mu^{2}}{2\sigma^{2}}+log(\sigma)\Big)= \\
-          & = \underbrace{\frac{\mu}{\sigma^{2}}}_{\theta_{1}}x \underbrace{-\frac{1}{2\sigma^{2}}}_{\theta_{2}}x^{2} - \Big(\frac{\mu^{2}}{2\sigma^{2}}+log(\sigma)\Big)= \\
-          &= \theta_{1}\cdot\underset{\substack{\downarrow \\ t_{1}(x)}}{x} + \theta_{2}\cdot\underset{\substack{\downarrow \\ t_{2}(x)}}{x^{2}} - \bigg(\underbrace{\frac{-\theta_{1}^{2}}{2\theta_{2}}+\frac{1}{2}\cdot log\Big(\frac{-1}{2\theta_{2}}\Big)}_{C(\theta_{1},\theta_{2})}\bigg)
+          \frac{-(x-\mu)^{2}}{2\sigma^{2}}-\log(\sigma) &= \frac{-x^{2}}{2\sigma^{2}}+\frac{2x\mu}{2\sigma^{2}}-\frac{-\mu^{2}}{2\sigma^{2}}-\log(\sigma) = \\
+          &= \frac{-x^{2}}{2\sigma^{2}} + \frac{\mu}{\sigma^{2}}x - \Big(\frac{\mu^{2}}{2\sigma^{2}}+\log(\sigma)\Big)= \\
+          & = \underbrace{\frac{\mu}{\sigma^{2}}}_{\theta_{1}}x \underbrace{-\frac{1}{2\sigma^{2}}}_{\theta_{2}}x^{2} - \Big(\frac{\mu^{2}}{2\sigma^{2}}+\log(\sigma)\Big)= \\
+          &= \theta_{1}\cdot\underset{\substack{\downarrow \\ t_{1}(x)}}{x} + \theta_{2}\cdot\underset{\substack{\downarrow \\ t_{2}(x)}}{x^{2}} - \bigg(\underbrace{\frac{-\theta_{1}^{2}}{2\theta_{2}}+\frac{1}{2}\cdot \log\Big(\frac{-1}{2\theta_{2}}\Big)}_{C(\theta_{1},\theta_{2})}\bigg)
       \end{split}
       \]
   \end{enumerate}
