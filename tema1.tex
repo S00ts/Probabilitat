@@ -3,7 +3,8 @@
 \subsection{Definició axiomàtica d'espai de probabilitat}
 
 \begin{defi}
-  Un \textbf{espai de probabilitat} és un espai de mesura $(\Omega, \mathcal{A}, p)$, tal que $p(\Omega) = 1$.
+  Un \textbf{espai de probabilitat} és un espai de mesura $(\Omega, \mathcal{A}, p)$, tal que 
+  $p(\Omega) = 1$.
   \begin{itemize}
       \item $\Omega$ s'anomena \textbf{espai mostral}.
       \item $\mathcal{A}$ se l'anomena \textbf{conjunt d'esdeveniments} o \textbf{successos}.
@@ -15,14 +16,16 @@
   $\mathcal{A} \subseteq \mathcal{P}(\Omega)$ és una $\sigma$-àlgebra: \\
   $\sigma1)$ $\varnothing \in \mathcal{A}$ \\
   $\sigma2)$ $A \in \mathcal{A} \iff \overline{A} \in \mathcal{A}$ \\
-  $\sigma3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A} \implies \bigcup\limits_{n\geq1}A_{n} \in \mathcal{A}$
+  $\sigma3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A} \implies 
+  \bigcup\limits_{n\geq1}A_{n} \in \mathcal{A}$
 \end{obs}
 
 \begin{obs}
   Recordem que $p$ és una mesura i, per tant: \\
   $p1)$ $p(\varnothing) = 0$ \\
   $p2)$ $\forall A \in \mathcal{A},\, p(A)\geq0$ \\
-  $p3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A}$ disjunts 2 a 2 $(A_{i}\cap A_{j} = \varnothing \, si \, i \not =j)$, aleshores 
+  $p3)$ Si $\setb{A_{n}}_{n\geq1}$ és una seqüència de successos en $\mathcal{A}$ disjunts 2 a 2 
+  $(A_{i}\cap A_{j} = \varnothing \, si \, i \not =j)$, aleshores 
   \[
     p\bigg(\bigcup\limits_{n\geq1}A_{n}\bigg) = \sum_{n\geq1}p(A_{n})
   \]
@@ -34,22 +37,28 @@ Vegem les primeres propietats dels espais de probabilitat:
   Per un espai de probabilitat $(\Omega, \mathcal{A}, p)$ es compleix que: \\
   (i) $A\in\mathcal{A} \implies p(\overline{A}) = 1-p(A)$ \\
   (ii) Si $A, B \in \mathcal{A},\, A \subseteq B \implies p(A)\leq p(B)$ \\
-  (iii) Si $A_{1},\ldots,A_{r} \in \mathcal{A}, \, i \, A_{i}\cap A_{j} \not= \varnothing \, (i\not= j)$, aleshores $p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) = \sum\limits_{i=1}^{r}p(A_{i})$ \\
+  (iii) Si $A_{1},\ldots,A_{r} \in \mathcal{A}, \, i \, A_{i}\cap A_{j} \not= \varnothing \, (i\not= j)$, 
+  aleshores $p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) = \sum\limits_{i=1}^{r}p(A_{i})$ \\
   (iv) Si $A,B \in \mathcal{A}, \, A\subseteq B \implies p(B-A) = p(B)-p(A)$\\
   (v) Successions monòtones: 
   \[
-    \hspace{-2.5cm}\text{a) Si } A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \ldots \subseteq A_{i} \in \mathcal{A} \implies p\bigg(\bigcup\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
+    \hspace{-2.5cm}\text{a) Si } A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \ldots \subseteq A_{i} \in \mathcal{A} 
+    \implies p\bigg(\bigcup\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
   \]
   \[
-    \hspace{-2.5cm}\text{b) Si } A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \ldots \supseteq A_{i} \in \mathcal{A} \implies p\bigg(\bigcap\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
+    \hspace{-2.5cm}\text{b) Si } A_{1} \supseteq A_{2} \supseteq A_{3} \supseteq \ldots \supseteq A_{i} \in \mathcal{A} 
+    \implies p\bigg(\bigcap\limits_{n\geq1}A_{n}\bigg) = \lim_{n\to\infty}p(A_{n})
   \]
 \end{prop}
 
 \newpage
 
-Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_{1}, A_{2}, \ldots, A_{i}$ en general \underline{no} disjunts, aleshores \underline{no} és cert que  $p\bigg(\bigcup\limits_{i=1}^{r}A_{r} \bigg) = \sum\limits_{i=1}^{r}p(A_{i})$. En aquest cas, tenim la següent fita:
+Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_{1}, A_{2}, \ldots, A_{i}$ 
+en general \underline{no} disjunts, aleshores \underline{no} és cert que  $p\bigg(\bigcup\limits_{i=1}^{r}A_{r} \bigg) 
+= \sum\limits_{i=1}^{r}p(A_{i})$. En aquest cas, tenim la següent fita:
 \begin{lema}[(Fita de la unió)] \-\\
-  Siguin $A_{1}, A_{2}, \ldots, A_{r}$ successos en $(\Omega, \mathcal{A},p)$, aleshores $$p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) \leq \sum\limits_{i=1}^{r}p(A_{i})$$
+  Siguin $A_{1}, A_{2}, \ldots, A_{r}$ successos en $(\Omega, \mathcal{A},p)$, aleshores 
+  $$p\bigg(\bigcup\limits_{i=1}^{r}A_{i} \bigg) \leq \sum\limits_{i=1}^{r}p(A_{i})$$
 \end{lema}
 
 \begin{thm}[(Desigualtats de Bonferroni)]
@@ -66,11 +75,56 @@ Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_
   2) t és senar, $p\bigg(\bigcup\limits_{i=1}^{r} A_{i}\bigg)\leq \sum\limits_{i=1}^{t}(-1)^{i+1}\cdot S_{i}$
 \end{thm}
 
-\begin{example}
-
+\begin{example}\-
+  \begin{enumerate}
+      \item Espai de probabilitat discret (o clàssic):
+      
+      \begin{itemize}
+          \item Prenem $\Omega$ un conjunt discret (és a dir, finit o numerable): $\Omega = \setb{a_i}_{i\geq1}$
+          \item Prenem com $\sigma$-àlgebra $\mathcal{A} = \mathcal{P}(\Omega)$.
+          \item Definim una funció de probabilitat $p$, assignant a cada $\setb{a_i}\in \mathcal{A}$ una 
+          probabilitat $p_i \geq 0$ tal que $\sum\limits_{i\geq1}p_i = 1$
+      \end{itemize}
+      Així, si $A \in \mathcal{A}$, $A=\setb{a_{j_r}, \ldots}$,
+      \[
+        p(A) = p\left(\bigcup_{r\geq1}\setb{a_{j_r}}\right) = \sum_{r\geq1}p_{j_r}
+      \]
+      En aquesta situació, si $\Omega$ és finit, $\abs{\Omega} = N$, aleshores podem fer:
+      \[
+        p(\setb{a_i}) = \frac{1}{N} \text{ i per } A \in \mathcal{A}, \, p(A) = \frac{1}{N} + 
+        \overset{^{\abs{A}}}{\ldots} + \frac{1}{N} = \frac{\abs{A}}{\abs{\Omega}}
+      \]
+      
+      \item Tirada d'una moneda equilibrada fins que surti cara:
+      
+      Si $C =$ cara, $X =$ creu,
+      
+      \[
+        \Omega = \setb{C, XC, XXC, \ldots}
+      \]
+      \[
+        \mathcal{A} = \mathcal{P}(\Omega)
+      \]
+      \[
+        p\left(\setb{X\overset{i)}{\ldots}XC}\right) = \frac{1}{2^{i+1}}
+      \]
+      Sumem les probabilitats:
+      \[
+        \sum_{i=0}^{+\infty}p_i = \sum_{i=0}^{+\infty} \frac{1}{2^{i+1}} = \frac{1}{2} + \frac{1}{4} + 
+        \frac{1}{8} + \ldots = 1
+      \]
+      
+      \item Probabilitats en $[a,b] \subseteq \real$
+      
+      $\Omega = [a,b] \subseteq \real$
+      
+      $\mathcal{A} = [a,b] \cup \mathcal{B} \quad$ (Borelians en $[a,b]$) 
+      
+      Probabilitat: $A \in \mathcal{A}$, $p(A) = \dfrac{\lambda(A)}{\lambda([a,b])} = \dfrac{\lambda(A)}{b-a} 
+      \quad$ on $\lambda$ és la mesura de Lebesgue.
+  \end{enumerate}
 \end{example}
 
-\newpage
 
 \subsection{Probabilitat condicionada}
 \begin{defi}
@@ -94,11 +148,16 @@ Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_
   \end{aligned}
   \]
   Aleshores $P_{B}$ és una funció de probabilitat sobre $\Omega, \mathcal{A}$ \\
-  De fet, si definim $\mathcal{A}_{B} = \setb{A\cap B\colon A\in\mathcal{A}}$, aleshores $\mathcal{A}_{B}$ és una $\sigma$-àlgebra i $P_{B}$ també defineix una probabilitat sobre $(\Omega, \mathcal{A}_{B})$.
+  De fet, si definim $\mathcal{A}_{B} = \setb{A\cap B\colon A\in\mathcal{A}}$, aleshores $\mathcal{A}_{B}$ 
+  és una $\sigma$-àlgebra i $P_{B}$ també defineix una probabilitat sobre $(\Omega, \mathcal{A}_{B})$.
 \end{obs}
 
+\newpage
+
 \begin{prop}
-  Siguin $A_{1}, \ldots, A_{r} \in \mathcal{A}$, tals que $p(A_{i}) > 0, \, A_{i}\cap A_{j} = \varnothing \text{ si } i \not= j$ i $\bigcup\limits_{i = 1}^{r}A_{i} = \Omega \\ \quad (\setb{A_{i}}_{i=1}^{r}$ és una partició de $\Omega)$ \\
+  Siguin $A_{1}, \ldots, A_{r} \in \mathcal{A}$, tals que $p(A_{i}) > 0, \, A_{i}\cap A_{j} = \varnothing 
+  \text{ si } i \not= j$ i $\bigcup\limits_{i = 1}^{r}A_{i} = \Omega \\ \quad (\setb{A_{i}}_{i=1}^{r}$ és 
+  una partició de $\Omega)$ \\
   
   (i) \underline{Teorema de la probabilitat total}: $\forall A \in \mathcal{A}, p(A)=\sum\limits_{i=1}^{r}p(A \mid A_{i})\cdot p(A_{i})$. \\
   (ii) \underline{Fórmula de Bayes}: si $A \in \mathcal{A}, \, p(A) > 0,$
@@ -109,19 +168,23 @@ Si ara tenim un espai de probabilitat $(\Omega, \mathcal{A},p)$, i successos $A_
 
 Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exemple:
 \begin{example}[(La ruïna del jugador)]
-  Partim d'un capital de $k$ unitats $(k \geq 0)$ i volem aconseguir un capital de $N$ unitats $(N\geq k)$ de la següent forma: \\
-  Llancem una moneda equilibrada, guanyant (surt cara) o perdent (surt creu) una unitat amb probabilitat $\frac{1}{2}$. El joc acaba si: 
+  Partim d'un capital de $k$ unitats $(k \geq 0)$ i volem aconseguir un capital de $N$ unitats $(N\geq k)$ 
+  de la següent forma: \\
+  Llancem una moneda equilibrada, guanyant (surt cara) o perdent (surt creu) una unitat amb probabilitat 
+  $\frac{1}{2}$. El joc acaba si: 
   \begin{enumerate}
       \item Ens quedem sense capital.
       \item Assolim un capital igual a N
   \end{enumerate}
   Calcularem la probabilitat de perdre. \\
-  No és bona idea intentar codificar tots els casos possibles i sumar les seves probabilitats \\ (nº tirades $\to \infty$). \\\\
+  No és bona idea intentar codificar tots els casos possibles i sumar les seves probabilitats \\ 
+  (nº tirades $\to \infty$). \\\\
   
   Anem a resoldre el problema usant el teorema de la probabilitat total. \\
   $A_{k} = $ "el jugador, amb capital inicial igual a $k$, s'arruïna" (Volem calcular $p(A_{k})$). \\
   Escrivim $p(A_{k}) = p_{k}$. Aleshores $p_{0} = 1, \, p_{N} = 0$. \\
-  Definim $B =$ "la primera tirada de la moneda és cara". Aleshores $B$ i $\overline{B}$ defineixen una partició de $\Omega$. \\
+  Definim $B =$ "la primera tirada de la moneda és cara". Aleshores $B$ i $\overline{B}$ defineixen 
+  una partició de $\Omega$. \\
   Usem el teorema de probabilitat total:
   \[
     \begin{rcases}
@@ -141,7 +204,8 @@ Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exe
 \subsection{Independència}
 
 \begin{defi}
-  Dos successos $A$ i $B$ (del mateix espai $(\Omega, \mathcal{A}, p)$) són \textbf{independents} si $p(A\cap B) = p(A)\cdot p(B)$.
+  Dos successos $A$ i $B$ (del mateix espai $(\Omega, \mathcal{A}, p)$) són \textbf{independents} 
+  si $p(A\cap B) = p(A)\cdot p(B)$.
 \end{defi}
 
 \begin{obs}
@@ -149,14 +213,16 @@ Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exe
       \item []
       \item Si $p(B) > 0$, $A$ i $B$ independents $\iff p(A\mid B)=p(A)$
       \item El successos $\varnothing$ i $\Omega$ són independents amb qualsevol altre succés B
-      \item Si $A$ i $B$ són independents, $A$ i $\overline{B}$ també. (De fet tenim que $A$ i $B$ són independents $\iff \overline{A}$ i $\overline{B}$ són independents).
+      \item Si $A$ i $B$ són independents, $A$ i $\overline{B}$ també. (De fet tenim que $A$ i $B$ 
+      són independents $\iff \overline{A}$ i $\overline{B}$ són independents).
   \end{itemize}
 \end{obs}
 
 \begin{defi}
   Donada una família de successos $\setb{A_{i}}_{i\in I}$, es diu que és \textbf{independent} si:
   \[
-    \forall J \subseteq I \text{ amb } \abs{J} < \infty \text{, es té: } p\bigg(\bigcap\limits_{j\in J}A_{j}\bigg) = \prod_{j\in J}p(A_{j}) 
+    \forall J \subseteq I \text{ amb } \abs{J} < \infty \text{, es té: } p\bigg(\bigcap\limits_{j\in J}A_{j}\bigg)
+    = \prod_{j\in J}p(A_{j}) 
   \]
 \end{defi}
 
@@ -164,28 +230,34 @@ Molts cops serà més senzill calcular probabilitats condicionades. Vegem un exe
   Donats $\setb{A_{i}}_{i = 1, \ldots, r}$ successos, poden ser independents dos a dos però no com a conjunt.
 \end{obs}
 
-\newpage
-
 \subsection{Espai producte}
 
-Donats dos espais de probabilitat $(\Omega_{1}, \mathcal{A}_{1}, p_{1})$ i $(\Omega_{2}, \mathcal{A}_{2}, p_{2})$, volem combinar-los en un sol espai amb espai mostral $\Omega_{1}\times\Omega_{2}$. \\
+Donats dos espais de probabilitat $(\Omega_{1}, \mathcal{A}_{1}, p_{1})$ i $(\Omega_{2}, 
+\mathcal{A}_{2}, p_{2})$, volem combinar-los en un sol espai amb espai mostral $\Omega_{1}\times\Omega_{2}$. \\
 Això ja ho hem fet en el cas discret, però en general:
 \begin{itemize}
     \item Prenem com a espai mostral $\Omega_{1}\times\Omega_{2}$
-    \item Prenem com a $\sigma$-àlgebra $\sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ (la més petita $\sigma$-àlgebra que conté $\mathcal{A}_{1}\times\mathcal{A}_{2}$).
-    \item Com definim $p$ a $(\Omega_{1}\times\Omega_{2}, \mathcal{A}_{1}\times\mathcal{A}_{2})$? \\ Voldríem que $p(A_{1}\times A_{2}) = p(A_{1})\cdot p(A_{2}) \quad \forall A_{i} \in \mathcal{A}_{i}$. Per definir $p$ necessitarem el següent teorema:
+    \item Prenem com a $\sigma$-àlgebra $\sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ 
+    (la més petita $\sigma$-àlgebra que conté $\mathcal{A}_{1}\times\mathcal{A}_{2}$).
+    \item Com definim $p$ a $(\Omega_{1}\times\Omega_{2}, \mathcal{A}_{1}\times\mathcal{A}_{2})$? \\ 
+    Voldríem que $p(A_{1}\times A_{2}) = p(A_{1})\cdot p(A_{2}) \quad \forall A_{i} \in \mathcal{A}_{i}$. 
+    Per definir $p$ necessitarem el següent teorema:
 \end{itemize}
 
 \begin{thm}[(d'extensió o de Carathéodory)]
-  Sigui $p_{0}$ una funció de probabilitat en una àlgebra $\mathcal{A}_{0}$. Sigui $\mathcal{A} = \sigma(\mathcal{A}_{0})$. \\
-  Aleshores $p_{0}$ es pot extendre a una funció de probabilitat $p$ sobre $\mathcal{A}$ que coincideix amb $p_{0}$ en $\mathcal{A}_{0}$. A més, $p$ és única.
+  Sigui $p_{0}$ una funció de probabilitat en una àlgebra $\mathcal{A}_{0}$. 
+  Sigui $\mathcal{A} = \sigma(\mathcal{A}_{0})$. \\
+  Aleshores $p_{0}$ es pot extendre a una funció de probabilitat $p$ sobre $\mathcal{A}$ que 
+  coincideix amb $p_{0}$ en $\mathcal{A}_{0}$. A més, $p$ és única.
 \end{thm}
 
 En el nostre cas, quina àlgebra agafem? 
 \[
-    \underbrace{(\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes les unions finites d'elements de } \mathcal{A}_{1}\times\mathcal{A}_{2}.
+    \underbrace{(\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}}_{\mathcal{A}_{0}} = \text{ totes 
+    les unions finites d'elements de } \mathcal{A}_{1}\times\mathcal{A}_{2}.
 \]
-Es comprova que $\sigma((\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ i apliquem el teorema.
+Es comprova que $\sigma((\mathcal{A}_{1}\times\mathcal{A}_{2})^{*}) = \sigma(\mathcal{A}_{1}\times\mathcal{A}_{2})$ 
+i apliquem el teorema.
 
 \subsection{Lema de Borel-Cantelli}
 
@@ -206,36 +278,42 @@ Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat.
 \end{obs}
 
 \begin{defi}
-  Si $\setb{A_{n}}_{n\geq 1}$ és una successió de successos amb $lim \, sup\, A_{n} = lim\, inf\, A_{n}$, aleshores $\setb{A_{n}}_{n\geq 1}$ té \textbf{límit} i l'escriurem $lim A_{n} = lim \, sup \, A_{n}$.
+  Si $\setb{A_{n}}_{n\geq 1}$ és una successió de successos amb $lim \, sup\, A_{n} = lim\, inf\, A_{n}$, 
+  aleshores $\setb{A_{n}}_{n\geq 1}$ té \textbf{límit} i l'escriurem $lim A_{n} = lim \, sup \, A_{n}$.
 \end{defi}
 
-\newpage
 
 \begin{properties}
   Sigui $\setb{A_{n}}_{n\geq 1}$ una successió de successos: \\\\
-  (i) $lim \, sup \, A_{n} = \setb{\omega \in \Omega \colon \omega \text{ pertany a un nombre infinit de } A_{i}'s}$ \\\\
-  (ii) $lim \, inf \, A_{n} = \setb{\omega \in \Omega\, \colon \exists \, m = m(\omega) \text{ tal que } \omega\in A_{r} \text{ si } r \geq m(\omega)}$ \\\\
+  (i) $lim \, sup \, A_{n} = \setb{\omega \in \Omega \colon \omega \text{ pertany a un nombre 
+  infinit de } A_{i}'s}$ \\\\
+  (ii) $lim \, inf \, A_{n} = \setb{\omega \in \Omega\, \colon \exists \, m = m(\omega) 
+  \text{ tal que } \omega\in A_{r} \text{ si } r \geq m(\omega)}$ \\\\
   (iii) $lim \, inf\, A_{n} \subseteq lim\, sup \, A_{n}$ \\
 \end{properties}
 
 Si ara $lim \, sup\, A_{n} = lim\, inf\, A_{n} = lim A_{n}$, podem intercanviar $lim$ amb $p$:
 
 \begin{prop}
-  Sigui $\setb{A_{n}}_{n\geq 1}$ una successió de successos amb $lim A_{n} = A$. Aleshores, $p(A) = lim \, p(A_{n})$. \\
+  Sigui $\setb{A_{n}}_{n\geq 1}$ una successió de successos amb $lim A_{n} = A$. Aleshores, 
+  $p(A) = lim \, p(A_{n})$. \\
 \end{prop}
 
 El següent lema ens dóna condicions suficients molt senzilles per a calcular $p(lim \, sup \, A_{n})$.
 
 \begin{lema}[(Borel-Cantelli)]
   \- \\
-  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{A_{n}}_{n\geq 1}$ una successió de successos. Aleshores: \\\\
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{A_{n}}_{n\geq 1}$ una 
+  successió de successos. Aleshores: \\\\
   
   (i) Si $\sum\limits_{n\geq 1}p(A_{n}) < \infty \implies p(lim \, sup \, A_{n}) = 0$ \\\\
   
-  (ii) Si els $\setb{A_{n}}_{n\geq 1}$ són successos independents i $\sum\limits_{n\geq 1}p(A_{n}) = \infty \implies p(lim \, sup \, A_{n}) = 1$
+  (ii) Si els $\setb{A_{n}}_{n\geq 1}$ són successos independents i $\sum\limits_{n\geq 1}p(A_{n}) 
+  = \infty \implies p(lim \, sup \, A_{n}) = 1$
 \end{lema}
 
 \begin{obs}
   No podem treure la condició d'independència de (ii). \\
-  Si prenem $A_{n} = E$ succés amb $0 < p(E) < 1$, aleshores $\sum\limits_{n\geq 1}p(A_{n}) = \sum\limits_{n\geq 1}p(E)$, els $A_{n}$ \underline{no} són independents i  $p(lim \, sup \, A_{n}) = p(E) < 1$.
+  Si prenem $A_{n} = E$ succés amb $0 < p(E) < 1$, aleshores $\sum\limits_{n\geq 1}p(A_{n}) 
+  = \sum\limits_{n\geq 1}p(E)$, els $A_{n}$ \underline{no} són independents i  $p(lim \, sup \, A_{n}) = p(E) < 1$.
 \end{obs}
