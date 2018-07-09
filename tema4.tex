@@ -1,16 +1,19 @@
 \section{Variables Aleatòries Contínues}
 \subsection{Mesures de probabilitat absolutament contínues. Funció de densitat}
-Sigui $(\Omega, \mathcal{A},p)$ un espai de probabilitat, amb probabilitat induïda en $(\real, \mathcal{B},p_{X})$ (quan prenem la variable aleatòria $X$).
+Sigui $(\Omega, \mathcal{A},p)$ un espai de probabilitat, amb probabilitat induïda en 
+$(\real, \mathcal{B},p_{X})$ (quan prenem la variable aleatòria $X$).
 
 \begin{defi}
-  Siguin$\mu_{1},\mu_{2}$ mesures sobre un espai de mesura $(X,\mathcal{A})$, diem que $\mu_{1}$ és \textbf{absolutament contínua} respecte $\mu_{2}$ ($\mu_{1}<<\mu_{2}$) si $\forall A\in \mathcal{A}$,
+  Siguin$\mu_{1},\mu_{2}$ mesures sobre un espai de mesura $(X,\mathcal{A})$, diem que 
+  $\mu_{1}$ és \textbf{absolutament contínua} respecte $\mu_{2}$ ($\mu_{1}<<\mu_{2}$) si $\forall A\in \mathcal{A}$,
   \[
     \mu_{2}(A)=0 \implies \mu_{1}(A)=0
   \]
 \end{defi}
 
 \begin{defi}
-  Una variable aleatòria $X$ és \textbf{absolutament contínua} (o contínua per abreujar), si $p_{X}<<\lambda$ ($\lambda$ és la mesura de Lebesgue).
+  Una variable aleatòria $X$ és \textbf{absolutament contínua} (o contínua per abreujar), 
+  si $p_{X}<<\lambda$ ($\lambda$ és la mesura de Lebesgue).
 \end{defi}
 
 \begin{obs}
@@ -18,10 +21,12 @@ Sigui $(\Omega, \mathcal{A},p)$ un espai de probabilitat, amb probabilitat indu�
   Si $p(X=a)=P_{a}>0$ i prenem $B=\setb{a}$, tenim $\lambda(\setb{a})=0$, però $p_{X}(\setb{a})=P_{a}>0$
 \end{obs}
 
-El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament contínua) a càlculs usant la mesura $\lambda$, és el següent:
+El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament contínua) a 
+càlculs usant la mesura $\lambda$, és el següent:
 
 \begin{thm}[(Radon-Nikodym)]
-  Sigui $(X,\mathcal{A})$ un espai mesurable i $\mu_{1},\mu_{2}$ mesures sobre $(X,\mathcal{A})$ amb $\mu_{1}<<\mu_{2}$. Aleshores, existeix una funció $f_{\mu_{1}}$, $\mu_{2}$-mesurable tal que
+  Sigui $(X,\mathcal{A})$ un espai mesurable i $\mu_{1},\mu_{2}$ mesures sobre $(X,\mathcal{A})$ 
+  amb $\mu_{1}<<\mu_{2}$. Aleshores, existeix una funció $f_{\mu_{1}}$, $\mu_{2}$-mesurable tal que
   \[
     \forall A \in \mathcal{A}, \, \mu_{1}(A)=\int_{A}f_{\mu_{1}}d\mu_{2}
   \]
@@ -35,7 +40,8 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
     \begin{rcases}
       (\real, \mathcal{B},\underbrace{\lambda}_{\mu_{2}})\\
       (\real, \mathcal{B}, \underbrace{p_{X}}_{\mu_{1}})
-    \end{rcases}\underset{\mathclap{X abs. cont.}}{\implies} \, p_{X}<<\lambda\overset{R-N}{\implies} \forall B \in \mathcal{B}, \, \boxed{p_{X}(B)=\int_{B}f_{X}d\lambda}
+    \end{rcases}\underset{\mathclap{X abs. cont.}}{\implies} \, p_{X}<<\lambda\overset{R-N}{\implies} 
+    \forall B \in \mathcal{B}, \, \boxed{p_{X}(B)=\int_{B}f_{X}d\lambda}
   \]
 \end{defi}
 
@@ -67,7 +73,8 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
   Aleshores $\exists X$ variable aleatòria absolutament contínua per la qual $f(x)=f_{X}(x)$. \\
   En aquest context, tenim:
   \[
-    \E[X]= \int_{\Omega}Xdp = \int_{\real}xdp_{X} \overset{R-N}{=}\int_{\real}x\underbrace{f_{X}(x)d\lambda}_{dp_{X}} \underset{si f_{X} int. R.}{=} \int_{-\infty}^{+\infty}xf_{X}(x)dx
+    \E[X]= \int_{\Omega}Xdp = \int_{\real}xdp_{X} \overset{R-N}{=}\int_{\real}x\underbrace{f_{X}(x)d\lambda}_{dp_{X}} 
+    \underset{si f_{X} int. R.}{=} \int_{-\infty}^{+\infty}xf_{X}(x)dx
   \]
   En particular,
   \[
@@ -88,7 +95,8 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
     \[
       \V ar[X]=\frac{(b-a)^{3}}{12}
     \]
-    \item \underline{Exponencial}: $X\sim Exp(\lambda)$ \quad (S'usa per modelar el tipus de vida d'un aparell. És l'anàleg continu de la Poisson).
+    \item \underline{Exponencial}: $X\sim Exp(\lambda)$ \quad (S'usa per modelar el tipus de vida 
+    d'un aparell. És l'anàleg continu de la Poisson).
     \[
       f_{X}(x)=\lambda\cdot e^{-\lambda\cdot x}\cdot \mathbbm{1}_{[0,+\infty)}(x)
     \]
@@ -110,7 +118,8 @@ El teorema fonamental que ens permet traduir $p_{X}$ (si $X$ és absolutament co
     \]
     \item \underline{Gamma}: $X \sim \Gamma(\lambda, \tau)$
     \[
-      f_{X}(x)=\frac{1}{\Gamma(\tau)}\cdot \lambda^{\tau}\cdot x^{\tau -1}\cdot e^{-\lambda x}\cdot \mathbbm{1}_{[0,+\infty)}(x)
+      f_{X}(x)=\frac{1}{\Gamma(\tau)}\cdot \lambda^{\tau}\cdot x^{\tau -1}\cdot e^{-\lambda x}\cdot 
+      \mathbbm{1}_{[0,+\infty)}(x)
     \]
     \[
       \E[X]=\frac{\tau}{\lambda}
@@ -170,7 +179,8 @@ Sigui $(X,Y)$ un vector de variables aleatòries. $(X,Y)$ indueix $p_{(X,Y)}$ me
 A partir de $f_{(X,Y)}(x,y)$ podem extreure la funció de densitat de $X$ i de $Y$ integrant:
 
 \begin{defi}
-  Donat un vector de variables aleatòries $(X,Y)$ amb funció de densitat conjunta $f_{(X,Y)}(x,y)$, les \textbf{funcions de densitat marginals} són:
+  Donat un vector de variables aleatòries $(X,Y)$ amb funció de densitat conjunta $f_{(X,Y)}(x,y)$, 
+  les \textbf{funcions de densitat marginals} són:
   \[
     f_{X}(x) = \int_{-\infty}^{+\infty}f_{(X,Y)}(x,y) \, dy
   \]
@@ -187,7 +197,8 @@ A partir de la funció de densitat conjunta podem definir la \textbf{funció de 
 \begin{obs}
   Si $f_{X,Y}(x,y)$ és integrable Riemann $\implies F_{(X,Y)}(x,y)$ és $\mathcal{C}^{2}(\real^{2})$ i
   \[
-    \frac{\partial^{2}F_{(X,Y)}}{\partial x \partial y}(x,y) = \frac{\partial^{2}F_{(X,Y)}}{\partial y \partial x}(x,y) = f_{(X,Y)}(x,y)
+    \frac{\partial^{2}F_{(X,Y)}}{\partial x \partial y}(x,y) = \frac{\partial^{2}F_{(X,Y)}}{\partial 
+    y \partial x}(x,y) = f_{(X,Y)}(x,y)
   \]
 \end{obs}
 
@@ -201,7 +212,8 @@ A partir de la funció de densitat conjunta podem definir la \textbf{funció de 
 
 \subsubsection{Independència}
 
-Si $(X,Y)$ és un vector aleatori i $X$, $Y$ són independents, aleshores $F_{X,Y}(x,y) = F_{X}(x)\cdot F_{Y}(y)$. Ara si $F_{(X,Y)}$ és $\mathcal{C}^{2}$ i les $F_{X}$, $F_{Y}$ són derivables (això sempre passa en el cas absolutament continuu), llavors
+Si $(X,Y)$ és un vector aleatori i $X$, $Y$ són independents, aleshores $F_{X,Y}(x,y) = F_{X}(x)\cdot F_{Y}(y)$. 
+Ara si $F_{(X,Y)}$ és $\mathcal{C}^{2}$ i les $F_{X}$, $F_{Y}$ són derivables (això sempre passa en el cas absolutament continuu), llavors
 
 \[
   f_{(X,Y)}(x,y) = \frac{\partial^{2}F_{(X,Y)}}{\partial x \partial y} = \frac{\partial F_{X}}{\partial x}\cdot \frac{\partial F_{Y}}{\partial y} = f_{X}(x) \cdot f_{Y}(y)
@@ -232,14 +244,16 @@ Per tant, $X$ i $Y$ variables aleatòries absolutament contínues són independe
 
 \subsubsection{Distribucions condicionades}
 
-Siguin $X$, $Y$ variables aleatòries absolutament contínues, amb funció de densitat conjunta $f_{(X,Y)}(x,y)$ i marginals $f_{X}(x)$, $f_{Y}(y)$. Sigui $x$ tal que $f_{X}(x) > 0$.
+Siguin $X$, $Y$ variables aleatòries absolutament contínues, amb funció de densitat conjunta $f_{(X,Y)}(x,y)$ 
+i marginals $f_{X}(x)$, $f_{Y}(y)$. Sigui $x$ tal que $f_{X}(x) > 0$.
 
 \begin{defi}
   La variable aleatòria $Y \mid X = x$ és una variable aleatòria que té com a funció de distribució:
   \[
     F_{Y\mid X}(y,x) = \frac{1}{f_{X}(x)} \cdot \int_{-\infty}^{y}f_{(X,Y)}(x,u) \, du
   \]
-  Si $f_{(X,Y)}(x,y)$ és integrable respecte a y, aleshores, $F_{Y \mid X}(y,x)$ és derivable respecte a $y$, i es compleix:
+  Si $f_{(X,Y)}(x,y)$ és integrable respecte a y, aleshores, $F_{Y \mid X}(y,x)$ és derivable respecte a $y$, 
+  i es compleix:
   \[
     f_{Y\mid X}(y,x) = \frac{\partial F_{Y\mid X}(y,x)}{\partial y} = \frac{f_{(X,Y)(x,y)}}{f_{X}(x)}
   \]
@@ -252,7 +266,8 @@ En les condicions d'abans, definim:
   \E[Y\mid X=x] = \int_{-\infty}^{+\infty}u\cdot f_{Y\mid X}(u,x)\, du = \psi(x) \implies \E[Y\mid X] = \psi(X)
 \]
 
-Totes les propietats que vam veure en el cas discret per l'esperança condicionada s'apliquen aquí de la mateixa manera. En particular:
+Totes les propietats que vam veure en el cas discret per l'esperança condicionada s'apliquen aquí de la 
+mateixa manera. En particular:
 
 \begin{prop}
   \[
@@ -269,7 +284,8 @@ Com és el vector aleatori $G(\overrightarrow{X}) = \overrightarrow{Y} = (Y_1, \
 Més en particular, com relacionem $f_{(X_{1},\ldots, X_{n})}(x_{1},\ldots,x_{n})$ amb $f_{(Y_{1},\ldots, Y_{n})}(y_{1},\ldots,y_{n})$?
 
 \subsubsection{Cas univariat}
-Sigui $X$ una variable aleatòria absolutament contínua amb funció de densitat $f_{X}(x)$. Sigui $g:\real \to \real$ una funció bijectiva, derivable i estrictament creixent. Considerem ara $g(X) = Y$ (i $\inv{g} = h$). Aleshores,
+Sigui $X$ una variable aleatòria absolutament contínua amb funció de densitat $f_{X}(x)$. Sigui $g:\real \to \real$ 
+una funció bijectiva, derivable i estrictament creixent. Considerem ara $g(X) = Y$ (i $\inv{g} = h$). Aleshores,
 
 \[f_{Y}(u) \text{ i } f_{X}(h(u))\cdot h'(u) \text{ són iguals } \lambda-gaireb\acute{e} \, per \, tot\]
 
@@ -278,9 +294,11 @@ Sigui $X$ una variable aleatòria absolutament contínua amb funció de densitat
 \end{obs}
 
 \subsubsection{Cas multivariat}
-$G(\overrightarrow{X}) = \overrightarrow{Y}$ on $G$ és bijectiva i $\mathcal{C}^{1}(\real^{n})$, aleshores, de manera similar al cas anterior, tenim:
+$G(\overrightarrow{X}) = \overrightarrow{Y}$ on $G$ és bijectiva i $\mathcal{C}^{1}(\real^{n})$, aleshores, 
+de manera similar al cas anterior, tenim:
 \[
-  f_{(Y_{1},\ldots,Y_{n})}(y_{1},\ldots,y_{n}) = f_{(X_{1},\ldots,X_{n})}(\inv{G}(y_{1},\ldots,y_{n}))\cdot \abs{Jac\,\inv{G}(y_{1},\ldots,y_{n})}
+  f_{(Y_{1},\ldots,Y_{n})}(y_{1},\ldots,y_{n}) = f_{(X_{1},\ldots,X_{n})}(\inv{G}(y_{1},\ldots,y_{n}))\cdot 
+  \abs{Jac\,\inv{G}(y_{1},\ldots,y_{n})}
 \]
 
 \subsection{Distribució normal, multivariant i distribucions associades}
@@ -298,7 +316,8 @@ La suma de normals independents és normal.
 \begin{thm}[(Moivre-Laplace)]
   Sigui $X\sim Bin(n,p)$. Aleshores 
   \[
-    p\Bigg(a \leq \frac{X-np}{\sqrt{np(1-p)}}\leq b\Bigg)\xrightarrow[n\to\infty]{} \int_{b}^{a} \frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{x^{2}}{2}}\, dx
+    p\Bigg(a \leq \frac{X-np}{\sqrt{np(1-p)}}\leq b\Bigg)\xrightarrow[n\to\infty]{} \int_{b}^{a} 
+    \frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{x^{2}}{2}}\, dx
   \]
 \end{thm}
 
@@ -308,11 +327,13 @@ La suma de normals independents és normal.
 \begin{itemize}
     \item $X_{i}\sim N(0,1)$; $X_{1}, \, X_{2},\ldots$ independents. 
     \[
-      X_{1}^{2}+X_{2}^{2}+\ldots+X_{n}^{2}=\chi_{n}^{2} \quad \equiv \textbf{Chi quadrat} \text{ (amb n graus de llibertat})
+      X_{1}^{2}+X_{2}^{2}+\ldots+X_{n}^{2}=\chi_{n}^{2} \quad \equiv \textbf{Chi quadrat} 
+      \text{ (amb n graus de llibertat})
     \]
     \item Si tenim $\chi_{d_{1}}^{2}$ i $\chi_{d_{2}}^{2}$, aleshores
     \[
-      \frac{^{\chi_{d_{1}}^{2}} / _{d_{1}}}{^{\chi_{d_{2}}^{2}} / _{d_{2}}} \equiv \textbf{F-Fisher-Snedecor} \text{ (amb paràmetres $d_{1}$ i $d_{2}$)}
+      \frac{^{\chi_{d_{1}}^{2}} / _{d_{1}}}{^{\chi_{d_{2}}^{2}} / _{d_{2}}} \equiv \textbf{F-Fisher-Snedecor} 
+      \text{ (amb paràmetres $d_{1}$ i $d_{2}$)}
     \]
     \item $X\sim N(0,1)$, $\chi_{k}^{2}$ independent de $X$.
     \[
@@ -323,7 +344,8 @@ La suma de normals independents és normal.
 \subsubsection{Normal multivariant}
 
 \begin{defi}
-  Sigui $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ un vector aleatori, direm que $\overrightarrow{X}$ és un \textbf{vector de variables aleatòries normal multivariant} si la seva funció de densitat conjunta és:
+  Sigui $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ un vector aleatori, direm que $\overrightarrow{X}$ 
+  és un \textbf{vector de variables aleatòries normal multivariant} si la seva funció de densitat conjunta és:
   \[
     f_{\overrightarrow{X}}(x_{1},\ldots,x_{n}) = f_{\overrightarrow{X}}(\overrightarrow{x}) = \frac{1}{\sqrt{(2\pi)^{n}\cdot \abs{det(\Sigma)}}}\cdot e^{-\frac{1}{2}(\overrightarrow{x}-\overrightarrow{\mu})^{T}\cdot \inv{\Sigma} \cdot (\overrightarrow{x}-\overrightarrow{\mu})}
   \]
@@ -340,7 +362,8 @@ La suma de normals independents és normal.
   \]
 \end{defi}
 
-\underline{Cas particular}: Si $\Sigma = Id$, $\overrightarrow{\mu} = \overrightarrow{0}$, aleshores escriurem $\overrightarrow{X}=\overrightarrow{U}$ i es compleix que 
+\underline{Cas particular}: Si $\Sigma = Id$, $\overrightarrow{\mu} = \overrightarrow{0}$, aleshores 
+escriurem $\overrightarrow{X}=\overrightarrow{U}$ i es compleix que 
 \[
 f_{\overrightarrow{U}}(\overrightarrow{x}) = \frac{1}{\sqrt{(2\pi)^{n}}}\cdot e^{-\frac{1}{2}\cdot(\overrightarrow{x}-\overrightarrow{\mu})^{T}\cdot  (\overrightarrow{x}-\overrightarrow{\mu})} = \frac{1}{\sqrt{(2\pi)^{n}}}\cdot e^{-\frac{1}{2}\cdot\sum\limits_{i=1}^{n}x_{i}^{2}} = \prod_{i=1}^{n} f_{x_{i}}(x_{i})
 \]
@@ -349,19 +372,24 @@ Per tant, les marginals són normals univariades i independents. \\
 Ara veurem que tot vector normal multivariant s'obté de fet com una transformació lineal de $\overrightarrow{U}$.
 
 \begin{thm}
-  $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ segueix una llei normal multivariant $\iff \overrightarrow{X} = A\cdot\overrightarrow{X} + \overrightarrow{b}$ on $A$ és una matriu \underline{no} singular ($\Sigma = A^{T}\cdot diag \cdot A$).
+  $\overrightarrow{X}=(X_{1},\ldots,X_{n})$ segueix una llei normal multivariant $\iff \overrightarrow{X} = 
+  A\cdot\overrightarrow{X} + \overrightarrow{b}$ on $A$ és una matriu \underline{no} singular ($\Sigma = A^{T}\cdot diag \cdot A$).
 \end{thm}
 
 \begin{thm}
-  Sigui $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$ de dimensió $n$, i $M$ una matriu $m\times n$ de rang màxim ($m\leq n$). Aleshores $M\cdot\overrightarrow{X}$ és un vector de variables aleatòries normal multivariant $N(M\cdot\overrightarrow{\mu}, M\cdot\Sigma\cdot M^{T})$.
+  Sigui $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$ de dimensió $n$, i $M$ una matriu 
+  $m\times n$ de rang màxim ($m\leq n$). Aleshores $M\cdot\overrightarrow{X}$ és un vector de variables 
+  aleatòries normal multivariant $N(M\cdot\overrightarrow{\mu}, M\cdot\Sigma\cdot M^{T})$.
 \end{thm}
 \-\\
 En el cas de $m = 1$ tenim el següent corol·lari:
 
 \begin{col}
-  Si $a_{1},\ldots,a_{n}$ són nombres tals que $\sum a_{i}^2 > 0$ (la matriu $(a_{1},\ldots,a_{n})$ té rang 1) i $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$, $\overrightarrow{X} = (X_{1},\ldots,X_{n})$
+  Si $a_{1},\ldots,a_{n}$ són nombres tals que $\sum a_{i}^2 > 0$ (la matriu $(a_{1},\ldots,a_{n})$ té rang 1) 
+  i $\overrightarrow{X}\sim N(\overrightarrow{\mu}, \Sigma)$, $\overrightarrow{X} = (X_{1},\ldots,X_{n})$
   \[
-    M\overrightarrow{X} = \sum_{i=1}^{n} a_{i}x_{i} \sim N\bigg(\sum_{i=1}^{n} a_{i}\mu_{i}, \sum a_{i}^{2}\sigma_{i}^{2} + 2\sum_{i<j}a_{i}a_{j}\sigma_{ij}\bigg) \quad \text{ on } 
+    M\overrightarrow{X} = \sum_{i=1}^{n} a_{i}x_{i} \sim N\bigg(\sum_{i=1}^{n} a_{i}\mu_{i}, 
+    \sum a_{i}^{2}\sigma_{i}^{2} + 2\sum_{i<j}a_{i}a_{j}\sigma_{ij}\bigg) \quad \text{ on } 
     \begin{cases}
       \overrightarrow{\mu} = (\mu_{1},\ldots,\mu) \\
       \sigma_{i}^{2} = \V ar[X_{i}] \\
@@ -374,7 +402,8 @@ En el cas de $m = 1$ tenim el següent corol·lari:
 Seguidament veurem els estimadors i el teorema de Fisher:
 
 \begin{defi}
-  Siguin $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatòries idènticament distribuïdes. L'\textbf{esperança mostral} i la \textbf{variància mostral} són: \\
+  Siguin $X_{1}, X_{2}, \ldots, X_{n}$ variables aleatòries idènticament distribuïdes. 
+  L'\textbf{esperança mostral} i la \textbf{variància mostral} són: \\
   \[
     \overline{X} = \frac{X_{1}+\ldots+X_{n}}{n}
   \]
