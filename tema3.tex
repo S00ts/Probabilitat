@@ -22,13 +22,15 @@ Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable ale
   \[
     p_{X}(A) = \sum_{\substack{x_{i} \in A \\ x_{i}\in Im(X)}}p_{i}
   \]
-  En particular, si $Im(X)\cap A = \varnothing$ aleshores $p_{X}(A) = 0 \implies$ obtenim una probabilitat puntual (hi ha punts de $\real$ amb probabilitat $> 0$, a diferència de la mesura de Lebesgue).
+  En particular, si $Im(X)\cap A = \varnothing$ aleshores $p_{X}(A) = 0 \implies$ obtenim una probabilitat puntual 
+  (hi ha punts de $\real$ amb probabilitat $> 0$, a diferència de la mesura de Lebesgue).
 \end{defi}
 
 \begin{defi}
   Definim l'\textbf{esperança matemàtica} com: 
   \[
-    \E [X] = \int_{\Omega}Xdp \underset{\text{def. de }\int_{\Omega}}{=\joinrel=\joinrel=\joinrel=\joinrel=} \sum_{i\geq 1}x_{i}\cdot p(X=x_{i}) = \sum_{i\geq 1}x_{i}\cdot p_{i}
+    \E [X] = \int_{\Omega}Xdp \underset{\text{def. de }\int_{\Omega}}{=\joinrel=\joinrel=\joinrel=\joinrel=} 
+    \sum_{i\geq 1}x_{i}\cdot p(X=x_{i}) = \sum_{i\geq 1}x_{i}\cdot p_{i}
   \]
   Més en general, si $g(x)$ és una funció mesurable, 
   \[
@@ -53,10 +55,12 @@ Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $X$ una variable ale
 
 \newpage
 Aleshores, tenim les següents propietats: \\\\
-(i) $X$ i $Y$ són independents $\iff \forall x_{i}\in Im(X), \, \forall y_{j}\in Im(Y), \, p_{(X, Y)}(x_{i},y_{j}) = p_{X}(x_{i})\cdot p_{Y}(y_{j})$ \\\\
+(i) $X$ i $Y$ són independents $\iff \forall x_{i}\in Im(X), \, \forall y_{j}\in Im(Y), 
+\, p_{(X, Y)}(x_{i},y_{j}) = p_{X}(x_{i})\cdot p_{Y}(y_{j})$ \\\\
 (ii) Si $X, \, Y$ són independents, $\E[X\cdot Y] = \E[X]\cdot \E[Y]$ \\\\
 
-Sigui $X$ una variable aleatòria discreta amb $Im(X)\subseteq \n_{\geq0}$. En aquesta situació, tenim la següent definició:
+Sigui $X$ una variable aleatòria discreta amb $Im(X)\subseteq \n_{\geq0}$. En aquesta situació, 
+tenim la següent definició:
 
 \begin{defi}
   La \textbf{funció generadora de probabilitat associada a $X$} és: 
@@ -82,10 +86,12 @@ Si ens mirem les funcions generadores de probabilitat com funcions (en $\cx$), a
   \end{enumerate}
 \end{prop}
 
-La propietat fonamental de les funcions generadores de probabilitat és que permeten estudiar fàcilment sumes de variables aleatòries independents.
+La propietat fonamental de les funcions generadores de probabilitat és que permeten estudiar 
+fàcilment sumes de variables aleatòries independents.
 
 \begin{prop}
-  Siguin $X, Y$ variables aleatòries discretes independents amb imatge en $\n$, i amb funcions generadores de probabilitat $G_{X}(z), \, G_{Y}(z)$. Aleshores: 
+  Siguin $X, Y$ variables aleatòries discretes independents amb imatge en $\n$, i amb funcions 
+  generadores de probabilitat $G_{X}(z), \, G_{Y}(z)$. Aleshores: 
   \[
     G_{X+Y}(z) = G_{X}(z)\cdot G_{Y}(z)
   \]
@@ -116,7 +122,8 @@ Modela el llançament d'una moneda amb probabilitat d'èxit igual a p:
 \vspace{0.5cm}
 
 2) \underline{Binomial}: $X\sim Bin(p,n)$ (o bé $B(p,n)$) \\
-Nombre d'èxits al tirar una moneda $n$ vegades. L'èxit individual té probabilitat $p$, i cada tirada de la moneda és independent de la resta. 
+Nombre d'èxits al tirar una moneda $n$ vegades. L'èxit individual té probabilitat $p$, i cada 
+tirada de la moneda és independent de la resta. 
 \[
   \implies X=Y_{1}+\ldots+Y_{n} \text{ on } Y_{i}\sim B(p)
 \]
@@ -183,7 +190,8 @@ Podem interpretar una binomial negativa com una suma de geomètriques independen
 \newpage
 
 \subsection{Distribucions condicionades i esperança condicionada}
-Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de condicionar una variable aleatòria a l'altra (`` $Y\mid X$ '').
+Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de condicionar una 
+variable aleatòria a l'altra (`` $Y\mid X$ '').
 
 \begin{defi}
   Donat $x$ amb $p(X=x)>0$, diem que la \textbf{funció de probabilitat condicionada} de $Y$ amb $X$ és, per aquest valor de $x$:
@@ -208,7 +216,8 @@ Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de co
   \[
     \psi(x) = \E[Y\mid X=x] = \sum_{y\in Im(Y)}(y\cdot p_{Y\mid X})(y,x)
   \]
-  Amb aquesta definició estem definint una variable aleatòria $E[Y\mid X]$ que pren el valor $\psi(x)$ amb probabilitat $p(X=x)$.
+  Amb aquesta definició estem definint una variable aleatòria $E[Y\mid X]$ que pren el valor 
+  $\psi(x)$ amb probabilitat $p(X=x)$.
 \end{defi}
 
 \begin{prop}
@@ -224,7 +233,8 @@ Siguin $X,Y$ dues variables aleatòries discretes. Volem definir la noció de co
 \end{obs}
 
 \subsection{Suma de variables aleatòries discretes (Aplicació 1)}
-Ja hem vist que si $X$ i $Y$ són variables aleatòries discretes amb imatge en $\n$, aleshores si són independents, $G_{X+Y}(z) = G_{X}(z)\cdot G_{Y}(z)$ \\
+Ja hem vist que si $X$ i $Y$ són variables aleatòries discretes amb imatge en $\n$, aleshores 
+si són independents, $G_{X+Y}(z) = G_{X}(z)\cdot G_{Y}(z)$ \\
 Si fem $Z=X+Y$: 
 \[
   G_{Z}(z) = \sum_{n\geq0}p(Z=n)\cdot z^{n} = \sum_{r\geq0}p(X=r)\cdot z^{r} \cdot \sum_{s\geq0}p(Y=s)\cdot z^{s}
@@ -266,11 +276,13 @@ $Z_{2} =$ nº de fills dels individus de la generació 1.\\
 .\\
 $Z_{n} =$ nº de descendents en la generació n-èssima.\\\\
 
-\underline{Propietat fonamental}: el nombre de descendents d'un individu és independent del nombre de descendents de qualsevol altre individu. \\
+\underline{Propietat fonamental}: el nombre de descendents d'un individu és independent del 
+nombre de descendents de qualsevol altre individu. \\
 
 \begin{lema}
   Sigui $N$ una variable aleatòria amb imatge en $\setb{1,2,3,\ldots}$.\\
-  $X_{1},X_{2},X_{3},\ldots$ variables aleatòries independents (i independents amb $N$), amb $X_{i}\sim X$. Prenem $Y=X_{1}+X_{2}+\ldots +X_{N}$\\
+  $X_{1},X_{2},X_{3},\ldots$ variables aleatòries independents (i independents amb $N$), amb 
+  $X_{i}\sim X$. Prenem $Y=X_{1}+X_{2}+\ldots +X_{N}$\\
   $\implies G_{Y}(z)=G_{N}(G_{X}(z))$
 \end{lema}
 
@@ -304,7 +316,8 @@ $
 $
 \\\\
 $\implies$ Tenim una successió creixent de successos.\\\\
-$A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq \ldots$ és creixent $\implies p(Extinci\acute o) = \lim\limits_{n\to\infty}p(A_{n}) = \lim\limits_{n\to\infty}p(Z_{n}=0)$\\
+$A_{1}\subseteq A_{2}\subseteq A_{3}\subseteq \ldots$ és creixent $\implies p(Extinci\acute o) = 
+\lim\limits_{n\to\infty}p(A_{n}) = \lim\limits_{n\to\infty}p(Z_{n}=0)$\\
 
 \begin{thm}[(Galton)]
   Si $\E[X] = \mu$; $p(X=0) \geq 0$\\
