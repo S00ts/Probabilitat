@@ -6,7 +6,8 @@ Sigui $(\Omega, \mathcal{A}, \beta)$  un espai de probabilitat. Volem estudiar f
   Una \textbf{variable aleatòria} és una funció $X\colon \Omega \to \real$ tal que per tot borelià B 
   $\in \mathcal{B}$, $\inv{X}(B) \in \mathcal{A}$. \\
   
-  Per tant, una variable aleatòria és una funció mesurable entre els espais de mesura $(\Omega, \mathcal{A}, p)$ i $(\real, \mathcal{B}, \lambda)$.
+  Per tant, una variable aleatòria és una funció mesurable entre els espais de mesura $(\Omega, \mathcal{A}, p)$ i 
+  $(\real, \mathcal{B}, \lambda)$.
 \end{defi}
 
 \begin{example}
@@ -26,7 +27,8 @@ Sigui $(\Omega, \mathcal{A}, \beta)$  un espai de probabilitat. Volem estudiar f
   
   (2) \textbf{Variables aleatòries indicadores}: 
     \[
-    \hspace{-3.5cm}\text{Sigui A}  \in \mathcal{A}\text{, definim }\mathbbm{1}_{A}\colon \Omega \to \real \text{ on } \mathbbm{1}_{A}(\omega) = 
+    \hspace{-3.5cm}\text{Sigui A}  \in \mathcal{A}\text{, definim }\mathbbm{1}_{A}\colon \Omega \to \real \text{ on } 
+    \mathbbm{1}_{A}(\omega) = 
     \begin{cases}
 			0 \quad \text{si } \omega \notin A\\
 			1 \quad \text{si } \omega \in A
@@ -47,19 +49,22 @@ Sigui $(\Omega, \mathcal{A}, \beta)$  un espai de probabilitat. Volem estudiar f
     \- \hspace{0.5cm}En general, si $g\colon \real^{2} \to \real$ és una funció mesurable, aleshores g(X,Y) és una v.a.\\
 \end{example}
 
-Estem dient que $\forall B \in \mathcal{B}$, $\setb{\omega \in \Omega \colon X(\omega) \in B}$ és un succés i, per tant, podem calcular $P(\setb{\omega \in \Omega \colon X(\omega) \in B}) \equiv P(X \in B)$.\\
+Estem dient que $\forall B \in \mathcal{B}$, $\setb{\omega \in \Omega \colon X(\omega) \in B}$ és un succés i, 
+per tant, podem calcular $P(\setb{\omega \in \Omega \colon X(\omega) \in B}) \equiv P(X \in B)$.\\
 
 \begin{example}
   $P(X\leq 1) = P(\setb{\omega \in \Omega \colon X(\omega) \in (-\infty, 1)})$\\
 \end{example}
 
-Les v.a. permeten traslladar l'estructura d'espai de probabilitat de $(\Omega, \mathcal{A}, p)$ en $(\real, \mathcal{B})$, donant lloc a mesures que no provenen de la mesura de Lebesgue.\\
+Les v.a. permeten traslladar l'estructura d'espai de probabilitat de $(\Omega, \mathcal{A}, p)$ en $(\real, 
+\mathcal{B})$, donant lloc a mesures que no provenen de la mesura de Lebesgue.\\
 
 \newpage
 
 \begin{defi}
   Siguin $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i X una v.a. \\
-  La \textbf{mesura de probabilitat induïda} per X és una mesura de probabilitat sobre $(\real, \mathcal{B})$ definida per
+  La \textbf{mesura de probabilitat induïda} per X és una mesura de probabilitat sobre $(\real, \mathcal{B})$ 
+  definida per
   \[
     \begin{aligned}
       p_{X} \colon \mathcal{B} &\to \real \\
@@ -73,7 +78,8 @@ Les v.a. permeten traslladar l'estructura d'espai de probabilitat de $(\Omega, \
   $(\real, \mathcal{B},p_{X})$ és un espai de probabilitat.
 \end{obs}
 
-De teoria de la mesura, és equivalent veure que [$\forall B \in \mathcal{B}, \quad \inv{X}(B) \textit{ és de } \mathcal{A}$] a veure que [\textit{l'antiimatge de qualsevol interval} $\in \mathcal{A}$].\\\\
+De teoria de la mesura, és equivalent veure que [$\forall B \in \mathcal{B}, \quad \inv{X}(B) \textit{ és de } 
+\mathcal{A}$] a veure que [\textit{l'antiimatge de qualsevol interval} $\in \mathcal{A}$].\\\\
 Per tant, per saber si una funció és una v.a. només cal veure si l'antiimatge dels intervals són de $\mathcal{A}$.\\
 
 La següent definició dóna una funció en $\real$ que codifica molta informació de X:
@@ -160,13 +166,17 @@ Si particularitzem $f$:
 \newpage
 
 \begin{obs}
-  Si $\E[\abs{X}^{p}] < +\infty$, aleshores podem utilitzar tots els resultats de teoria dels espais $L_{p}$. Així doncs tenim les següents conseqüències:
+  Si $\E[\abs{X}^{p}] < +\infty$, aleshores podem utilitzar tots els resultats de teoria dels espais 
+  $L_{p}$. Així doncs tenim les següents conseqüències:
   
   \begin{itemize}
-      \item \underline{Hölder}: $p, q > 0$, $\frac{1}{p} + \frac{1}{q} = 1, \, \E[\abs{X}^{p}] < +\infty, \E[\abs{Y}^{q}] < +\infty \\ \- \hspace{1.25cm}\implies \E[\abs{XY}] \leq \E[\abs{X}^{p}]^{\frac{1}{p}}\cdot \E[\abs{Y}^{q}]^{\frac{1}{q}} \quad (\E[\abs{XY}]^{pq} \leq \E[\abs{X}^{p}]^{q}\cdot \E[\abs{Y}^{q}]^{p})$
+      \item \underline{Hölder}: $p, q > 0$, $\frac{1}{p} + \frac{1}{q} = 1, \, \E[\abs{X}^{p}] < +\infty, 
+      \E[\abs{Y}^{q}] < +\infty \\ \- \hspace{1.25cm}\implies \E[\abs{XY}] \leq \E[\abs{X}^{p}]^{\frac{1}{p}}\cdot 
+      \E[\abs{Y}^{q}]^{\frac{1}{q}} \quad (\E[\abs{XY}]^{pq} \leq \E[\abs{X}^{p}]^{q}\cdot \E[\abs{Y}^{q}]^{p})$
       
       \item \underline{Cauchy-Schwartz}: si $\E[X^{2}], \E[Y^2] < +\infty$, aleshores $\E[XY]^{2} \leq \E[X^{2}]\cdot \E[Y^{2}]$
-      \item \underline{Minkowski}: si $\E[\abs{X}^{p}], \E[\abs{Y}^{p}] < +\infty \implies \E[\abs{X+Y}^{p}]^{\frac{1}{p}} \leq \E[\abs{X}^{p}]^{\frac{1}{p}} + \E[\abs{Y}^{p}]^{\frac{1}{p}}$
+      \item \underline{Minkowski}: si $\E[\abs{X}^{p}], \E[\abs{Y}^{p}] < +\infty \implies \E[\abs{X+Y}^{p}]^{\frac{1}{p}} 
+      \leq \E[\abs{X}^{p}]^{\frac{1}{p}} + \E[\abs{Y}^{p}]^{\frac{1}{p}}$
   \end{itemize}
 \end{obs}
 
@@ -193,16 +203,19 @@ El següent resultat dóna estimacions quantitatives de quant es dispersa una v.
 %\newpage
 \subsection{Vectors de variables aleatòries. Independència de v.a.}
 
-Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$ considerem les v.a. $X_{1}, \ldots, X_{n}$.  Cadascuna d'elles defineix una distribució de probabilitat sobre $\real$. \\
+Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$ considerem les v.a. $X_{1}, \ldots, X_{n}$.  
+Cadascuna d'elles defineix una distribució de probabilitat sobre $\real$. \\
 Aleshores podem considerar el vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \real^{n}$. 
 
 \begin{defi}
-  Un vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \real^{n}$ és un \textbf{vector de variables aleatòries} (o una v.a. multidimensional), si per tot $B \in \mathcal{B}_{n}$ (Borelians en $\real^{n}$), $\inv{(X_{1}, \ldots, X_{n})}(B) \in \mathcal{A}$. \\
+  Un vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \real^{n}$ és un \textbf{vector de variables aleatòries} 
+  (o una v.a. multidimensional), si per tot $B \in \mathcal{B}_{n}$ (Borelians en $\real^{n}$), $\inv{(X_{1}, \ldots, X_{n})}(B) \in \mathcal{A}$. \\
   
   Com $\Pi_{i}\colon \real^{n} \to \real$ (projecció en la i-èssima component) és una funció mesurable, aleshores 
   \[
   \begin{aligned}
-      \Pi_{i}(X_{1}, \ldots, X_{n}) \colon \Omega &\xrightarrow{(X_{1}, \ldots, X_{n})} \real^{n} \hspace{-0.1cm} \xrightarrow{\qquad \Pi_{i} \qquad} \real \\
+      \Pi_{i}(X_{1}, \ldots, X_{n}) \colon \Omega &\xrightarrow{(X_{1}, \ldots, X_{n})} \real^{n} \hspace{-0.1cm} 
+      \xrightarrow{\qquad \Pi_{i} \qquad} \real \\
       \omega &\longmapsto (X_{1}, \ldots, X_{n})(\omega) \longmapsto X_{i}(\omega)
   \end{aligned}
   \]
@@ -212,11 +225,13 @@ Aleshores podem considerar el vector $(X_{1}, \ldots, X_{n})\colon \Omega \to \r
 De la mateixa manera que vam fer per les v.a. unidimensionals, podem considerar les antiimatges només en intervals.
 
 \begin{defi}
-  Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$, i un vector de v.a. $(X_{1}, \ldots, X_{n}) = \vec{X}$, aleshores la \textbf{funció de distribució de probabilitat} de $\vec{X}$ és $F_{\vec{X}}(x_{1}, \ldots, x_{n})$ definida per:
+  Donat un espai de probabilitat $(\Omega, \mathcal{A}, p)$, i un vector de v.a. $(X_{1}, \ldots, X_{n}) = 
+  \vec{X}$, aleshores la \textbf{funció de distribució de probabilitat} de $\vec{X}$ és $F_{\vec{X}}(x_{1}, \ldots, x_{n})$ definida per:
   \[
     \begin{aligned}
       F_{\vec{X}}\colon \real^{n} &\to [0,1]\subseteq\real \\
-      (x_{1}, \ldots, x_{n}) &\mapsto P\Big((X_{1}\leq x_{1}) \cap (X_{2} \leq x_{2}) \cap \ldots \cap (X_{n} \leq x_{n})\Big) = P\bigg(\bigcap\limits_{i=1}^{n} X_{i} \leq x_{i}\bigg)
+      (x_{1}, \ldots, x_{n}) &\mapsto P\Big((X_{1}\leq x_{1}) \cap (X_{2} \leq x_{2}) \cap \ldots \cap (X_{n} 
+      \leq x_{n})\Big) = P\bigg(\bigcap\limits_{i=1}^{n} X_{i} \leq x_{i}\bigg)
   \end{aligned}
   \]
 \end{defi}
@@ -226,9 +241,11 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
 \begin{lema} \- \\
   (i) Si $x'_{1} \geq x_{1},\, x'_{2} \geq x_{2} \implies F_{\vec{X}}(x'_{1}, x'_{2}) \geq F_{\vec{X}}(x_{1}, x_{2})$ \\
   
-  $$\hspace{-4.4cm}\text{(ii)} \lim_{(x_{1}, x_{2}) \to (+\infty, +\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 1  \qquad \lim_{(x_{1}, x_{2}) \to (-\infty, -\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 0$$ \\
+  $$\hspace{-4.4cm}\text{(ii)} \lim_{(x_{1}, x_{2}) \to (+\infty, +\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 1  
+  \qquad \lim_{(x_{1}, x_{2}) \to (-\infty, -\infty)} F_{\vec{X}}(x_{1}, x_{2}) = 0$$ \\
   
-  $$\hspace{-3.1cm}\text{(iii)} \lim_{(h_{1}, h_{2}) \to (0^{+}, 0^{+})} F_{\vec{X}}(x_{1}+h_{1}, x_{2}+h_{2}) = F_{\vec{X}}(x_{1}, x_{2}) \quad \text{(contínua "per dalt")}$$
+  $$\hspace{-3.1cm}\text{(iii)} \lim_{(h_{1}, h_{2}) \to (0^{+}, 0^{+})} F_{\vec{X}}(x_{1}+h_{1}, x_{2}+h_{2}) = 
+  F_{\vec{X}}(x_{1}, x_{2}) \quad \text{(contínua "per dalt")}$$
 \end{lema}
 
 \begin{obs}
@@ -240,9 +257,11 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
       \item []
       \item Si tenim $F_{\vec{X}}(x_{1}, x_{2})$ associada a $\vec{X} = (X_{1}, X_{2})$, aleshores
       \[
-        \lim_{x_{2} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) = \lim_{x_{2}\to +\infty}P\Big((X_{1}\leq x_{1})\cap (X_{2} \leq x_{2}) \Big) = P(X_{1} \leq x_{1}) = F_{\vec{X}}(x_{1})
+        \lim_{x_{2} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) = \lim_{x_{2}\to +\infty}P\Big((X_{1}\leq x_{1})\cap 
+        (X_{2} \leq x_{2}) \Big) = P(X_{1} \leq x_{1}) = F_{\vec{X}}(x_{1})
       \]
-      A aquesta funció $\Big(\lim_{x_{1} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) \Big)$ se l'anomena \textbf{funció de distribució marginal}.
+      A aquesta funció $\Big(\lim_{x_{1} \to +\infty} F_{\vec{X}}(x_{1}, x_{2}) \Big)$ se l'anomena 
+      \textbf{funció de distribució marginal}.
       \item Prenem un rectangle en $\real^{2}$ i $\vec{X} = (X, Y)$ v.a. multidimensional:
       \[
         P(a<X\leq b, \, c < Y \leq d) = F_{\vec{X}}(b, d) - F_{\vec{X}}(a, d) - F_{\vec{X}}(b, c) + F_{\vec{X}}(a, c)
@@ -251,14 +270,17 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
 \end{obs}
 
 \begin{defi}
-  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{x_{i}}_{i\in I}$ un conjunt de v.a. Direm que $\setb{x_{i}}_{i\in I}$ són \textbf{independents} si: $\forall k, \, \forall {i_{1}, \ldots, i_{k}} \subseteq I, \, \forall B_{1}, \ldots, B_{k} \in \mathcal{B}$
+  Sigui $(\Omega, \mathcal{A}, p)$ un espai de probabilitat i $\setb{x_{i}}_{i\in I}$ un conjunt de v.a. 
+  Direm que $\setb{x_{i}}_{i\in I}$ són \textbf{independents} si: $\forall k, \, \forall {i_{1}, \ldots, i_{k}} 
+  \subseteq I, \, \forall B_{1}, \ldots, B_{k} \in \mathcal{B}$
   \[
     P(X_{i_{1}} \in B_{1}, X_{i_{2}}\in B_{2}, \ldots , X_{i_{k}}\in B_{k}) = \prod\limits_{j=1}^{k}P(X_{i_{j}}\in B_{j})
   \]
   
   Si ara prenem $X_{1}, \ldots, X_{k}$ v.a., aleshores si són independents, 
   \[
-    F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = P(X_{1} \leq x_{1}, X_{2} \leq x_{2}, \ldots , X_{k} \leq x_{k}) = \prod\limits_{j=1}^{k}P(X_{j} \leq x_{j}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})
+    F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = P(X_{1} \leq x_{1}, X_{2} \leq x_{2}, \ldots , X_{k} \leq x_{k}) = 
+    \prod\limits_{j=1}^{k}P(X_{j} \leq x_{j}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})
   \]
 \end{defi}
 
@@ -269,16 +291,19 @@ Vegem propietats de la funció de distribució pel cas n = 2 (Per $ n > 2$, és 
 \end{obs}
 
 \begin{obs}
-  Si $F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})$, aleshores les v.a. $X_{1}, \ldots , X_{k}$ són independents.
+  Si $F_{X_{1}, \ldots, X_{k}}(x_{1}, \dots, x_{k}) = \prod\limits_{j=1}^{k}F_{X_{j}}(x_{j})$, aleshores 
+  les v.a. $X_{1}, \ldots , X_{k}$ són independents.
 \end{obs}
 
 En quant al càlcul de moments, tenim el següent resultat:
 
 \begin{thm}
-  Siguin $X_{1}, \ldots, x_{k}$ v.a. independents. Aleshores, si $\E[X_{i}] < +\infty$, es compleix que $$\E\bigg[\prod\limits_{i=1}^{k}X_{i} \bigg] = \prod\limits_{i=1}^{k}\E[X_{i}]$$
+  Siguin $X_{1}, \ldots, x_{k}$ v.a. independents. Aleshores, si $\E[X_{i}] < +\infty$, es compleix que 
+  $$\E\bigg[\prod\limits_{i=1}^{k}X_{i} \bigg] = \prod\limits_{i=1}^{k}\E[X_{i}]$$
 \end{thm}
 
-Vam veure que l'operador esperança és lineal, però això no és cert en general per la variància. De fet, en el segon cas obtenim un terme connector anomenat covariància.
+Vam veure que l'operador esperança és lineal, però això no és cert en general per la variància. De fet, 
+en el segon cas obtenim un terme connector anomenat covariància.
 
 \begin{defi}
   Donades dues v.a. $X,Y$, la \textbf{covariància} de $X$ i $Y$ ($Cov(X,Y)$) és:
@@ -303,7 +328,8 @@ Si ara calculem la variància d'una suma, obtenim: $$\V ar[X+Y] = \V ar[X] + \V 
   Si X i Y són independents, $Cov(X,Y) = 0$ i per tant, $\V ar[X+Y] = \V ar[X] + \V ar[Y]$. \\
   En general, això és cert per $n$ v.a. independents: 
   \[
-    \V ar\bigg[\sum_{i=1}^{n}X_{i} \bigg] = \sum_{i=1}^{n}\V ar[X_{i}] \qquad \text{si } \setb{X_{i}}_{i=1}^{n} \text{ són independents}.
+    \V ar\bigg[\sum_{i=1}^{n}X_{i} \bigg] = \sum_{i=1}^{n}\V ar[X_{i}] \qquad \text{si } \setb{X_{i}}_{i=1}^{n} 
+    \text{ són independents}.
   \]
 \end{obs}
 
@@ -328,5 +354,6 @@ Vegem ara propietats de la covariància:
 \begin{obs} \- \\
   Sabem que la igualtat en \textit{Cauchy-Schwartz} es dóna quan $\exists \, a$ tal que $a\cdot X = Y$. \\
   A més, $Cov(aX + b, Y) = Cov(aX, Y)$. 
-  Per tant, $$Y=aX + b \iff \rho(X,Y) \in \setb{\pm 1}$$ Així doncs, com més proper sigui $\rho(X,Y)$ a $\pm 1$, millor serà una aproximació lineal de $Y$ usant $X$.
+  Per tant, $$Y=aX + b \iff \rho(X,Y) \in \setb{\pm 1}$$ Així doncs, com més proper sigui $\rho(X,Y)$ a $\pm 1$, 
+  millor serà una aproximació lineal de $Y$ usant $X$.
 \end{obs}
