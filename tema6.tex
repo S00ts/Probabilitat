@@ -2,11 +2,13 @@
 
 \subsection{Modes de convergència i equivalències}
 
-Sigui $\{X_n\}_{n\geq1}$ una seqüència de variables aleatòries. Volem donar sentit a la noció de convergència de $\{X_n\}_{n\geq1}$ cap a una variable aleatòria $X$ donada.\\
+Sigui $\{X_n\}_{n\geq1}$ una seqüència de variables aleatòries. Volem donar sentit a la noció de 
+convergència de $\{X_n\}_{n\geq1}$ cap a una variable aleatòria $X$ donada.\\
 Veurem que això ho podem fer de diverses maneres.
 
 \begin{defi}
-  $\{X_n\}_{n\geq1}$ \textbf{convergeix quasi-segurament} cap a $X$, i ho  escriurem $X_n \overset{qs}{\longrightarrow} X$ si
+  $\{X_n\}_{n\geq1}$ \textbf{convergeix quasi-segurament} cap a $X$, i ho  escriurem $X_n 
+  \overset{qs}{\longrightarrow} X$ si
   \[
     p\Big(\underbrace{\setb{\omega \in \Omega : X_n(\omega)\underset{n}{\longrightarrow}X(\omega)}}_{A}\Big) = 1
   \]
@@ -15,45 +17,53 @@ Veurem que això ho podem fer de diverses maneres.
     A_n(m) = \setb{\omega \in \Omega : \abs{X_n(\omega) - X(\omega)} < \frac{1}{m}} \text{ és un succés.}
   \]
   \[
-    \implies A(m) = \liminf_n A_n(m) = \setb{\omega \in \Omega : \omega \in A_n(m) \quad \forall n \geq n_0(\omega)} \text{ (és un succés)}
+    \implies A(m) = \liminf_n A_n(m) = \setb{\omega \in \Omega : \omega \in A_n(m) \quad 
+    \forall n \geq n_0(\omega)} \text{ (és un succés)}
   \]
   Finalment,
   \[
-    A = \bigcap_{m\geq1}A(m) = \setb{\omega\in\Omega : \forall m \, \exists n_0(\omega) \text{ tal que } \abs{X_n(\omega) - X(\omega)} < \frac{1}{m} \text{ si } n \geq n_0(\omega)} \text{ és un succés.}
+    A = \bigcap_{m\geq1}A(m) = \setb{\omega\in\Omega : \forall m \, \exists n_0(\omega) 
+    \text{ tal que } \abs{X_n(\omega) - X(\omega)} < \frac{1}{m} \text{ si } n \geq n_0(\omega)} \text{ és un succés.}
   \]
 \end{defi}
 
 \begin{defi}
-  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en mitjana d'ordre r} cap a $X$ ($r \geq 1$) i ho escriurem $X_n \overset{r}{\longrightarrow} X$ si
+  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en mitjana d'ordre r} cap a $X$ 
+  ($r \geq 1$) i ho escriurem $X_n \overset{r}{\longrightarrow} X$ si
   \[
     \E\left[\abs{X_n - X}^r\right] \underset{n}{\longrightarrow} 0
   \]
 \end{defi}
 
 \begin{defi}
-  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en probabilitat} cap a $X$ i ho escriurem $X_n \overset{p}{\longrightarrow} X$ si $\forall \epsilon > 0$
+  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en probabilitat} cap a $X$ i ho escriurem 
+  $X_n \overset{p}{\longrightarrow} X$ si $\forall \epsilon > 0$
   \[
     p\left(\abs{X_n - X} > \epsilon \right) \underset{n}{\longrightarrow} 0
   \]
 \end{defi}
 
 \begin{defi}
-  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en distribució} cap a $X$ i ho escriurem $X_n \overset{d}{\longrightarrow} X$ si
+  Direm que $\setb{X_n}_{n\geq1}$ \textbf{convergeix en distribució} cap a $X$ i ho escriurem 
+  $X_n \overset{d}{\longrightarrow} X$ si
   \[
     F_{X_n}(x) \underset{n}{\longrightarrow} F(x) \text{ en els punts de continuïtat de F(x)}
   \]
 \end{defi}
 
 \begin{obs}
-  Ens cal que $x$ sigui un punt de continuïtat de $F$ per a que famílies de variables aleatòries convergeixin de manera natural en distribució.
+  Ens cal que $x$ sigui un punt de continuïtat de $F$ per a que famílies de variables aleatòries 
+  convergeixin de manera natural en distribució.
 \end{obs}
 
 \newpage
 
 \begin{example}
-  Sigui $X$ una variable aleatòria fixada, $X_n = X + \dfrac{1}{n}$. Aleshores volem que $X_n \overset{d}{\longrightarrow} X$. Si això passa, 
+  Sigui $X$ una variable aleatòria fixada, $X_n = X + \dfrac{1}{n}$. Aleshores volem que 
+  $X_n \overset{d}{\longrightarrow} X$. Si això passa, 
   \[
-    F_{X_n}(x) = p(X_n \leq x) = p(X \leq x -\frac{1}{n}) \underset{n\to \infty}{\longrightarrow}p(X<x) = F_X(x^-) \quad \text{(límit per l'esquerra)}
+    F_{X_n}(x) = p(X_n \leq x) = p(X \leq x -\frac{1}{n}) \underset{n\to \infty}{\longrightarrow}p(X<x) = F_X(x^-) 
+    \quad \text{(límit per l'esquerra)}
   \]
   $\implies$ per tal que $F_X(x)$ sigui $F_X(x^-)$ ens cal suposar que $x$ és un punt de continuïtat de $F_X$.
 \end{example}
@@ -64,8 +74,10 @@ També veurem que les implicacions contraries mai seran certes.
 \subsubsection{Diagrama modes de convergència}
 
 \begin{tikzcd}[arrows=Rightarrow]
-X_n \overset{qs}{\longrightarrow} X \arrow[rr, "\text{IV}"] & & X_n \overset{p}{\longrightarrow} X  \arrow[r, "\text{I}"] & X_n \overset{d}{\longrightarrow} X\\
-X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n \overset{s}{\longrightarrow} X \arrow[ur, "\text{II}"']
+X_n \overset{qs}{\longrightarrow} X \arrow[rr, "\text{IV}"] & & X_n \overset{p}{\longrightarrow} X  
+\arrow[r, "\text{I}"] & X_n \overset{d}{\longrightarrow} X\\
+X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n \overset{s}{\longrightarrow} 
+X \arrow[ur, "\text{II}"']
 \end{tikzcd}
 
 \begin{prop}[(I)]
@@ -75,7 +87,8 @@ X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n 
   
   $X \sim Ber(\dfrac{1}{2})$, $X_n = X$, $Y = 1-X$ (En particular, $Y\sim Ber(\dfrac{1}{2})$). \\
   
-  És clar que $X_n \overset{d}{\to} Y$, ja que $X_n \overset{d}{\to} X$ i $X$ i $Y$ tenen la mateixa funció de distribució.
+  És clar que $X_n \overset{d}{\to} Y$, ja que $X_n \overset{d}{\to} X$ i $X$ i $Y$ tenen la mateixa 
+  funció de distribució.
   
   Per altra banda, $\abs{X_n - Y} = 1$ (ja que si una val $1$, l'altra val $0$)
   $$\implies p(\abs{X_n-Y} > \varepsilon) = 1 \quad \text{ si } \varepsilon \text{ és prou petit!!}$$
@@ -98,11 +111,13 @@ X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n 
   El candidat a límit és $X=0$:
   
   \[ 
-    \forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n} > \varepsilon) = \frac{1}{n^2} \underset{n\to \infty}{\longrightarrow} 0
+    \forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n} > \varepsilon) = 
+    \frac{1}{n^2} \underset{n\to \infty}{\longrightarrow} 0
   \]
   Amb això, $X_n \overset{p}{\to} 0 = X$. Ara bé,
   \[
-    \E\left[\abs{X_n - X}\right] = \E\left[\abs{X_n}\right] = n^3 \cdot \frac{1}{n^2} = n \underset{n \to \infty}{\longrightarrow} \infty \implies X_n \not\overset{1}{\to} 0
+    \E\left[\abs{X_n - X}\right] = \E\left[\abs{X_n}\right] = n^3 \cdot \frac{1}{n^2} = 
+    n \underset{n \to \infty}{\longrightarrow} \infty \implies X_n \not\overset{1}{\to} 0
   \]
 \end{prop}
 
@@ -119,14 +134,17 @@ X_n \overset{r}{\longrightarrow} X \arrow[r, "r>s\geq 1"', "\text{III}"]  & X_n 
   \]
   Prendrem com a candidat a límit $X=0$.\\
   
-  $\E\left[\abs{X_n}^s \right] = n^s \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = n^{\frac{s-r}{2}} \underset{n \to \infty}{\longrightarrow} 0 \text{ (perquè } s \leq r)$
+  $\E\left[\abs{X_n}^s \right] = n^s \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = 
+  n^{\frac{s-r}{2}} \underset{n \to \infty}{\longrightarrow} 0 \text{ (perquè } s \leq r)$
   
-  $\E\left[\abs{X_n}^r \right] = n^r \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = n^{\frac{r-s}{2}} \underset{n \to \infty}{\longrightarrow} +\infty \not= 0 \text{ !!}$
+  $\E\left[\abs{X_n}^r \right] = n^r \cdot n^{\frac{-(r+s)}{2}} + 0\cdot (1 - n^{\frac{-(r+s)}{2}}) = 
+  n^{\frac{r-s}{2}} \underset{n \to \infty}{\longrightarrow} +\infty \not= 0 \text{ !!}$
 \end{prop}
 
 \begin{lema}
   \-\\
-  Sigui $\varepsilon > 0$. Definim $$A_n(\varepsilon) = \setb{\omega \in \Omega : \abs{X_n(\omega) - X(\omega)} > \varepsilon}$$ i $$B_n(\varepsilon) = \bigcup_{m\geq n} A_m(\varepsilon)$$
+  Sigui $\varepsilon > 0$. Definim $$A_n(\varepsilon) = \setb{\omega \in \Omega : \abs{X_n(\omega) - 
+  X(\omega)} > \varepsilon}$$ i $$B_n(\varepsilon) = \bigcup_{m\geq n} A_m(\varepsilon)$$
   
   Aleshores,
   \[
@@ -159,32 +177,40 @@ Com a conseqüència, tenim el següent corol·lari:
   Candidat a límit: $X=0$
   
   Convergeix en probabilitat: 
-  $$\forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n}>\varepsilon) \underset{\text{si } \varepsilon < 1}{=} \frac{1}{n} \underset{n \to \infty}{\longrightarrow} 0$$
+  $$\forall \varepsilon > 0, \, p(\abs{X_n - X} > \varepsilon) = p(\abs{X_n}>\varepsilon) 
+  \underset{\text{si } \varepsilon < 1}{=} \frac{1}{n} \underset{n \to \infty}{\longrightarrow} 0$$
   
-  Vegem ara que no es compleix que $X_n \overset{q.s.}{\to} 0$. Ho veurem calculant $\lim\limits_{n} p(B_n(\varepsilon))$.
+  Vegem ara que no es compleix que $X_n \overset{q.s.}{\to} 0$. Ho veurem calculant $\lim\limits_{n} 
+  p(B_n(\varepsilon))$.
   
   Calculem-ho:
   
   Sigui $A_n(\varepsilon) = \setb{\omega \in \Omega : \abs{X_n(\omega) - X(\omega)} > \varepsilon}$
   
     \begin{align*}
-        p(B_n(\varepsilon)) &= p\left(\bigcup_{m\geq n}A_m(\varepsilon)\right) = 1 - p\left(\bigcap_{m\geq n}\overline{A_m(\varepsilon)}\right) \underset{\substack{A_n(\varepsilon) \\ \text{ indep.}}}{=} 1 - \prod_{m\geq n}{p\left(\overline{A_m(\varepsilon)} \right)} \underset{\text{si } \varepsilon < 1}{=}\\
+        p(B_n(\varepsilon)) &= p\left(\bigcup_{m\geq n}A_m(\varepsilon)\right) = 
+        1 - p\left(\bigcap_{m\geq n}\overline{A_m(\varepsilon)}\right) \underset{\substack{A_n(\varepsilon) \\ 
+        \text{ indep.}}}{=} 1 - \prod_{m\geq n}{p\left(\overline{A_m(\varepsilon)} \right)} \underset{\text{si } 
+        \varepsilon < 1}{=}\\
         &= 1 - \prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = 0
     \end{align*}
     
     Vegem ara que $\lim\limits_{n\to \infty}\displaystyle\prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = 0$
     
     \[
-      0 \leq \prod_{m\geq n}\left(1-\dfrac{1}{m} \right) \underset{1-x\leq e^{-x}}{\leq} \exp\left(\sum_{m\geq n}\frac{-1}{m}\right) \underset{\forall n}{=} 0
+      0 \leq \prod_{m\geq n}\left(1-\dfrac{1}{m} \right) \underset{1-x\leq e^{-x}}{\leq} 
+      \exp\left(\sum_{m\geq n}\frac{-1}{m}\right) \underset{\forall n}{=} 0
     \]
     
-    Per tant, $\forall n$, $\displaystyle\prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = a_n = 0 \implies \lim\limits_{n\to \infty} a_n = 0 \implies p(B_n(\varepsilon)) \underset{n}{\longrightarrow} 1$
+    Per tant, $\forall n$, $\displaystyle\prod_{m\geq n}\left(1-\dfrac{1}{m} \right) = a_n = 0 
+    \implies \lim\limits_{n\to \infty} a_n = 0 \implies p(B_n(\varepsilon)) \underset{n}{\longrightarrow} 1$
 \end{prop}
 
 Finalment, veurem una implicació en sentit contrari:
 
 \begin{prop}
-  Si $X_n \overset{p}{\to} X$, aleshores existeix una subsuccessió $\setb{n_i}_{i\geq 1}$ per la qual $Z_{n_i}\overset{q.s.}{\longrightarrow} X$.
+  Si $X_n \overset{p}{\to} X$, aleshores existeix una subsuccessió $\setb{n_i}_{i\geq 1}$ per 
+  la qual $Z_{n_i}\overset{q.s.}{\longrightarrow} X$.
 \end{prop}
 
 \newpage
@@ -206,7 +232,8 @@ Comencem amb les propietats bàsiques de la convergència quasi-segura:
 El resultat més important en aquest mode de convergència és la llei forta dels grans nombres:
 
 \begin{thm}[(Llei forta dels grans nombres)]
-  Sigui $\setb{X_n}_{n\geq 1}$ una successió de variables aleatòries independents i idènticament distribuïdes (i.i.d.) amb X.
+  Sigui $\setb{X_n}_{n\geq 1}$ una successió de variables aleatòries independents i 
+  idènticament distribuïdes (i.i.d.) amb X.
   
   A més, $\E[\abs{X}]<+\infty, \, \E[X] = \mu$. Aleshores, si $S_n = X_1 + \ldots + X_n$:
   
@@ -279,9 +306,10 @@ El que estem veient és que la convergència en distribució no funciona quan co
 variables aleatòries. El que sí veurem és que si $S_n \overset{d}{\to} X$ i $g:\real \to \real$ és contínua
 $\implies g(X_n) \overset{d}{\to} g(X)$. Aquest resultat serà conseqüència del següent teorema:
 
-\begin{thm}[(de representació de Skorokhod)]
+\begin{thm}[de representació de Skorokhod]
   Sigui $\setb{X_n}_{n\geq1}$ una seqüència de variables aleatòries que compleix $X_n \overset{d}{\to} X$.
-  Aleshores existeix un espai de probabilitat $(\Omega', \mathcal{A}', p')$ i una seqüència de variables aleatòries $\setb{Y_n}_{n\geq1}$ i $Y$ definides sobre $(\Omega', \mathcal{A}', p')$ tal que:
+  Aleshores existeix un espai de probabilitat $(\Omega', \mathcal{A}', p')$ i una seqüència 
+  de variables aleatòries $\setb{Y_n}_{n\geq1}$ i $Y$ definides sobre $(\Omega', \mathcal{A}', p')$ tal que:
   
   \begin{enumerate}
       \item $F_{X_n}(x) = F_{Y_n}(x) \, \forall n$, $F_X(x) = F_Y(x) \, \forall x \in \real$
@@ -301,11 +329,13 @@ Per a demostrar resultats de convergència en distribució, és molt útil l'ús
 En particular, tenim el següent teorema que ens permet estudiar el límit puntual de límits de funcions característiques.
 
 \begin{thm}[(Continuïtat de Lévy)]
-  Siguin $\setb{X_n}_{n\geq1}$ successió de variables aleatòries, $X$ una v.a., $\Phi_n(t)$ funció característica de $X_n$ i $\Phi$ funció característica de X.
+  Siguin $\setb{X_n}_{n\geq1}$ successió de variables aleatòries, $X$ una v.a., $\Phi_n(t)$ 
+  funció característica de $X_n$ i $\Phi$ funció característica de X.
   
   \begin{enumerate}
       \item Si $X_n \overset{d}{\to} X$, aleshores $\Phi_n(t)$ convergeix puntualment a $\Phi(t)$
-      \item Si $\Phi_n(t)$ convergeix puntualment cap a $\psi(t)$ i $\psi(t)$ és contínua en $t=0$, aleshores $\exists Y$ variable aleatòria tal que $\Phi_Y(t) = \psi(t)$ i $X_n \overset{d}{\to} Y$
+      \item Si $\Phi_n(t)$ convergeix puntualment cap a $\psi(t)$ i $\psi(t)$ és contínua en $t=0$, 
+      aleshores $\exists Y$ variable aleatòria tal que $\Phi_Y(t) = \psi(t)$ i $X_n \overset{d}{\to} Y$
   \end{enumerate}
   
 \end{thm}
@@ -328,7 +358,7 @@ La primera aplicació és la versió de la llei dels grans nombres amb convergè
   \]
 \end{thm}
 
-\begin{thm}[(central del límit)]
+\begin{thm}[central del límit]
   Sigui $X$ una variable aleatòria amb $\E[X] = \mu < +\infty$, $\V ar[X] = \sigma^2 < +\infty$.
   
   Sigui $\setb{X_n}_{n\geq1}$ successió de variables aleatòries independents amb $X_i \sim X$.
@@ -350,7 +380,9 @@ La primera aplicació és la versió de la llei dels grans nombres amb convergè
 
 \subsection{Teorema de Chernoff i aplicacions}
 
-El que veurem ara és la velocitat de convergència dels termes $\frac{Sn}{n}$ cap a $\mu$ sota condicions addicionals de les variables aleatòries $X_i$ (Recordem que hem vist que $S_n = \sum\limits_{i=1}^n X_i$, $X_i\sim X$, $X_i$ independents i $\E[X] = \mu$)
+El que veurem ara és la velocitat de convergència dels termes $\frac{Sn}{n}$ cap a $\mu$ sota condicions 
+addicionals de les variables aleatòries $X_i$ (Recordem que hem vist que $S_n = \sum\limits_{i=1}^n X_i$, $X_i\sim X$, $X_i$ 
+independents i $\E[X] = \mu$)
 
 En el cas general, si usem Chebyshev, tenim que:
 
@@ -362,7 +394,8 @@ En el cas general, si usem Chebyshev, tenim que:
   p\big(\underbrace{\abs{S_n/n - \mu} \geq \varepsilon}_{B_n(\varepsilon)}\big) < \frac{\sigma^2}{n\varepsilon^2}
 \]
 
-$\implies$ Si ara estudiem $\sum\limits_{n\geq1}p(\abs{S_n/n - \mu} \geq \varepsilon) < \dfrac{\sigma^2}{\varepsilon^2}\cdot \sum\limits_{n\geq1} \frac{1}{n}$ No ens diu res perquè divergeix.
+$\implies$ Si ara estudiem $\sum\limits_{n\geq1}p(\abs{S_n/n - \mu} \geq \varepsilon) < 
+\dfrac{\sigma^2}{\varepsilon^2}\cdot \sum\limits_{n\geq1} \frac{1}{n}$ No ens diu res perquè divergeix.
 
 \newpage
 
